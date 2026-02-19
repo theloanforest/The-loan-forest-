@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Loan Forest | Premium Loan Assistance</title>
+<title>The Loan Forest | Your Reliable Loan Partner</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -15,42 +15,49 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c7744);
+background:linear-gradient(135deg,#0b1d13,#123524,#1b4332);
 color:white;
-overflow-x:hidden;
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 30px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+.navbar img{
+height:45px;
+}
+
+.navbar h2{
+font-weight:600;
+letter-spacing:1px;
 }
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+padding:80px 20px;
 text-align:center;
-padding:20px;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
-background-size:cover;
-background-position:center;
 }
 
 .hero h1{
-font-size:40px;
-font-weight:700;
-margin-bottom:10px;
+font-size:42px;
+margin-bottom:15px;
 }
 
 .hero p{
 font-size:18px;
 opacity:0.9;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .btn{
 padding:14px 28px;
 border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#4CAF50,#81C784);
+background:linear-gradient(45deg,#2d6a4f,#40916c);
 color:white;
 font-weight:600;
 cursor:pointer;
@@ -68,17 +75,17 @@ margin:auto;
 }
 
 .card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.06);
 padding:30px;
 border-radius:20px;
 margin-bottom:30px;
-box-shadow:0 8px 32px rgba(0,0,0,0.3);
+backdrop-filter:blur(12px);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
 
 h2{
 margin-bottom:20px;
-color:#d4ffce;
+color:#95d5b2;
 }
 
 input{
@@ -87,26 +94,6 @@ padding:12px;
 margin:10px 0;
 border:none;
 border-radius:10px;
-}
-
-button.calc-btn{
-width:100%;
-margin-top:10px;
-}
-
-.trust{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-text-align:center;
-}
-
-.trust div{
-flex:1 1 200px;
-background:rgba(255,255,255,0.1);
-padding:20px;
-border-radius:15px;
 }
 
 .footer{
@@ -132,10 +119,17 @@ text-decoration:none;
 
 <body>
 
-<div class="hero">
-<h1>The Loan Forest</h1>
-<p>Your Reliable Loan Partner</p>
+<div class="navbar">
+<div style="display:flex;align-items:center;gap:10px;">
+<img src="file_00000000340872068586283bebb4f3da.png" alt="Logo">
+<h2>The Loan Forest</h2>
+</div>
 <a href="https://wa.me/918815076434"><button class="btn">Apply Now</button></a>
+</div>
+
+<div class="hero">
+<h1>Your Reliable Loan Partner</h1>
+<p>Connecting You with 100+ Govt & Private Banks and NBFCs</p>
 </div>
 
 <div class="section">
@@ -143,8 +137,8 @@ text-decoration:none;
 <div class="card">
 <h2>About Us</h2>
 <p>
-The Loan Forest assists individuals and businesses in connecting with 100+ Government & Private Banks and well-known NBFCs. 
-Backed by 9+ years of financial experience, we focus on transparent guidance and smooth loan processing support.
+The Loan Forest assists individuals and businesses with structured loan guidance and processing support.
+Backed by 9+ years of financial experience, we focus on transparency, clarity, and efficient coordination.
 </p>
 <p style="margin-top:10px;"><strong>Business Head: Mohsin Khan</strong></p>
 </div>
@@ -156,31 +150,17 @@ Backed by 9+ years of financial experience, we focus on transparent guidance and
 <input type="number" id="rate" placeholder="Interest Rate (%)">
 <input type="number" id="years" placeholder="Tenure (Years)">
 
-<button class="btn calc-btn" onclick="calculateEMI()">Calculate EMI</button>
+<button class="btn" onclick="calculateEMI()">Calculate EMI</button>
 
 <h3 id="result" style="margin-top:15px;"></h3>
 </div>
 
 <div class="card">
 <h2>Why Choose Us</h2>
-<div class="trust">
-<div>
-<h3>100+</h3>
-<p>Govt & Private Banks</p>
-</div>
-<div>
-<h3>9+ Years</h3>
-<p>Financial Experience</p>
-</div>
-<div>
-<h3>Transparent</h3>
-<p>Guided Process</p>
-</div>
-<div>
-<h3>Quick</h3>
-<p>Loan Assistance</p>
-</div>
-</div>
+<p>✔ 100+ Govt & Private Banks</p>
+<p>✔ 9+ Years Financial Experience</p>
+<p>✔ Transparent Assistance Process</p>
+<p>✔ Dedicated Client Support</p>
 </div>
 
 <div class="card">
