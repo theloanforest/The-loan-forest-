@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Loan Forest | Your Reliable Loan Partner</title>
+<title>The Loan Forest | Premium Loan Assistance</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{
 margin:0;
@@ -15,138 +15,179 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(to bottom,#0f2027,#203a2e,#2c5530);
-color:#fff;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c7744);
+color:white;
+overflow-x:hidden;
 }
 
-header{
-padding:20px;
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+padding:20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+background-size:cover;
+background-position:center;
 }
 
-header h1{
-font-size:28px;
+.hero h1{
+font-size:40px;
 font-weight:700;
+margin-bottom:10px;
 }
 
-header p{
-font-size:14px;
+.hero p{
+font-size:18px;
 opacity:0.9;
+margin-bottom:20px;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#4CAF50,#81C784);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
 }
 
 .section{
-padding:40px 20px;
-max-width:900px;
+padding:60px 20px;
+max-width:1000px;
 margin:auto;
 }
 
 .card{
 background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
 margin-bottom:30px;
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
 
 h2{
-margin-bottom:15px;
+margin-bottom:20px;
 color:#d4ffce;
 }
 
-button{
-padding:12px 20px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-background:#4CAF50;
-color:white;
-font-weight:600;
-transition:0.3s;
-}
-
-button:hover{
-background:#66bb6a;
-}
-
-input,select{
+input{
 width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
+padding:12px;
+margin:10px 0;
 border:none;
+border-radius:10px;
 }
 
-.contact-btns{
+button.calc-btn{
+width:100%;
+margin-top:10px;
+}
+
+.trust{
 display:flex;
-gap:10px;
 flex-wrap:wrap;
-margin-top:15px;
+gap:20px;
+justify-content:center;
+text-align:center;
+}
+
+.trust div{
+flex:1 1 200px;
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:15px;
 }
 
 .footer{
 text-align:center;
 padding:20px;
-background:rgba(0,0,0,0.5);
-font-size:13px;
+background:rgba(0,0,0,0.6);
+font-size:14px;
 }
 
-a{
-color:#90ee90;
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:20px;
 text-decoration:none;
 }
 </style>
 </head>
+
 <body>
 
-<header>
+<div class="hero">
 <h1>The Loan Forest</h1>
 <p>Your Reliable Loan Partner</p>
-</header>
+<a href="https://wa.me/918815076434"><button class="btn">Apply Now</button></a>
+</div>
 
 <div class="section">
 
 <div class="card">
 <h2>About Us</h2>
 <p>
-The Loan Forest is a professional loan assistance platform helping individuals and businesses connect with
-100+ Government & Private Banks and well-known NBFCs.  
-With 9+ years of financial experience, we aim to provide transparent guidance and smooth loan processing support.
+The Loan Forest assists individuals and businesses in connecting with 100+ Government & Private Banks and well-known NBFCs. 
+Backed by 9+ years of financial experience, we focus on transparent guidance and smooth loan processing support.
 </p>
-<p style="margin-top:10px;">
-Business Head: <strong>Mohsin Khan</strong>
-</p>
+<p style="margin-top:10px;"><strong>Business Head: Mohsin Khan</strong></p>
 </div>
 
 <div class="card">
 <h2>EMI Calculator</h2>
 
-<label>Loan Amount (₹)</label>
-<input type="number" id="amount" placeholder="Enter loan amount">
+<input type="number" id="amount" placeholder="Loan Amount (₹)">
+<input type="number" id="rate" placeholder="Interest Rate (%)">
+<input type="number" id="years" placeholder="Tenure (Years)">
 
-<label>Interest Rate (%)</label>
-<input type="number" id="rate" placeholder="Enter annual interest rate">
-
-<label>Tenure (Years)</label>
-<input type="number" id="years" placeholder="Enter tenure in years">
-
-<button onclick="calculateEMI()">Calculate EMI</button>
+<button class="btn calc-btn" onclick="calculateEMI()">Calculate EMI</button>
 
 <h3 id="result" style="margin-top:15px;"></h3>
 </div>
 
 <div class="card">
-<h2>Contact Us</h2>
-<p>📞 Call / WhatsApp: <a href="tel:8815076434">8815076434</a></p>
-<p>📞 Alternate: <a href="tel:7000530993">7000530993</a></p>
-<p>📧 Email: <a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></p>
-<p>📍 Address: Hari Har Nagar, Near Radha Krishna Garden, Gwalior, Madhya Pradesh - 474003</p>
-
-<div class="contact-btns">
-<a href="https://wa.me/918815076434"><button>WhatsApp Now</button></a>
-<a href="tel:8815076434"><button>Call Now</button></a>
+<h2>Why Choose Us</h2>
+<div class="trust">
+<div>
+<h3>100+</h3>
+<p>Govt & Private Banks</p>
 </div>
+<div>
+<h3>9+ Years</h3>
+<p>Financial Experience</p>
+</div>
+<div>
+<h3>Transparent</h3>
+<p>Guided Process</p>
+</div>
+<div>
+<h3>Quick</h3>
+<p>Loan Assistance</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Contact Us</h2>
+<p>📞 8815076434 | 7000530993</p>
+<p>📧 theloanforest@gmail.com</p>
+<p>📍 Hari Har Nagar, Near Radha Krishna Garden, Gwalior, MP - 474003</p>
 </div>
 
 </div>
@@ -154,6 +195,8 @@ Business Head: <strong>Mohsin Khan</strong>
 <div class="footer">
 © 2026 The Loan Forest. All Rights Reserved.
 </div>
+
+<a href="https://wa.me/918815076434" class="whatsapp">💬</a>
 
 <script>
 function calculateEMI(){
@@ -167,7 +210,7 @@ return;
 }
 
 let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
-document.getElementById("result").innerHTML="Your Monthly EMI: ₹ "+EMI.toFixed(2);
+document.getElementById("result").innerHTML="Monthly EMI: ₹ "+EMI.toFixed(2);
 }
 </script>
 
