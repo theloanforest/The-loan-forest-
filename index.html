@@ -1,1 +1,175 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Loan Forest | Your Reliable Loan Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#0f2027,#203a2e,#2c5530);
+color:#fff;
+}
+
+header{
+padding:20px;
+text-align:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+header h1{
+font-size:28px;
+font-weight:700;
+}
+
+header p{
+font-size:14px;
+opacity:0.9;
+}
+
+.section{
+padding:40px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+margin-bottom:30px;
+}
+
+h2{
+margin-bottom:15px;
+color:#d4ffce;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+background:#4CAF50;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+button:hover{
+background:#66bb6a;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+}
+
+.contact-btns{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.5);
+font-size:13px;
+}
+
+a{
+color:#90ee90;
+text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>The Loan Forest</h1>
+<p>Your Reliable Loan Partner</p>
+</header>
+
+<div class="section">
+
+<div class="card">
+<h2>About Us</h2>
+<p>
+The Loan Forest is a professional loan assistance platform helping individuals and businesses connect with
+100+ Government & Private Banks and well-known NBFCs.  
+With 9+ years of financial experience, we aim to provide transparent guidance and smooth loan processing support.
+</p>
+<p style="margin-top:10px;">
+Business Head: <strong>Mohsin Khan</strong>
+</p>
+</div>
+
+<div class="card">
+<h2>EMI Calculator</h2>
+
+<label>Loan Amount (₹)</label>
+<input type="number" id="amount" placeholder="Enter loan amount">
+
+<label>Interest Rate (%)</label>
+<input type="number" id="rate" placeholder="Enter annual interest rate">
+
+<label>Tenure (Years)</label>
+<input type="number" id="years" placeholder="Enter tenure in years">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<h3 id="result" style="margin-top:15px;"></h3>
+</div>
+
+<div class="card">
+<h2>Contact Us</h2>
+<p>📞 Call / WhatsApp: <a href="tel:8815076434">8815076434</a></p>
+<p>📞 Alternate: <a href="tel:7000530993">7000530993</a></p>
+<p>📧 Email: <a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></p>
+<p>📍 Address: Hari Har Nagar, Near Radha Krishna Garden, Gwalior, Madhya Pradesh - 474003</p>
+
+<div class="contact-btns">
+<a href="https://wa.me/918815076434"><button>WhatsApp Now</button></a>
+<a href="tel:8815076434"><button>Call Now</button></a>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 The Loan Forest. All Rights Reserved.
+</div>
+
+<script>
+function calculateEMI(){
+let P=document.getElementById("amount").value;
+let R=document.getElementById("rate").value/12/100;
+let N=document.getElementById("years").value*12;
+
+if(P===""||R===""||N===""){
+document.getElementById("result").innerHTML="Please fill all fields.";
+return;
+}
+
+let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+document.getElementById("result").innerHTML="Your Monthly EMI: ₹ "+EMI.toFixed(2);
+}
+</script>
+
+</body>
+</html>
