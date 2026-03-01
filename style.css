@@ -10,3 +10,49 @@ background:#0b1d13;
 color:white;
 line-height:1.6;
 }
+/* Navbar Styling */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 30px;
+background:#123524;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.navbar h2{
+font-size:22px;
+font-weight:600;
+}
+
+.navbar span{
+font-size:12px;
+opacity:0.8;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+}
+
+.navbar a:hover{
+color:#95d5b2;
+}
+
+/* Button Styling */
+.btn{
+background:#2d6a4f;
+padding:8px 18px;
+border-radius:20px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.btn:hover{
+background:#40916c;
+}
