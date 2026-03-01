@@ -56,3 +56,37 @@ font-weight:600;
 .btn:hover{
 background:#40916c;
 }
+/* Hero Section Premium */
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
+.hero h1{
+font-size:32px;
+margin-bottom:15px;
+font-weight:700;
+}
+
+.hero p{
+font-size:16px;
+opacity:0.9;
+margin-bottom:25px;
+}
+
+.hero-btn{
+display:inline-block;
+background:#95d5b2;
+color:#081c15;
+padding:12px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.hero-btn:hover{
+background:white;
+transform:scale(1.05);
+}
