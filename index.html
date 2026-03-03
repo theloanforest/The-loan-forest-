@@ -141,6 +141,44 @@ padding:15px;
 border-radius:50%;
 font-size:20px;
 text-decoration:none;
+}.hero-slider{
+position:relative;
+height:90vh;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:opacity 1s ease-in-out;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.overlay{
+background:rgba(0,0,0,0.55);
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.overlay h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.overlay p{
+font-size:20px;
+margin-bottom:20px;
 }
 </style>
 </head>
@@ -155,40 +193,40 @@ text-decoration:none;
 <a href="https://wa.me/918815076434"><button class="btn">Apply Now</button></a>
 </div>
 
-<div class="hero">
-<h1>Connecting You with 100+ Govt & Private Banks & NBFCs</h1>
-<p>Professional Loan Assistance with 9+ Years of Financial Experience</p>
+<div class="hero-slider">
+
+<div class="slide active" style="background-image:url('images/handshake.jpg')">
+  <div class="overlay">
+    <h1>Trusted Loan Experts</h1>
+    <p>Helping You Secure The Best Loan Deals</p>
+    <a href="https://wa.me/918815076434" class="btn">Apply Now</a>
+  </div>
 </div>
 
-<div class="section">
-
-<div class="card">
-<h2>About Us</h2>
-<p>
-The Loan Forest assists individuals and businesses with structured loan guidance and processing support.
-We focus on transparency, clarity, and efficient coordination across multiple financial institutions.
-</p>
-<p style="margin-top:10px;"><strong>Business Head: Mohsin Khan</strong></p>
+<div class="slide" style="background-image:url('images/family-loan.jpg')">
+  <div class="overlay">
+    <h1>Home & Personal Loans</h1>
+    <p>Fast Approval with Complete Guidance</p>
+    <a href="https://wa.me/918815076434" class="btn">Apply Now</a>
+  </div>
 </div>
 
-<div class="card">
-<h2>EMI Calculator</h2>
-
-<input type="number" id="amount" placeholder="Loan Amount (₹)">
-<input type="number" id="rate" placeholder="Interest Rate (%)">
-<input type="number" id="years" placeholder="Tenure (Years)">
-
-<button class="btn" onclick="calculateEMI()">Calculate EMI</button>
-
-<h3 id="result" style="margin-top:15px;"></h3>
+<div class="slide" style="background-image:url('images/office-meeting.jpg')">
+  <div class="overlay">
+    <h1>Business Loan Solutions</h1>
+    <p>Empowering Your Growth Journey</p>
+    <a href="https://wa.me/918815076434" class="btn">Apply Now</a>
+  </div>
 </div>
 
-<div class="card">
-<h2>Why Choose Us</h2>
-<p>✔ 100+ Govt & Private Banks</p>
-<p>✔ 9+ Years Financial Experience</p>
-<p>✔ Transparent Assistance Process</p>
-<p>✔ Dedicated Client Support</p>
+<div class="slide" style="background-image:url('images/loan-planning.jpg')">
+  <div class="overlay">
+    <h1>Financial Planning Made Easy</h1>
+    <p>Smart Decisions with Expert Advice</p>
+    <a href="https://wa.me/918815076434" class="btn">Apply Now</a>
+  </div>
+</div>
+
 </div>
 
 <div class="card">
@@ -219,7 +257,18 @@ return;
 
 let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
 document.getElementById("result").innerHTML="Monthly EMI: ₹ "+EMI.toFixed(2);
+}let slides=document.querySelectorAll('.slide');
+let index=0;
+
+function showSlides(){
+slides.forEach(slide=>slide.classList.remove('active'));
+index++;
+if(index>slides.length){index=1}
+slides[index-1].classList.add('active');
+setTimeout(showSlides,4000);
 }
+
+showSlides();
 </script>
 
 </body>
