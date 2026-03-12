@@ -9,83 +9,74 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
-body{
-background:#f4f7fb;
-color:#333;
-}
+body{background:#f4f7fb;color:#333}
 
 /* NAVBAR */
 
 header{
 background:#0b1f3a;
 color:white;
-padding:15px 5%;
+padding:15px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 position:sticky;
 top:0;
-z-index:1000;
+z-index:1000
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-}
-
-nav{
-display:flex;
-gap:20px;
-}
+.logo{font-size:22px;font-weight:bold}
 
 nav a{
 color:white;
+margin-left:20px;
 text-decoration:none;
-font-size:14px;
+font-size:14px
 }
 
-.menu-btn{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
+.menu{display:none;font-size:24px}
 
 /* HERO */
 
 .hero{
 background:linear-gradient(135deg,#0b1f3a,#163f75);
 color:white;
-padding:80px 20px;
 text-align:center;
+padding:90px 20px
 }
 
-.hero h1{
-font-size:38px;
-margin-bottom:15px;
+.hero h1{font-size:40px;margin-bottom:10px}
+
+.hero p{max-width:600px;margin:auto;font-size:18px}
+
+.loan-box{
+background:white;
+padding:25px;
+border-radius:10px;
+margin-top:30px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto
 }
 
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:18px;
+.loan-box input, .loan-box select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ddd;
+border-radius:5px
 }
 
-.hero button{
-margin-top:25px;
-padding:14px 30px;
-border:none;
+.loan-box button{
+width:100%;
+padding:12px;
 background:#00c896;
+border:none;
 color:white;
 font-size:16px;
-border-radius:6px;
-cursor:pointer;
+border-radius:5px
 }
 
 /* TRUST */
@@ -94,35 +85,27 @@ cursor:pointer;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:20px;
-padding:40px 5%;
-text-align:center;
+padding:50px 6%;
+text-align:center
 }
 
-.trust-box{
+.trust div{
 background:white;
 padding:25px;
 border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-/* SECTIONS */
-
-.section{
-padding:70px 5%;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:40px;
-font-size:30px;
+box-shadow:0 6px 15px rgba(0,0,0,.08)
 }
 
 /* SERVICES */
 
+.section{padding:70px 6%}
+
+.section h2{text-align:center;margin-bottom:40px}
+
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+gap:20px
 }
 
 .card{
@@ -131,27 +114,47 @@ padding:25px;
 border-radius:10px;
 text-align:center;
 box-shadow:0 8px 20px rgba(0,0,0,.08);
-transition:.3s;
+transition:.3s
 }
 
-.card:hover{
-transform:translateY(-5px);
-}
+.card:hover{transform:translateY(-5px)}
 
-/* PROCESS */
+/* PARTNERS */
 
-.process{
+.partners{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:20px;
-text-align:center;
+text-align:center
 }
 
-.step{
+.partner{
 background:white;
 padding:20px;
 border-radius:10px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+box-shadow:0 6px 15px rgba(0,0,0,.08)
+}
+
+/* COMPARISON */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white
+}
+
+table th,table td{
+padding:15px;
+border:1px solid #eee;
+text-align:center
+}
+
+.apply-btn{
+background:#00c896;
+color:white;
+padding:8px 15px;
+border:none;
+border-radius:4px
 }
 
 /* EMI */
@@ -162,15 +165,14 @@ margin:auto;
 background:white;
 padding:30px;
 border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1)
 }
 
 .calculator input{
 width:100%;
 padding:12px;
 margin:10px 0;
-border:1px solid #ddd;
-border-radius:5px;
+border:1px solid #ddd
 }
 
 .calculator button{
@@ -178,16 +180,7 @@ width:100%;
 padding:12px;
 background:#0b1f3a;
 color:white;
-border:none;
-border-radius:5px;
-font-size:16px;
-}
-
-.result{
-margin-top:15px;
-font-size:20px;
-text-align:center;
-font-weight:bold;
+border:none
 }
 
 /* FORM */
@@ -198,41 +191,37 @@ margin:auto;
 background:white;
 padding:30px;
 border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1)
 }
 
-.form input, .form select{
+.form input,.form select{
 width:100%;
 padding:12px;
 margin:10px 0;
-border:1px solid #ddd;
-border-radius:5px;
+border:1px solid #ddd
 }
 
 .form button{
 width:100%;
 padding:12px;
 background:#00c896;
-color:white;
 border:none;
-border-radius:5px;
-font-size:16px;
+color:white
 }
 
-/* CONTACT */
+/* TESTIMONIALS */
 
-.contact{
+.testimonials{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
 }
 
-.contact-box{
+.review{
 background:white;
-padding:25px;
+padding:20px;
 border-radius:10px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+box-shadow:0 6px 15px rgba(0,0,0,.08)
 }
 
 /* FOOTER */
@@ -240,9 +229,8 @@ box-shadow:0 8px 20px rgba(0,0,0,.08);
 footer{
 background:#0b1f3a;
 color:white;
-text-align:center;
 padding:40px;
-margin-top:50px;
+text-align:center
 }
 
 /* WHATSAPP */
@@ -255,37 +243,18 @@ background:#25D366;
 color:white;
 padding:14px 18px;
 border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
+text-decoration:none
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-nav{
-display:none;
-flex-direction:column;
-background:#0b1f3a;
-position:absolute;
-top:60px;
-right:0;
-width:200px;
-padding:20px;
-}
+nav{display:none}
 
-nav.show{
-display:flex;
-}
+.menu{display:block}
 
-.menu-btn{
-display:block;
-}
-
-.hero h1{
-font-size:28px;
-}
+.hero h1{font-size:28px}
 
 }
 
@@ -298,14 +267,13 @@ font-size:28px;
 
 <div class="logo">The Loan Forest</div>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<nav id="menu">
+<nav>
 <a href="#services">Services</a>
-<a href="#process">Process</a>
 <a href="#emi">EMI</a>
 <a href="#contact">Contact</a>
 </nav>
+
+<div class="menu">☰</div>
 
 </header>
 
@@ -313,30 +281,32 @@ font-size:28px;
 
 <h1>Compare Loan Offers From 150+ Banks</h1>
 
-<p>
-Get the best loan options with expert guidance from The Loan Forest.
-</p>
+<p>Your Reliable Loan Partner in Gwalior</p>
 
-<button onclick="scrollToForm()">Apply for Loan</button>
+<div class="loan-box">
+
+<select>
+<option>Loan Type</option>
+<option>Personal Loan</option>
+<option>Business Loan</option>
+<option>Home Loan</option>
+</select>
+
+<input type="number" placeholder="Loan Amount">
+
+<input type="number" placeholder="Monthly Income">
+
+<button>Check Eligibility</button>
+
+</div>
 
 </section>
 
 <section class="trust">
 
-<div class="trust-box">
-<h2>8+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="trust-box">
-<h2>150+</h2>
-<p>Lenders</p>
-</div>
-
-<div class="trust-box">
-<h2>1000+</h2>
-<p>Customers Assisted</p>
-</div>
+<div><h2>8+</h2><p>Years Experience</p></div>
+<div><h2>150+</h2><p>Lending Partners</p></div>
+<div><h2>1000+</h2><p>Customers Helped</p></div>
 
 </section>
 
@@ -352,26 +322,62 @@ Get the best loan options with expert guidance from The Loan Forest.
 <div class="card">Loan Against Property</div>
 <div class="card">Car Loan</div>
 <div class="card">Working Capital</div>
-<div class="card">Balance Transfer</div>
-<div class="card">Top Up Loan</div>
 
 </div>
 
 </section>
 
-<section id="process" class="section">
+<section class="section">
 
-<h2>Loan Process</h2>
+<h2>Lending Partners</h2>
 
-<div class="process">
+<div class="partners">
 
-<div class="step">1<br>Share Requirement</div>
-<div class="step">2<br>Profile Analysis</div>
-<div class="step">3<br>Compare Lenders</div>
-<div class="step">4<br>Select Best Loan</div>
-<div class="step">5<br>Loan Disbursement</div>
+<div class="partner">SBI</div>
+<div class="partner">HDFC</div>
+<div class="partner">ICICI</div>
+<div class="partner">Axis</div>
+<div class="partner">Bajaj Finance</div>
 
 </div>
+
+</section>
+
+<section class="section">
+
+<h2>Loan Comparison</h2>
+
+<table>
+
+<tr>
+<th>Bank</th>
+<th>Interest Rate</th>
+<th>Processing Fee</th>
+<th>Apply</th>
+</tr>
+
+<tr>
+<td>SBI</td>
+<td>10.5%</td>
+<td>1%</td>
+<td><button class="apply-btn">Apply</button></td>
+</tr>
+
+<tr>
+<td>HDFC</td>
+<td>10.75%</td>
+<td>1.5%</td>
+<td><button class="apply-btn">Apply</button></td>
+</tr>
+
+<tr>
+<td>ICICI</td>
+<td>11%</td>
+<td>1%</td>
+<td><button class="apply-btn">Apply</button></td>
+</tr>
+
+</table>
 
 </section>
 
@@ -385,11 +391,11 @@ Get the best loan options with expert guidance from The Loan Forest.
 
 <input id="rate" type="number" placeholder="Interest Rate %">
 
-<input id="months" type="number" placeholder="Tenure (Months)">
+<input id="months" type="number" placeholder="Tenure Months">
 
-<button onclick="calculateEMI()">Calculate EMI</button>
+<button onclick="calc()">Calculate EMI</button>
 
-<div class="result" id="result"></div>
+<h3 id="emi"></h3>
 
 </div>
 
@@ -397,9 +403,9 @@ Get the best loan options with expert guidance from The Loan Forest.
 
 <section class="section">
 
-<h2>Loan Inquiry</h2>
+<h2>Apply for Loan</h2>
 
-<div class="form" id="form">
+<div class="form">
 
 <input type="text" placeholder="Full Name">
 
@@ -414,36 +420,24 @@ Get the best loan options with expert guidance from The Loan Forest.
 
 <input type="number" placeholder="Loan Amount">
 
-<button>Submit Inquiry</button>
+<button>Submit</button>
 
 </div>
 
 </section>
 
-<section id="contact" class="section">
+<section class="section">
 
-<h2>Contact Us</h2>
+<h2>Customer Reviews</h2>
 
-<div class="contact">
+<div class="testimonials">
 
-<div class="contact-box">
-<h3>Phone</h3>
-<p>7000530993</p>
+<div class="review">
+⭐ Fast loan approval and very helpful team.
 </div>
 
-<div class="contact-box">
-<h3>WhatsApp</h3>
-<p>8815076343</p>
-</div>
-
-<div class="contact-box">
-<h3>Email</h3>
-<p>theloanforest@gmail.com</p>
-</div>
-
-<div class="contact-box">
-<h3>Location</h3>
-<p>Gwalior, MP</p>
+<div class="review">
+⭐ Compared multiple banks and got best rate.
 </div>
 
 </div>
@@ -456,29 +450,23 @@ Get the best loan options with expert guidance from The Loan Forest.
 
 <p>Your Reliable Loan Partner</p>
 
+<p>Gwalior, Madhya Pradesh</p>
+
 </footer>
 
 <a class="whatsapp" href="https://wa.me/918815076343">WhatsApp</a>
 
 <script>
 
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
-}
+function calc(){
 
-function scrollToForm(){
-document.getElementById("form").scrollIntoView({behavior:"smooth"});
-}
+let P=document.getElementById("loan").value
+let r=document.getElementById("rate").value/1200
+let n=document.getElementById("months").value
 
-function calculateEMI(){
+let emi=(P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1)
 
-let P=document.getElementById("loan").value;
-let r=document.getElementById("rate").value/1200;
-let n=document.getElementById("months").value;
-
-let emi=(P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
-
-document.getElementById("result").innerHTML="Monthly EMI: ₹ "+Math.round(emi);
+document.getElementById("emi").innerHTML="Monthly EMI: ₹ "+Math.round(emi)
 
 }
 
