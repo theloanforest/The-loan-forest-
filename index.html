@@ -830,56 +830,7 @@ select.fc{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 /* ====================================================
    FLOATING WA CHAT WIDGET
 ==================================================== */
-#waWidget{position:fixed;bottom:24px;right:24px;z-index:8500;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.wa-main-btn{
-  width:58px;height:58px;border-radius:50%;
-  background:#25d366;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.45);
-  transition:all .3s var(--bounce);animation:pulsate 2.5s infinite;
-  position:relative;
-}
-.wa-main-btn:hover{transform:scale(1.12)}
-.wa-main-btn svg{width:30px;height:30px;fill:var(--white)}
-.wa-badge{
-  position:absolute;top:-3px;right:-3px;
-  width:18px;height:18px;border-radius:50%;
-  background:var(--red);border:2px solid var(--white);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.58rem;font-weight:800;color:var(--white);
-}
-.wa-chat-panel{
-  background:var(--white);border-radius:var(--r-lg);
-  box-shadow:var(--shadow-lg);width:300px;
-  border:1.5px solid var(--border);
-  overflow:hidden;
-  display:none;animation:popIn .3s var(--bounce);
-}
-.wa-chat-panel.open{display:block}
-.wa-panel-head{
-  background:linear-gradient(135deg,#075e54,#128c7e);
-  padding:18px 20px;display:flex;align-items:center;gap:12px;
-}
-.wa-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.wa-panel-head .wph-name{font-size:.92rem;font-weight:700;color:var(--white)}
-.wa-panel-head .wph-status{font-size:.72rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px}
-.wa-panel-head .wph-dot{width:6px;height:6px;border-radius:50%;background:#25d366}
-.wph-close{margin-left:auto;color:rgba(255,255,255,.7);font-size:1.2rem;cursor:pointer;transition:var(--t)}
-.wph-close:hover{color:var(--white)}
-.wa-messages{padding:16px;background:#ece5dd;min-height:120px}
-.wa-msg{
-  background:var(--white);border-radius:0 8px 8px 8px;
-  padding:10px 14px;font-size:.82rem;color:#303030;line-height:1.5;
-  box-shadow:0 1px 3px rgba(0,0,0,.1);max-width:90%;margin-bottom:6px;
-}
-.wa-msg-time{font-size:.65rem;color:#aaa;text-align:right;margin-top:3px}
-.wa-reply-wrap{padding:10px 14px;border-top:1px solid var(--border);display:flex;gap:8px}
-.wa-reply-inp{flex:1;padding:9px 14px;border:1.5px solid var(--border);border-radius:var(--r-full);font-size:.82rem;outline:none;transition:var(--t)}
-.wa-reply-inp:focus{border-color:#25d366}
-.wa-send-btn{width:36px;height:36px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.9rem;flex-shrink:0;transition:var(--t);cursor:pointer}
-.wa-send-btn:hover{background:#1db954;transform:scale(1.1)}
-.wa-quick-replies{padding:8px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--border)}
-.wqr{padding:6px 13px;border:1px solid #25d366;border-radius:var(--r-full);font-size:.72rem;font-weight:600;color:#128c7e;cursor:pointer;transition:var(--t)}
-.wqr:hover{background:#25d366;color:var(--white)}
+
 /* Scroll to top */
 #scrollTop{
   width:42px;height:42px;border-radius:50%;
@@ -1152,7 +1103,7 @@ footer::before{content:'';display:block;height:1px;background:linear-gradient(90
   .exit-head,.exit-body{padding:24px}
   .footer-grid{grid-template-columns:1fr}
   .footer-btm{flex-direction:column;text-align:center}
-  .wa-chat-panel{width:calc(100vw - 48px)}
+  
 }
 
 /* ==============================================
@@ -1344,20 +1295,9 @@ footer::before{content:'';display:block;height:1px;background:linear-gradient(90
 /* ============================================================
    WHATSAPP FLOATING WIDGET — correct position, no overlap
 ============================================================ */
-#waWidget{
-  position:fixed;
-  bottom:86px;
-  right:14px;
-  z-index:8500;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:8px;
-}
-@media(min-width:861px){#waWidget{bottom:24px}}
-.wa-btn-row{
-  display:flex;align-items:center;gap:8px;
-}
+
+@media(min-width:861px){}
+
 #scrollTop{
   width:40px;height:40px;border-radius:50%;
   background:var(--white);border:1.5px solid var(--border-mid);
@@ -1369,33 +1309,8 @@ footer::before{content:'';display:block;height:1px;background:linear-gradient(90
 }
 #scrollTop.vis{opacity:1;pointer-events:auto}
 #scrollTop:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
-.wa-main-btn{
-  width:54px;height:54px;border-radius:50%;
-  background:#25d366;
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-  box-shadow:0 4px 18px rgba(37,211,102,.45);
-  transition:all .3s var(--bounce);
-  animation:pulsate 2.5s infinite;
-  position:relative;flex-shrink:0;
-}
-.wa-main-btn:hover{transform:scale(1.1);background:#1ebe5d}
-.wa-main-btn svg{width:28px;height:28px}
-.wa-badge{
-  position:absolute;top:-2px;right:-2px;
-  width:17px;height:17px;border-radius:50%;
-  background:var(--red);border:2px solid var(--white);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.58rem;font-weight:800;color:var(--white);line-height:1;
-}
-.wa-chat-panel{
-  background:var(--white);border-radius:var(--r-lg);
-  box-shadow:0 8px 40px rgba(0,0,0,.2);
-  width:290px;border:1.5px solid var(--border);
-  overflow:hidden;display:none;
-}
-.wa-chat-panel.open{display:block;animation:fadeUp .28s ease}
-@media(max-width:400px){.wa-chat-panel{width:calc(100vw - 28px)}}
+
+@media(max-width:400px){}
 
 /* ============================================================
    STICKY MOBILE CTA — 3 buttons, perfectly aligned
@@ -1512,7 +1427,6 @@ section,nav,footer,header{overflow-x:hidden;max-width:100%}
   .efc-body{padding:22px 16px}
   .footer-btm{flex-direction:column;text-align:center}
 }
-
 
 /* ============================================================
    HERO MOBILE — DEFINITIVE CENTER FIX (overrides everything)
@@ -1869,6 +1783,298 @@ footer {
   .nav-logo-name   { font-size: .92rem; }
   .nav-logo-tagline{ font-size: .58rem; }
 }
+
+/* ============================================================
+   SMART LOAN AI CHATBOT — Premium fintech design
+   Green + White theme, floating bottom-right
+============================================================ */
+
+/* Floating trigger button */
+#slaiBtn {
+  position: fixed;
+  bottom: 86px;
+  right: 20px;
+  z-index: 9000;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00b37e, #007a55);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(0,179,126,.5);
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  outline: none;
+}
+#slaiBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 36px rgba(0,179,126,.6);
+}
+#slaiBtn.open { transform: scale(1.05) rotate(10deg); }
+.slai-btn-icon { font-size: 1.6rem; line-height: 1; }
+.slai-notif {
+  position: absolute;
+  top: -3px; right: -3px;
+  width: 18px; height: 18px;
+  background: #e53935;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .58rem; font-weight: 800; color: #fff;
+}
+
+/* Chat window */
+#slaiBox {
+  position: fixed;
+  bottom: 158px;
+  right: 20px;
+  z-index: 9000;
+  width: 360px;
+  max-height: 560px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.85) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  transform-origin: bottom right;
+  border: 1.5px solid #e4eaf2;
+}
+#slaiBox.open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+@media (max-width: 420px) {
+  #slaiBox {
+    width: calc(100vw - 16px);
+    right: 8px;
+    bottom: 142px;
+    max-height: calc(100vh - 160px);
+  }
+}
+
+/* Header */
+.slai-head {
+  background: linear-gradient(135deg, #00875a, #00b37e);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.slai-head-left { display: flex; align-items: center; gap: 11px; }
+.slai-avatar {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.slai-head-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.slai-head-sub {
+  font-size: .65rem;
+  color: rgba(255,255,255,.8);
+  line-height: 1.3;
+}
+.slai-online {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .62rem; color: rgba(255,255,255,.85);
+}
+.slai-online-dot {
+  width: 6px; height: 6px;
+  background: #86efac;
+  border-radius: 50%;
+  animation: slaiPulse 1.2s ease infinite;
+}
+@keyframes slaiPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+.slai-close {
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: #fff;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.slai-close:hover { background: rgba(255,255,255,.3); }
+
+/* Messages area */
+.slai-msgs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f7faf8;
+  scroll-behavior: smooth;
+}
+.slai-msgs::-webkit-scrollbar { width: 3px; }
+.slai-msgs::-webkit-scrollbar-thumb { background: #c8d8d0; border-radius: 4px; }
+
+/* Bot message bubble */
+.slai-msg-bot {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  animation: slaiMsgIn .3s ease;
+}
+@keyframes slaiMsgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slai-msg-bot-icon {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg,#00875a,#00b37e);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.slai-bubble-bot {
+  background: #fff;
+  border: 1.5px solid #e4eaf2;
+  border-radius: 4px 16px 16px 16px;
+  padding: 10px 13px;
+  font-size: .83rem;
+  color: #0b1726;
+  line-height: 1.55;
+  max-width: 85%;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.slai-time {
+  font-size: .6rem;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+
+/* User bubble */
+.slai-msg-user {
+  display: flex;
+  justify-content: flex-end;
+  animation: slaiMsgIn .3s ease;
+}
+.slai-bubble-user {
+  background: linear-gradient(135deg, #00875a, #00b37e);
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+  padding: 10px 13px;
+  font-size: .83rem;
+  line-height: 1.55;
+  max-width: 85%;
+}
+
+/* Quick-reply chips */
+.slai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 14px 10px;
+  background: #f7faf8;
+}
+.slai-chip {
+  background: #fff;
+  border: 1.5px solid #00b37e;
+  color: #00875a;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.slai-chip:hover {
+  background: #00b37e;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Text input row */
+.slai-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #e4eaf2;
+  background: #fff;
+  flex-shrink: 0;
+}
+.slai-input {
+  flex: 1;
+  padding: 9px 13px;
+  border: 1.5px solid #e4eaf2;
+  border-radius: 20px;
+  font-size: .83rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none;
+  transition: border-color .2s;
+  background: #f7faf8;
+}
+.slai-input:focus { border-color: #00b37e; background: #fff; }
+.slai-send {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg,#00875a,#00b37e);
+  border: none; border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.slai-send:hover { transform: scale(1.1); }
+
+/* Typing indicator */
+.slai-typing {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.slai-typing-dots {
+  background: #fff;
+  border: 1.5px solid #e4eaf2;
+  border-radius: 4px 16px 16px 16px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.slai-dot {
+  width: 6px; height: 6px;
+  background: #94a3b8;
+  border-radius: 50%;
+  animation: slaiDot 1.2s ease infinite;
+}
+.slai-dot:nth-child(2) { animation-delay: .2s; }
+.slai-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes slaiDot {
+  0%, 80%, 100% { transform: scale(.7); opacity: .5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
 </style>
 </head>
 <body>
@@ -2918,10 +3124,10 @@ footer {
         <div class="ccard-val">8815076343</div>
         <div class="ccard-act">Chat Now →</div>
       </a>
-      <a href="/cdn-cgi/l/email-protection#e3978b868f8c828d858c91869097a3848e828a8fcd808c8e" class="ccard rv d3">
+      <a href="mailto:theloanforest@gmail.com" class="ccard rv d3">
         <div class="ccard-ring" style="background:#ede9fe">✉️</div>
         <div class="ccard-lbl">Email</div>
-        <div class="ccard-val" style="font-size:.82rem"><span class="__cf_email__" data-cfemail="314559545d5e505f575e4354424571565c50585d1f525e5c">[email&#160;protected]</span></div>
+        <div class="ccard-val" style="font-size:.82rem">theloanforest@gmail.com</div>
         <div class="ccard-act">Write to Us →</div>
       </a>
       <div class="ccard rv d4">
@@ -2973,7 +3179,7 @@ footer {
         <div class="fb-contact">
           <div class="fbc"><span class="fc-ico">📞</span><a href="tel:7000530993">7000530993</a></div>
           <div class="fbc"><span class="fc-ico">💬</span><a href="https://wa.me/918815076343">WhatsApp: 8815076343</a></div>
-          <div class="fbc"><span class="fc-ico">✉️</span><a href="/cdn-cgi/l/email-protection#dfabb7bab3b0beb1b9b0adbaacab9fb8b2beb6b3f1bcb0b2"><span class="__cf_email__" data-cfemail="daaeb2bfb6b5bbb4bcb5a8bfa9ae9abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a></div>
+          <div class="fbc"><span class="fc-ico">✉️</span><a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></div>
           <div class="fbc"><span class="fc-ico">📍</span><span>Gwalior, Madhya Pradesh, India</span></div>
         </div>
         <div class="f-certs" style="margin-top:18px">
@@ -3004,7 +3210,7 @@ footer {
           <a href="#" class="fs-btn">f</a>
           <a href="#" class="fs-btn">📸</a>
           <a href="https://wa.me/918815076343" class="fs-btn">💬</a>
-          <a href="/cdn-cgi/l/email-protection#ed99858881828c838b829f889e99ad8a808c8481c38e8280" class="fs-btn">✉</a>
+          <a href="mailto:theloanforest@gmail.com" class="fs-btn">✉</a>
         </div>
       </div>
       <div class="f-col f-newsletter">
@@ -3030,44 +3236,69 @@ footer {
   </div>
 </footer>
 
+
+
+
 <!-- ================================================
-     FLOATING WA CHAT WIDGET
+     SMART LOAN AI CHATBOT
+     Floating bottom-right, step-based conversation
 ================================================ -->
-<div id="waWidget">
-  <div class="wa-chat-panel" id="waChatPanel">
-    <div class="wa-panel-head">
-      <div class="wa-avatar">🌿</div>
+
+<!-- Floating trigger button -->
+
+<!-- Scroll to top button -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+  title="Back to top"
+  style="position:fixed;bottom:86px;right:84px;width:40px;height:40px;border-radius:50%;
+         background:#fff;border:1.5px solid #c9d6e8;display:flex;align-items:center;
+         justify-content:center;font-size:.95rem;color:#4a6785;cursor:pointer;
+         box-shadow:0 4px 16px rgba(11,23,38,.08);opacity:0;pointer-events:none;
+         transition:all .28s ease;z-index:8499">↑</button>
+
+<button id="slaiBtn" onclick="slaiToggle()" aria-label="Open Smart Loan AI Chatbot">
+  <span class="slai-btn-icon">🤖</span>
+  <span class="slai-notif">1</span>
+</button>
+
+<!-- Chat window -->
+<div id="slaiBox" role="dialog" aria-label="Smart Loan AI Chatbot">
+
+  <!-- Header -->
+  <div class="slai-head">
+    <div class="slai-head-left">
+      <div class="slai-avatar">🤖</div>
       <div>
-        <div class="wph-name">The Loan Forest</div>
-        <div class="wph-status"><span class="wph-dot"></span>Online — Reply in minutes</div>
+        <div class="slai-head-name">Smart Loan AI</div>
+        <div class="slai-head-sub">Your Personal AI Loan Advisor</div>
+        <div class="slai-online">
+          <span class="slai-online-dot"></span>
+          Compare. Choose. Save Money.
+        </div>
       </div>
-      <span class="wph-close" onclick="toggleWaChat()">✕</span>
     </div>
-    <div class="wa-messages">
-      <div class="wa-msg">👋 Hi! I am your loan advisor at The Loan Forest.<div class="wa-msg-time">Just now</div></div>
-      <div class="wa-msg">How can I help? Tell me about the loan you need — completely free! 😊<div class="wa-msg-time">Just now</div></div>
-    </div>
-    <div class="wa-quick-replies">
-      <div class="wqr" onclick="waQuickReply('I need a Personal Loan')">Personal Loan</div>
-      <div class="wqr" onclick="waQuickReply('I need a Home Loan')">Home Loan</div>
-      <div class="wqr" onclick="waQuickReply('I need a Business Loan')">Business Loan</div>
-      <div class="wqr" onclick="waQuickReply('Check my eligibility')">Eligibility</div>
-    </div>
-    <div class="wa-reply-wrap">
-      <input type="text" class="wa-reply-inp" id="waInp" placeholder="Type a message…" onkeydown="if(event.key==='Enter')waSend()"/>
-      <div class="wa-send-btn" onclick="waSend()">➤</div>
-    </div>
+    <button class="slai-close" onclick="slaiToggle()" aria-label="Close">✕</button>
   </div>
-  <div class="wa-btn-row">
-    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
-    <a href="#" class="wa-main-btn" onclick="toggleWaChat();return false" aria-label="WhatsApp">
-      <span class="wa-badge">1</span>
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-      </svg>
-    </a>
+
+  <!-- Messages -->
+  <div class="slai-msgs" id="slaiMsgs"></div>
+
+  <!-- Quick-reply chips -->
+  <div class="slai-chips" id="slaiChips"></div>
+
+  <!-- Text input -->
+  <div class="slai-input-row">
+    <input
+      type="text"
+      class="slai-input"
+      id="slaiInput"
+      placeholder="Type your message..."
+      onkeydown="if(event.key==='Enter') slaiSendText()"
+      autocomplete="off"
+    />
+    <button class="slai-send" onclick="slaiSendText()" aria-label="Send">➤</button>
   </div>
 </div>
+
 
 <!-- ================================================
      STICKY MOBILE CTA
@@ -3279,7 +3510,9 @@ const hbg=document.getElementById('hbg');
 const mobNav=document.getElementById('mobNav');
 window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled',window.scrollY>20);
-  document.getElementById('scrollTop').classList.toggle('vis',window.scrollY>400);
+  
+  var st = document.getElementById('scrollTop');
+  if (st) { st.style.opacity = window.scrollY > 400 ? '1' : '0'; st.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; }
 },{ passive:true });
 hbg.addEventListener('click',()=>{
   hbg.classList.toggle('open');
@@ -3608,9 +3841,7 @@ function heroEligCheck() {
   var res    = document.getElementById('heroEligResult');
 
   if (!incV || !employ || !cibil) {
-    res.style.display = 'block';
-    res.style.cssText = 'display:block;padding:12px;border-radius:10px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:#d97706;font-size:.84rem;margin-top:12px';
-    res.innerHTML = 'Kripya sabhi fields fill karen — income, employment aur credit score.';
+    res.innerHTML = '<div style="background:#1e3a5f;border:1px solid #3b5998;border-radius:12px;padding:14px 16px;color:#fbbf24;font-size:.85rem;margin-top:12px;font-weight:600;">&#9888;&#65039; Please select income, employment type, and credit score to check eligibility.</div>';
     return;
   }
 
@@ -3624,40 +3855,46 @@ function heroEligCheck() {
   var cap    = caps[ltype] || 5000000;
   var maxLoan = Math.min(income * cd.mult, cap);
   var minInc = {'Personal Loan':15000,'Home Loan':25000,'Business Loan':20000,'Car Loan':15000,'LAP':25000}[ltype] || 15000;
-  var rates  = {
-    'Personal Loan':{excellent:'10.50%',good:'11.50%',fair:'13.0%',low:'15.0%',new:'13.5%'},
-    'Home Loan':    {excellent:'8.40%', good:'8.75%', fair:'9.25%', low:'10.5%',new:'9.75%'},
-    'Business Loan':{excellent:'12.0%', good:'13.0%', fair:'14.5%', low:'16.5%',new:'14.0%'},
-    'Car Loan':     {excellent:'8.75%', good:'9.25%', fair:'10.0%', low:'12.0%',new:'10.5%'},
-    'LAP':          {excellent:'9.25%', good:'10.0%', fair:'11.0%', low:'12.5%',new:'11.5%'}
-  };
-  var rateTable = rates[ltype] || rates['Personal Loan'];
-  var estRate = rateTable[cibil] || '11.0%';
-
-  res.style.marginTop = '12px';
+  var rates  = {'Personal Loan':{excellent:'10.50%',good:'11.50%',fair:'13.0%',low:'15.0%',new:'13.5%'},'Home Loan':{excellent:'8.40%',good:'8.75%',fair:'9.25%',low:'10.5%',new:'9.75%'},'Business Loan':{excellent:'12.0%',good:'13.0%',fair:'14.5%',low:'16.5%',new:'14.0%'},'Car Loan':{excellent:'8.75%',good:'9.25%',fair:'10.0%',low:'12.0%',new:'10.5%'},'LAP':{excellent:'9.25%',good:'10.0%',fair:'11.0%',low:'12.5%',new:'11.5%'}};
+  var estRate = ((rates[ltype] || rates['Personal Loan'])[cibil]) || '11.0%';
+  var emiCapStr = '\u20b9' + Math.round(maxEMI).toLocaleString('en-IN');
+  var incStr    = income.toLocaleString('en-IN');
+  var maxStr    = '\u20b9' + (maxLoan >= 100000 ? (maxLoan/100000).toFixed(1) + 'L' : Math.round(maxLoan).toLocaleString('en-IN'));
 
   if (income >= minInc && cd.sc >= 700) {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:rgba(0,179,126,.12);border:1px solid rgba(0,179,126,.3);color:#065f46;font-size:.84rem;margin-top:12px';
-    res.innerHTML = '<strong style="font-size:.95rem;display:block;margin-bottom:5px">Congratulations! Aap Eligible Hain!</strong>'
-      + '<span style="font-family:Clash Display,sans-serif;font-size:1.5rem;font-weight:700;display:block;margin:5px 0">' + fmtS(maxLoan) + '</span>'
-      + '<span style="font-size:.78rem;opacity:.85;display:block;margin-bottom:10px">Estimated max ' + ltype + ' - Rate approx. ' + estRate + ' p.a.</span>'
-      + '<div style="background:rgba(0,179,126,.08);border-radius:8px;padding:9px 12px;font-size:.76rem;margin-bottom:12px">'
-      + 'Income: Rs.' + income.toLocaleString('en-IN') + '/mo | EMI capacity: Rs.' + Math.round(maxEMI).toLocaleString('en-IN') + '/mo | No credit score impact</div>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#00b37e;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Apply Free - Best Offers Karen</a>';
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#00875a,#00b37e);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span style="font-size:1.5rem">&#127881;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Congratulations! You Are Eligible</strong></div>'
+      + '<div style="background:rgba(255,255,255,.18);border-radius:12px;padding:16px;margin-bottom:14px">'
+      + '<div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.8;margin-bottom:4px">Maximum Loan Amount</div>'
+      + '<div style="font-family:Clash Display,sans-serif;font-size:2.2rem;font-weight:700;line-height:1">' + maxStr + '</div>'
+      + '</div>'
+      + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">'
+      + '<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:12px"><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.8">Interest Rate</div><div style="font-family:Clash Display,sans-serif;font-size:1.1rem;font-weight:700">From ' + estRate + '</div></div>'
+      + '<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:12px"><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.8">EMI Capacity</div><div style="font-family:Clash Display,sans-serif;font-size:1.1rem;font-weight:700">' + emiCapStr + '/mo</div></div>'
+      + '</div>'
+      + '<div style="font-size:.75rem;opacity:.85;margin-bottom:14px;background:rgba(0,0,0,.12);border-radius:8px;padding:9px 12px">&#128274; Soft check only — No CIBIL impact &nbsp;|&nbsp; Income: &#8377;' + incStr + '/mo</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#00875a;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Apply Free &#8212; Get Best Offers &#8594;</a>'
+      + '</div>';
   } else if (income >= minInc * 0.7 && cd.sc >= 650) {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:#92400e;font-size:.84rem;margin-top:12px';
-    res.innerHTML = '<strong style="display:block;margin-bottom:4px">Partially Eligible</strong>'
-      + '<span style="font-family:Clash Display,sans-serif;font-size:1.4rem;font-weight:700;display:block;margin:5px 0">~' + fmtS(Math.round(maxLoan * 0.7)) + '</span>'
-      + '<p style="font-size:.78rem;margin-bottom:10px">Special lenders available - Rate from ' + estRate + '</p>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#d97706;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Advisor Se Baat Karen</a>';
+    var partialStr = '\u20b9' + ((maxLoan * 0.7) >= 100000 ? ((maxLoan*0.7)/100000).toFixed(1) + 'L' : Math.round(maxLoan*0.7).toLocaleString('en-IN'));
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#b45309,#d97706);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span style="font-size:1.5rem">&#9888;&#65039;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Partially Eligible</strong></div>'
+      + '<div style="background:rgba(255,255,255,.18);border-radius:12px;padding:16px;margin-bottom:14px">'
+      + '<div style="font-size:.7rem;font-weight:700;text-transform:uppercase;opacity:.8;margin-bottom:4px">Estimated Amount</div>'
+      + '<div style="font-family:Clash Display,sans-serif;font-size:2rem;font-weight:700">~' + partialStr + '</div>'
+      + '</div>'
+      + '<div style="font-size:.8rem;opacity:.92;margin-bottom:14px;line-height:1.6">Special lenders available for your profile. Rate from ' + estRate + ' p.a. Our advisor will find the best match.</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#b45309;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Speak to an Expert &#8594;</a>'
+      + '</div>';
   } else {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:rgba(229,57,53,.08);border:1px solid rgba(229,57,53,.25);color:#991b1b;font-size:.84rem;margin-top:12px';
-    res.innerHTML = '<strong style="display:block;margin-bottom:4px">Profile Review Needed</strong>'
-      + '<p style="font-size:.78rem;margin-bottom:10px">'
-      + (income < minInc ? 'Min income for ' + ltype + ': Rs.' + minInc.toLocaleString('en-IN') + '/mo. ' : '')
-      + (cd.sc < 650 ? 'CIBIL 650+ se approvals better hote hain. ' : '')
-      + 'Hamare experts ek plan bana sakte hain.</p>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#dc2626;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Free Guidance Len</a>';
+    var msg = (income < minInc ? 'Minimum income for ' + ltype + ': \u20b9' + minInc.toLocaleString('en-IN') + '/month. ' : '');
+    msg += (cd.sc < 650 ? 'A CIBIL score of 650+ significantly improves approval chances. ' : '');
+    msg += 'Our advisors can suggest microfinance or step-by-step improvement plans.';
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#b91c1c,#dc2626);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span style="font-size:1.5rem">&#128161;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Profile Needs Improvement</strong></div>'
+      + '<div style="font-size:.82rem;opacity:.95;line-height:1.65;margin-bottom:14px;background:rgba(0,0,0,.15);border-radius:8px;padding:10px">' + msg + '</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#b91c1c;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Get Free Expert Guidance &#8594;</a>'
+      + '</div>';
   }
 }
 
@@ -3674,11 +3911,9 @@ function checkElig() {
   var ltype  = document.getElementById('eType').value;
   var income = parseFloat(document.getElementById('eIncome').value) || 0;
   var employ = document.getElementById('eEmploy').value;
-  var amount = parseFloat(document.getElementById('eAmount').value) || 0;
   var res    = document.getElementById('eligResult');
   if (!ltype || !income || !employ || !eCibil) {
-    res.style.cssText = 'display:block;padding:12px;border-radius:10px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:#d97706;font-size:.84rem;margin-top:12px';
-    res.innerHTML = 'Sabhi fields bharna zaroori hai.';
+    res.innerHTML = '<div style="background:#fff8ec;border:1.5px solid #f5a623;border-radius:12px;padding:14px 16px;color:#92400e;font-size:.85rem;font-weight:600;">&#9888;&#65039; Please fill all fields — Loan Type, Income, Employment and CIBIL Score.</div>';
     return;
   }
   var cMap = {excellent:{sc:775,mult:60},good:{sc:725,mult:48},fair:{sc:675,mult:36},low:{sc:625,mult:24},poor:{sc:580,mult:18},new:{sc:0,mult:30}};
@@ -3689,25 +3924,45 @@ function checkElig() {
   var cap     = caps[ltype] || 5000000;
   var maxLoan = Math.min(income * cd.mult, cap);
   var minInc  = {'Personal Loan':15000,'Home Loan':25000,'Business Loan':20000,'Car Loan':15000,'LAP':25000}[ltype] || 15000;
-  res.style.marginTop = '12px';
+  var rateTable = {'Personal Loan':{excellent:'10.50%',good:'11.50%',fair:'13.0%',low:'15.0%',poor:'17%',new:'13.5%'},'Home Loan':{excellent:'8.40%',good:'8.75%',fair:'9.25%',low:'10.5%',poor:'N/A',new:'9.75%'},'Business Loan':{excellent:'12.0%',good:'13.0%',fair:'14.5%',low:'16.5%',poor:'N/A',new:'14.0%'},'Car Loan':{excellent:'8.75%',good:'9.25%',fair:'10.0%',low:'12.0%',poor:'N/A',new:'10.5%'},'LAP':{excellent:'9.25%',good:'10.0%',fair:'11.0%',low:'12.5%',poor:'N/A',new:'11.5%'}};
+  var estRate = ((rateTable[ltype] || rateTable['Personal Loan'])[eCibil]) || '11%';
+  var maxStr  = '\u20b9' + (maxLoan >= 100000 ? (maxLoan/100000).toFixed(1) + 'L' : Math.round(maxLoan).toLocaleString('en-IN'));
+  var emiStr  = '\u20b9' + Math.round(maxEMI).toLocaleString('en-IN');
+
   if (income >= minInc && cd.sc >= 700) {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:#e6faf4;border:1px solid #a7f3d0;margin-top:16px;color:#065f46';
-    res.innerHTML = '<strong style="display:block;margin-bottom:4px">Aap Eligible Hain!</strong>'
-      + '<span style="font-family:Clash Display,sans-serif;font-size:1.5rem;font-weight:700;display:block;margin:5px 0">' + fmt(maxLoan) + '</span>'
-      + '<p style="font-size:.78rem;margin-bottom:10px">EMI capacity: Rs.' + Math.round(maxEMI).toLocaleString('en-IN') + '/mo | No credit score impact</p>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#00b37e;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Apply Free - Get Best Offers</a>';
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#00875a,#00b37e);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span style="font-size:1.5rem">&#127881;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Congratulations! You Are Eligible</strong></div>'
+      + '<div style="background:rgba(255,255,255,.18);border-radius:12px;padding:16px;margin-bottom:12px">'
+      + '<div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.8;margin-bottom:4px">Maximum Loan Amount</div>'
+      + '<div style="font-family:Clash Display,sans-serif;font-size:2rem;font-weight:700">' + maxStr + '</div>'
+      + '</div>'
+      + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">'
+      + '<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:11px"><div style="font-size:.63rem;text-transform:uppercase;opacity:.8;font-weight:700">Best Rate From</div><div style="font-family:Clash Display,sans-serif;font-size:1rem;font-weight:700">' + estRate + ' p.a.</div></div>'
+      + '<div style="background:rgba(255,255,255,.15);border-radius:10px;padding:11px"><div style="font-size:.63rem;text-transform:uppercase;opacity:.8;font-weight:700">Max EMI / Month</div><div style="font-family:Clash Display,sans-serif;font-size:1rem;font-weight:700">' + emiStr + '</div></div>'
+      + '</div>'
+      + '<div style="font-size:.74rem;opacity:.85;margin-bottom:12px;background:rgba(0,0,0,.12);border-radius:8px;padding:8px 12px">&#128274; Soft check only — Zero CIBIL impact | Monthly Income: \u20b9' + income.toLocaleString('en-IN') + '</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#00875a;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Apply Free &#8212; Get Best Offers &#8594;</a>'
+      + '</div>';
   } else if (income >= minInc * 0.7 && cd.sc >= 620) {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:#fffbeb;border:1px solid #fcd34d;margin-top:16px;color:#92400e';
-    res.innerHTML = '<strong style="display:block;margin-bottom:4px">Partially Eligible</strong>'
-      + '<span style="font-family:Clash Display,sans-serif;font-size:1.4rem;font-weight:700;display:block;margin:5px 0">~' + fmt(Math.round(maxLoan * 0.7)) + '</span>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#d97706;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Expert Se Baat Karen</a>';
+    var pStr = '\u20b9' + ((maxLoan*0.7)>=100000?((maxLoan*0.7)/100000).toFixed(1)+'L':Math.round(maxLoan*0.7).toLocaleString('en-IN'));
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#b45309,#d97706);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><span style="font-size:1.5rem">&#9888;&#65039;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Partially Eligible</strong></div>'
+      + '<div style="background:rgba(255,255,255,.18);border-radius:12px;padding:14px;margin-bottom:12px">'
+      + '<div style="font-size:.7rem;text-transform:uppercase;opacity:.8;font-weight:700;margin-bottom:4px">Estimated Amount</div>'
+      + '<div style="font-family:Clash Display,sans-serif;font-size:1.8rem;font-weight:700">~' + pStr + '</div>'
+      + '</div>'
+      + '<div style="font-size:.8rem;opacity:.92;margin-bottom:12px;line-height:1.6">We have specialised lenders for your profile. Rate from ' + estRate + ' p.a.</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#b45309;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Speak to an Expert &#8594;</a>'
+      + '</div>';
   } else {
-    res.style.cssText = 'display:block;padding:16px;border-radius:10px;background:#fef2f2;border:1px solid #fca5a5;margin-top:16px;color:#991b1b';
-    res.innerHTML = '<strong style="display:block;margin-bottom:4px">Profile Needs Work</strong>'
-      + '<p style="font-size:.78rem;margin-bottom:10px">'
-      + (income < minInc ? 'Min income: Rs.' + minInc.toLocaleString('en-IN') + '/mo. ' : '')
-      + (cd.sc < 650 ? 'CIBIL 650+ recommended. ' : '') + '</p>'
-      + '<a href="#apply" onclick="openApplyForm()" style="display:inline-block;background:#dc2626;color:#fff;padding:9px 20px;border-radius:9999px;font-weight:700;font-size:.82rem;text-decoration:none">Free Guidance Len</a>';
+    var msg2 = (income < minInc ? 'Min income required for ' + ltype + ': \u20b9' + minInc.toLocaleString('en-IN') + '/month. ' : '');
+    msg2 += (cd.sc < 650 ? 'CIBIL score 650+ improves approval significantly. ' : '');
+    msg2 += 'We can suggest alternative options — speak to our experts for free.';
+    res.innerHTML = '<div style="background:linear-gradient(135deg,#b91c1c,#dc2626);border-radius:16px;padding:20px;color:#fff;animation:fadeUp .4s ease;margin-top:16px">'
+      + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><span style="font-size:1.5rem">&#128161;</span><strong style="font-family:Clash Display,sans-serif;font-size:1.05rem">Profile Needs Improvement</strong></div>'
+      + '<div style="font-size:.82rem;opacity:.95;line-height:1.7;margin-bottom:12px;background:rgba(0,0,0,.15);border-radius:8px;padding:10px">' + msg2 + '</div>'
+      + '<a href="#apply" onclick="openApplyForm()" style="display:block;background:#fff;color:#b91c1c;padding:11px;border-radius:10px;font-weight:700;font-size:.9rem;text-align:center;text-decoration:none">Get Free Guidance &#8594;</a>'
+      + '</div>';
   }
 }
 
@@ -3897,6 +4152,362 @@ window.addEventListener('load', function() {
     if (b.getBoundingClientRect().top < window.innerHeight) b.style.width = b.dataset.w + '%';
   });
 });
+
+
+/* ==================================================
+   EMI CALCULATOR — Correct Formula + Real-time UI
+   EMI = [P x R x (1+R)^N] / [(1+R)^N - 1]
+   P = Principal, R = Monthly rate, N = Months
+================================================== */
+var emiPresets = {
+  personal: { amt: 500000,   rate: 10.5, ten: 3  },
+  home:     { amt: 3000000,  rate: 8.4,  ten: 20 },
+  business: { amt: 2000000,  rate: 12.0, ten: 5  },
+  car:      { amt: 800000,   rate: 8.75, ten: 7  }
+};
+
+function emiPreset(type, btn) {
+  var p = emiPresets[type];
+  if (!p) return;
+  document.querySelectorAll('.epreset').forEach(function(b) { b.classList.remove('on'); });
+  btn.classList.add('on');
+  document.getElementById('emiAmt').value  = p.amt;
+  document.getElementById('emiRate').value = p.rate;
+  document.getElementById('emiTen').value  = p.ten;
+  calcEMI();
+}
+
+function calcEMI() {
+  /* --- Read values --- */
+  var P = parseFloat(document.getElementById('emiAmt').value)  || 500000;
+  var r = parseFloat(document.getElementById('emiRate').value) || 10.5;
+  var N = parseFloat(document.getElementById('emiTen').value)  || 3;
+
+  /* --- Validation --- */
+  if (P <= 0 || r <= 0 || N <= 0) return;
+
+  /* --- Compute --- */
+  var R    = r / (12 * 100);          // Monthly interest rate
+  var Nm   = N * 12;                   // Total months
+  var pw   = Math.pow(1 + R, Nm);      // (1+R)^N
+  var emi  = (P * R * pw) / (pw - 1); // EMI formula
+  var totalPay  = emi * Nm;
+  var totalInt  = totalPay - P;
+  var principalPct = Math.round((P / totalPay) * 100);
+
+  /* --- Update display labels --- */
+  document.getElementById('emiAmtV').textContent  = formatINR(P);
+  document.getElementById('emiRateV').textContent = r.toFixed(1) + '%';
+  document.getElementById('emiTenV').textContent  = N + (N === 1 ? ' Yr' : ' Yrs');
+
+  /* --- Update results --- */
+  document.getElementById('emiRes').innerHTML   = '<sup>&#8377;</sup>' + Math.round(emi).toLocaleString('en-IN');
+  document.getElementById('emiPrin').textContent = formatINR(P);
+  document.getElementById('emiInt').textContent  = formatINR(totalInt);
+  document.getElementById('emiTotal').textContent = formatINR(totalPay);
+  document.getElementById('emiPct').textContent  = principalPct + '%';
+
+  /* Update legend spans */
+  var pLeg = document.getElementById('emiPrinLeg');
+  var iLeg = document.getElementById('emiIntLeg');
+  if (pLeg) pLeg.textContent = formatINR(P);
+  if (iLeg) iLeg.textContent = formatINR(totalInt);
+
+  /* --- Update slider tracks --- */
+  updateSliderFill('emiAmt',  50000,   10000000);
+  updateSliderFill('emiRate', 6,       24);
+  updateSliderFill('emiTen',  1,       30);
+
+  /* --- Draw donut chart --- */
+  drawEmiDonut(P, totalInt);
+}
+
+function updateSliderFill(id, min, max) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var val = parseFloat(el.value);
+  var pct = ((val - min) / (max - min)) * 100;
+  el.style.background = 'linear-gradient(to right, var(--gold) ' + pct + '%, rgba(255,255,255,.15) ' + pct + '%)';
+}
+
+function formatINR(n) {
+  return '\u20b9' + Math.round(n).toLocaleString('en-IN');
+}
+
+function drawEmiDonut(P, I) {
+  var c = document.getElementById('emiChart');
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  var cx = c.width / 2, cy = c.height / 2;
+  var R = 38, r = 24;
+  var total = P + I;
+  if (total <= 0) return;
+  var pa  = (P / total) * 2 * Math.PI;
+  var gap = 0.04;
+
+  ctx.clearRect(0, 0, c.width, c.height);
+
+  /* Principal arc */
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, R, -Math.PI/2, -Math.PI/2 + pa - gap);
+  ctx.closePath();
+  ctx.fillStyle = '#0052cc';
+  ctx.fill();
+
+  /* Interest arc */
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, R, -Math.PI/2 + pa, -Math.PI/2 + 2*Math.PI - gap);
+  ctx.closePath();
+  ctx.fillStyle = '#f5a623';
+  ctx.fill();
+
+  /* Center hole */
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+  ctx.fillStyle = '#f7f9fc';
+  ctx.fill();
+}
+
+/* Init on page load */
+calcEMI();
+
+
+
+
+
+/* ==================================================
+   SMART LOAN AI CHATBOT — Step-based conversation
+   Lead data stored in localStorage + console logged
+================================================== */
+(function() {
+
+  /* ── State ── */
+  var slaiOpen  = false;
+  var slaiStep  = 0;
+  var slaiLead  = { loanType:'', name:'', phone:'', occupation:'', income:'', loanAmount:'' };
+  var slaiTypingTimer = null;
+
+  /* ── Toggle open/close ── */
+  window.slaiToggle = function() {
+    slaiOpen = !slaiOpen;
+    var box = document.getElementById('slaiBox');
+    var btn = document.getElementById('slaiBtn');
+    box.classList.toggle('open', slaiOpen);
+    btn.classList.toggle('open', slaiOpen);
+    if (slaiOpen && slaiStep === 0) {
+      slaiStep = 1;
+      setTimeout(function() { slaiGreet(); }, 400);
+    }
+  };
+
+  /* ── Send text from input ── */
+  window.slaiSendText = function() {
+    var inp = document.getElementById('slaiInput');
+    var text = (inp.value || '').trim();
+    if (!text) return;
+    inp.value = '';
+    slaiHandleInput(text);
+  };
+
+  /* ── Chip click ── */
+  window.slaiChipClick = function(val) {
+    document.getElementById('slaiChips').innerHTML = '';
+    slaiHandleInput(val);
+  };
+
+  /* ── Add bot message (with typing delay) ── */
+  function slaiBot(text, delay) {
+    delay = delay || 600;
+    var msgs = document.getElementById('slaiMsgs');
+    var chips = document.getElementById('slaiChips');
+
+    /* Show typing */
+    var typEl = document.createElement('div');
+    typEl.className = 'slai-typing';
+    typEl.id = 'slaiTyping';
+    typEl.innerHTML = '<div class="slai-msg-bot-icon">🤖</div><div class="slai-typing-dots"><div class="slai-dot"></div><div class="slai-dot"></div><div class="slai-dot"></div></div>';
+    msgs.appendChild(typEl);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    return new Promise(function(resolve) {
+      setTimeout(function() {
+        var t = document.getElementById('slaiTyping');
+        if (t) t.remove();
+
+        var now = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
+        var el = document.createElement('div');
+        el.className = 'slai-msg-bot';
+        el.innerHTML = '<div class="slai-msg-bot-icon">🤖</div>'
+          + '<div><div class="slai-bubble-bot">' + text + '</div>'
+          + '<div class="slai-time">' + now + '</div></div>';
+        msgs.appendChild(el);
+        msgs.scrollTop = msgs.scrollHeight;
+        resolve();
+      }, delay);
+    });
+  }
+
+  /* ── Add user message ── */
+  function slaiUser(text) {
+    var msgs = document.getElementById('slaiMsgs');
+    var now  = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
+    var el   = document.createElement('div');
+    el.className = 'slai-msg-user';
+    el.innerHTML = '<div><div class="slai-bubble-user">' + text + '</div>'
+      + '<div class="slai-time" style="text-align:right">' + now + '</div></div>';
+    msgs.appendChild(el);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  /* ── Set chips ── */
+  function slaiSetChips(options) {
+    var chips = document.getElementById('slaiChips');
+    chips.innerHTML = options.map(function(o) {
+      return '<button class="slai-chip" onclick="slaiChipClick(\'' + o.replace(/'/g, "\\'") + '\')">' + o + '</button>';
+    }).join('');
+  }
+
+  /* ── Greet (Step 1: Ask loan type) ── */
+  function slaiGreet() {
+    slaiBot('👋 Hello! I am <strong>Smart Loan AI</strong> — your personal AI loan advisor.<br/>I can help you find the <strong>best loan offers from 150+ banks</strong> in minutes.', 700).then(function() {
+      return slaiBot('Let me start by asking — <strong>what type of loan do you need?</strong>', 800);
+    }).then(function() {
+      slaiStep = 1;
+      slaiSetChips(['Personal Loan', 'Home Loan', 'Business Loan', 'Car Loan', 'Loan Against Property']);
+    });
+  }
+
+  /* ── Handle user input based on step ── */
+  function slaiHandleInput(val) {
+    slaiUser(val);
+    clearChips();
+
+    if (slaiStep === 1) {
+      slaiLead.loanType = val;
+      slaiStep = 2;
+      slaiBot('Great choice! A <strong>' + val + '</strong> — we have amazing offers for that. 💰', 600).then(function() {
+        return slaiBot('May I know your <strong>full name</strong>?', 700);
+      });
+
+    } else if (slaiStep === 2) {
+      if (val.length < 2) { slaiBot('Please enter a valid name.', 400); return; }
+      slaiLead.name = val;
+      slaiStep = 3;
+      slaiBot('Nice to meet you, <strong>' + val + '</strong>! 😊', 500).then(function() {
+        return slaiBot('What is your <strong>mobile number</strong>? (10 digits)', 700);
+      });
+
+    } else if (slaiStep === 3) {
+      var phone = val.replace(/\D/g, '');
+      if (phone.length !== 10) { slaiBot('⚠️ Please enter a valid 10-digit mobile number.', 400); return; }
+      slaiLead.phone = phone;
+      slaiStep = 4;
+      slaiBot('Got it! Your number is saved securely. 🔒', 500).then(function() {
+        return slaiBot('What is your <strong>occupation</strong>?', 700);
+      }).then(function() {
+        slaiSetChips(['Salaried', 'Self Employed', 'Business Owner']);
+      });
+
+    } else if (slaiStep === 4) {
+      slaiLead.occupation = val;
+      slaiStep = 5;
+      slaiBot('Perfect! <strong>' + val + '</strong> profile noted. ✅', 500).then(function() {
+        return slaiBot('What is your approximate <strong>monthly income</strong>?', 700);
+      }).then(function() {
+        slaiSetChips(['Below ₹15,000', '₹15K – ₹30K', '₹30K – ₹60K', '₹60K – ₹1L', 'Above ₹1L']);
+      });
+
+    } else if (slaiStep === 5) {
+      slaiLead.income = val;
+      slaiStep = 6;
+      slaiBot('Excellent! That helps us find the right lenders for you.', 500).then(function() {
+        return slaiBot('How much <strong>loan amount</strong> do you need?', 700);
+      }).then(function() {
+        slaiSetChips(['₹50K – ₹2L', '₹2L – ₹5L', '₹5L – ₹15L', '₹15L – ₹50L', 'Above ₹50L']);
+      });
+
+    } else if (slaiStep === 6) {
+      slaiLead.loanAmount = val;
+      slaiStep = 7;
+      slaiSaveLead();
+      slaiBot('🔍 We are comparing <strong>150+ banks and NBFCs</strong> for you...', 700).then(function() {
+        return slaiBot('Please wait while our AI finds the <strong>best matching offers</strong> for your profile.', 1000);
+      }).then(function() {
+        return slaiBot('✅ <strong>Analysis complete!</strong><br/>Based on your profile, we found <strong>great loan options</strong> with interest rates starting from as low as <strong>8.4% p.a.</strong> 🎉', 1200);
+      }).then(function() {
+        slaiStep = 8;
+        return slaiBot('Choose how you would like to receive your <strong>personalised loan offers</strong>:', 700);
+      }).then(function() {
+        slaiShowCTA();
+      });
+
+    } else if (slaiStep === 8) {
+      if (val.includes('WhatsApp')) {
+        window.open('https://wa.me/918815076343?text=' + encodeURIComponent('Hi! I used Smart Loan AI. Name: ' + slaiLead.name + ', Loan: ' + slaiLead.loanType + ', Amount: ' + slaiLead.loanAmount + ', Income: ' + slaiLead.income), '_blank');
+        slaiBot('Opening WhatsApp... Our advisor will send your personalised offers shortly! 💬', 500);
+      } else if (val.includes('Call')) {
+        slaiBot('✅ Callback requested! Our loan advisor will call you on <strong>' + slaiLead.phone + '</strong> within 30 minutes. 📞', 500).then(function() {
+          return slaiBot('Thank you for using <strong>Smart Loan AI</strong>! Have a great day! 🌟', 800);
+        });
+      } else {
+        slaiBot('Got it! Our team will reach out to you shortly. 😊', 500);
+      }
+    }
+  }
+
+  /* ── Show final CTA buttons ── */
+  function slaiShowCTA() {
+    var chips = document.getElementById('slaiChips');
+    chips.innerHTML = '<button class="slai-chip" style="background:linear-gradient(135deg,#25d366,#1da851);color:#fff;border-color:#25d366" onclick="slaiChipClick(\'Get Best Offers on WhatsApp\')">💬 Get Offers on WhatsApp</button>'
+      + '<button class="slai-chip" style="background:linear-gradient(135deg,#0052cc,#003eb5);color:#fff;border-color:#0052cc" onclick="slaiChipClick(\'Request Call Back\')">📞 Request Call Back</button>';
+  }
+
+  function clearChips() {
+    document.getElementById('slaiChips').innerHTML = '';
+  }
+
+  /* ── Save lead to localStorage + console ── */
+  function slaiSaveLead() {
+    try {
+      slaiLead.source    = 'Smart Loan AI Chatbot';
+      slaiLead.id        = 'SLAI-' + Date.now();
+      slaiLead.date      = new Date().toLocaleDateString('en-IN');
+      slaiLead.time      = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
+      slaiLead.status    = 'New';
+
+      /* Log to console */
+      console.log('%c Smart Loan AI — New Lead ', 'background:#00875a;color:#fff;font-weight:bold;padding:2px 8px;border-radius:4px;');
+      console.table(slaiLead);
+
+      /* Save to localStorage with main leads */
+      var leads = JSON.parse(localStorage.getItem('tlf_leads') || '[]');
+      leads.unshift({
+        name:     slaiLead.name,
+        phone:    slaiLead.phone,
+        loanType: slaiLead.loanType,
+        amount:   slaiLead.loanAmount,
+        employ:   slaiLead.occupation,
+        income:   slaiLead.income,
+        source:   slaiLead.source,
+        id:       slaiLead.id,
+        date:     slaiLead.date,
+        time:     slaiLead.time,
+        status:   'New'
+      });
+      localStorage.setItem('tlf_leads', JSON.stringify(leads));
+
+      /* Also save chatbot-specific leads */
+      var cLeads = JSON.parse(localStorage.getItem('slai_leads') || '[]');
+      cLeads.unshift(slaiLead);
+      localStorage.setItem('slai_leads', JSON.stringify(cLeads));
+
+    } catch(e) { console.warn('Lead save error:', e); }
+  }
+
+})();
+
 
 </script>
 </body>
