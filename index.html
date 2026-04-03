@@ -1784,295 +1784,625 @@ footer {
   .nav-logo-tagline{ font-size: .58rem; }
 }
 
-/* ============================================================
-   SMART LOAN AI CHATBOT — Premium fintech design
-   Green + White theme, floating bottom-right
-============================================================ */
 
-/* Floating trigger button */
-#slaiBtn {
+/* ================================================================
+   ARTH — PREMIUM FINANCE CHATBOT
+   Inspired by top-tier fintech: Bajaj Finserv, HDFC, PolicyBazaar
+   Design language: Clean white + deep navy + emerald green
+   Refined, institutional, trust-building
+================================================================ */
+
+/* ── Floating launcher button ── */
+#arthBtn {
   position: fixed;
-  bottom: 86px;
-  right: 20px;
-  z-index: 9000;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00b37e, #007a55);
+  bottom: 90px;
+  right: 22px;
+  z-index: 9500;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #0b3d2e, #00875a);
   border: none;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 24px rgba(0,179,126,.5);
-  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  gap: 1px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,.12),
+    0 12px 28px rgba(0,135,90,.35),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  transition: all .25s cubic-bezier(.4,0,.2,1);
   outline: none;
 }
-#slaiBtn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 36px rgba(0,179,126,.6);
+#arthBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 10px rgba(0,0,0,.15),
+    0 18px 36px rgba(0,135,90,.45),
+    inset 0 1px 0 rgba(255,255,255,.15);
 }
-#slaiBtn.open { transform: scale(1.05) rotate(10deg); }
-.slai-btn-icon { font-size: 1.6rem; line-height: 1; }
-.slai-notif {
+#arthBtn.ab-open {
+  background: linear-gradient(145deg, #1a2942, #0d2137);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.2),
+    0 12px 28px rgba(11,23,38,.3);
+}
+
+/* Rupee icon inside button */
+.ab-rupee {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Clash Display', sans-serif;
+  line-height: 1;
+  letter-spacing: -.02em;
+  animation: abRupeeFloat 3s ease-in-out infinite;
+}
+@keyframes abRupeeFloat {
+  0%,100% { transform: translateY(0) scale(1);   opacity: 1;    }
+  35%      { transform: translateY(-3px) scale(1.08); opacity: 1; }
+  65%      { transform: translateY(-1px) scale(1.04); opacity: .95; }
+}
+#arthBtn.ab-open .ab-rupee { animation: none; }
+.ab-close-x {
+  display: none;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,.8);
+  font-weight: 300;
+}
+#arthBtn.ab-open .ab-rupee  { display: none; }
+#arthBtn.ab-open .ab-close-x{ display: flex; }
+
+/* Label under button */
+.ab-label {
+  font-size: .52rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+#arthBtn.ab-open .ab-label { color: rgba(255,255,255,.5); }
+
+/* Pulse ring */
+.ab-pulse {
   position: absolute;
-  top: -3px; right: -3px;
+  width: 100%; height: 100%;
+  border-radius: 16px;
+  border: 2px solid rgba(0,179,126,.5);
+  animation: abPulseRing 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.ab-pulse:nth-child(2) { animation-delay: 1.2s; }
+@keyframes abPulseRing {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(1.55); opacity: 0;  }
+}
+#arthBtn.ab-open .ab-pulse { display: none; }
+
+/* Notification dot */
+.ab-notif {
+  position: absolute;
+  top: -5px; right: -5px;
   width: 18px; height: 18px;
   background: #e53935;
-  border: 2px solid #fff;
+  border: 2.5px solid #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: .58rem; font-weight: 800; color: #fff;
+  box-shadow: 0 2px 6px rgba(229,57,53,.4);
+  animation: abNotifPop .6s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+@keyframes abNotifPop {
+  0%   { transform: scale(0); }
+  100% { transform: scale(1); }
 }
 
-/* Chat window */
-#slaiBox {
+/* ── Chat window ── */
+#arthBox {
   position: fixed;
-  bottom: 158px;
-  right: 20px;
-  z-index: 9000;
-  width: 360px;
-  max-height: 560px;
-  background: #fff;
+  bottom: 162px;
+  right: 22px;
+  z-index: 9400;
+  width: 380px;
+  height: 580px;
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.22);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.06),
+    0 8px 16px rgba(0,0,0,.08),
+    0 24px 48px rgba(0,0,0,.12),
+    0 48px 80px rgba(0,0,0,.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: scale(0.85) translateY(20px);
   opacity: 0;
+  transform: translateY(16px) scale(.97);
   pointer-events: none;
-  transition: all .3s cubic-bezier(.34,1.56,.64,1);
+  transition: opacity .28s ease, transform .28s cubic-bezier(.34,1.2,.64,1);
   transform-origin: bottom right;
-  border: 1.5px solid #e4eaf2;
 }
-#slaiBox.open {
-  transform: scale(1) translateY(0);
+#arthBox.ab-visible {
   opacity: 1;
+  transform: translateY(0) scale(1);
   pointer-events: all;
 }
-@media (max-width: 420px) {
-  #slaiBox {
+@media (max-width: 440px) {
+  #arthBox {
     width: calc(100vw - 16px);
     right: 8px;
-    bottom: 142px;
-    max-height: calc(100vh - 160px);
+    bottom: 160px;
+    height: calc(100dvh - 180px);
+    max-height: 560px;
+    border-radius: 18px;
   }
+  #arthBtn { right: 14px; bottom: 86px; }
 }
 
-/* Header */
-.slai-head {
-  background: linear-gradient(135deg, #00875a, #00b37e);
-  padding: 16px 18px;
+/* ── Header ── */
+.ab-head {
+  background: linear-gradient(135deg, #0b3d2e 0%, #00875a 60%, #00a36c 100%);
+  padding: 16px 18px 14px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.ab-head::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -20px;
+  width: 120px; height: 120px;
+  background: rgba(255,255,255,.05);
+  border-radius: 50%;
+}
+.ab-head::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; left: 20px;
+  width: 80px; height: 80px;
+  background: rgba(255,255,255,.04);
+  border-radius: 50%;
+}
+.ab-head-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-shrink: 0;
+  position: relative; z-index: 1;
 }
-.slai-head-left { display: flex; align-items: center; gap: 11px; }
-.slai-avatar {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,.2);
-  border-radius: 50%;
+.ab-head-left { display: flex; align-items: center; gap: 12px; }
+.ab-logo-wrap {
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,.15);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
   flex-shrink: 0;
+  backdrop-filter: blur(8px);
 }
-.slai-head-name {
+.ab-logo-symbol {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
   font-family: 'Clash Display', sans-serif;
-  font-size: .95rem;
+  line-height: 1;
+}
+.ab-name-block { display: flex; flex-direction: column; gap: 1px; }
+.ab-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
+  letter-spacing: -.01em;
   line-height: 1.2;
 }
-.slai-head-sub {
-  font-size: .65rem;
-  color: rgba(255,255,255,.8);
-  line-height: 1.3;
+.ab-tagline {
+  font-size: .67rem;
+  color: rgba(255,255,255,.75);
+  font-weight: 500;
+  letter-spacing: .01em;
 }
-.slai-online {
+.ab-status {
   display: flex; align-items: center; gap: 5px;
-  font-size: .62rem; color: rgba(255,255,255,.85);
-}
-.slai-online-dot {
-  width: 6px; height: 6px;
-  background: #86efac;
-  border-radius: 50%;
-  animation: slaiPulse 1.2s ease infinite;
-}
-@keyframes slaiPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .4; }
-}
-.slai-close {
-  background: rgba(255,255,255,.15);
-  border: none;
-  color: #fff;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background .2s;
-  flex-shrink: 0;
-}
-.slai-close:hover { background: rgba(255,255,255,.3); }
-
-/* Messages area */
-.slai-msgs {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #f7faf8;
-  scroll-behavior: smooth;
-}
-.slai-msgs::-webkit-scrollbar { width: 3px; }
-.slai-msgs::-webkit-scrollbar-thumb { background: #c8d8d0; border-radius: 4px; }
-
-/* Bot message bubble */
-.slai-msg-bot {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  animation: slaiMsgIn .3s ease;
-}
-@keyframes slaiMsgIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.slai-msg-bot-icon {
-  width: 28px; height: 28px;
-  background: linear-gradient(135deg,#00875a,#00b37e);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .8rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.slai-bubble-bot {
-  background: #fff;
-  border: 1.5px solid #e4eaf2;
-  border-radius: 4px 16px 16px 16px;
-  padding: 10px 13px;
-  font-size: .83rem;
-  color: #0b1726;
-  line-height: 1.55;
-  max-width: 85%;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
-.slai-time {
-  font-size: .6rem;
-  color: #94a3b8;
   margin-top: 3px;
 }
+.ab-status-dot {
+  width: 6px; height: 6px;
+  background: #6ee7b7;
+  border-radius: 50%;
+  animation: abStatusBlink 1.8s ease infinite;
+}
+@keyframes abStatusBlink {
+  0%,100% { opacity: 1;   transform: scale(1);    }
+  50%      { opacity: .4;  transform: scale(.85);  }
+}
+.ab-status-txt {
+  font-size: .62rem;
+  color: rgba(255,255,255,.7);
+  font-weight: 500;
+}
+.ab-head-close {
+  background: rgba(0,0,0,.15);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  font-size: .85rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  position: relative; z-index: 1;
+  flex-shrink: 0;
+}
+.ab-head-close:hover {
+  background: rgba(0,0,0,.28);
+  color: #fff;
+  border-color: rgba(255,255,255,.3);
+}
 
-/* User bubble */
-.slai-msg-user {
+/* Step progress bar */
+.ab-progress-bar {
+  margin-top: 12px;
+  position: relative; z-index: 1;
+}
+.ab-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: .6rem;
+  color: rgba(255,255,255,.6);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.ab-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ab-progress-fill {
+  height: 100%;
+  background: rgba(255,255,255,.9);
+  border-radius: 2px;
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+  width: 0%;
+}
+
+/* ── Messages area ── */
+.ab-msgs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f8fafb;
+  scroll-behavior: smooth;
+}
+.ab-msgs::-webkit-scrollbar { width: 3px; }
+.ab-msgs::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Bot message */
+.ab-bot-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  animation: abMsgSlide .28s ease;
+}
+@keyframes abMsgSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.ab-bot-icon {
+  width: 30px; height: 30px;
+  background: linear-gradient(135deg, #0b3d2e, #00875a);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -.02em;
+  box-shadow: 0 2px 8px rgba(0,135,90,.25);
+}
+.ab-bot-bubble {
+  background: #fff;
+  border: 1px solid #e8eef4;
+  border-radius: 3px 14px 14px 14px;
+  padding: 11px 14px;
+  font-size: .84rem;
+  color: #1a2942;
+  line-height: 1.6;
+  max-width: 82%;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* User message */
+.ab-user-row {
   display: flex;
   justify-content: flex-end;
-  animation: slaiMsgIn .3s ease;
+  animation: abMsgSlide .28s ease;
 }
-.slai-bubble-user {
-  background: linear-gradient(135deg, #00875a, #00b37e);
+.ab-user-bubble {
+  background: linear-gradient(135deg, #0b3d2e, #00875a);
   color: #fff;
-  border-radius: 16px 4px 16px 16px;
-  padding: 10px 13px;
-  font-size: .83rem;
-  line-height: 1.55;
-  max-width: 85%;
+  border-radius: 14px 3px 14px 14px;
+  padding: 11px 14px;
+  font-size: .84rem;
+  line-height: 1.6;
+  max-width: 82%;
+  box-shadow: 0 2px 10px rgba(0,135,90,.28);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Quick-reply chips */
-.slai-chips {
+/* Message timestamp */
+.ab-ts {
+  font-size: .58rem;
+  color: #94a3b8;
+  margin-top: 4px;
+  padding: 0 2px;
+}
+.ab-ts.right { text-align: right; }
+
+/* ── Typing indicator ── */
+.ab-typing-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  animation: abMsgSlide .2s ease;
+}
+.ab-typing-bubble {
+  background: #fff;
+  border: 1px solid #e8eef4;
+  border-radius: 3px 14px 14px 14px;
+  padding: 12px 16px;
+  display: flex; gap: 4px; align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.ab-dot {
+  width: 7px; height: 7px;
+  background: #94a3b8;
+  border-radius: 50%;
+  animation: abDotWave 1.3s ease infinite;
+}
+.ab-dot:nth-child(2) { animation-delay: .18s; }
+.ab-dot:nth-child(3) { animation-delay: .36s; }
+@keyframes abDotWave {
+  0%,60%,100% { transform: translateY(0);   opacity: .4; }
+  30%          { transform: translateY(-5px); opacity: 1;  }
+}
+
+/* ── Quick reply chips ── */
+.ab-chips {
+  padding: 6px 14px 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  padding: 0 14px 10px;
-  background: #f7faf8;
+  background: #f8fafb;
+  border-top: 1px solid #eef2f7;
 }
-.slai-chip {
+.ab-chip {
   background: #fff;
-  border: 1.5px solid #00b37e;
-  color: #00875a;
+  border: 1.5px solid #d1e8df;
+  color: #0b6646;
   padding: 7px 13px;
   border-radius: 20px;
   font-size: .78rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: all .2s;
-  white-space: nowrap;
+  transition: all .18s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
-.slai-chip:hover {
-  background: #00b37e;
+.ab-chip:hover, .ab-chip:active {
+  background: linear-gradient(135deg, #0b3d2e, #00875a);
   color: #fff;
+  border-color: transparent;
   transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0,135,90,.3);
 }
 
-/* Text input row */
-.slai-input-row {
+/* ── Input row ── */
+.ab-input-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-top: 1px solid #e4eaf2;
+  gap: 9px;
+  padding: 10px 14px 12px;
   background: #fff;
+  border-top: 1px solid #eef2f7;
   flex-shrink: 0;
 }
-.slai-input {
+.ab-input {
   flex: 1;
-  padding: 9px 13px;
-  border: 1.5px solid #e4eaf2;
-  border-radius: 20px;
-  font-size: .83rem;
+  padding: 10px 14px;
+  border: 1.5px solid #e2eaf3;
+  border-radius: 12px;
+  font-size: .84rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   outline: none;
-  transition: border-color .2s;
-  background: #f7faf8;
+  transition: border-color .2s, box-shadow .2s;
+  background: #f8fafb;
+  color: #1a2942;
+  min-width: 0;
 }
-.slai-input:focus { border-color: #00b37e; background: #fff; }
-.slai-send {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg,#00875a,#00b37e);
-  border: none; border-radius: 50%;
+.ab-input::placeholder { color: #94a3b8; }
+.ab-input:focus {
+  border-color: #00875a;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,135,90,.1);
+}
+.ab-send {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, #0b3d2e, #00875a);
+  border: none;
+  border-radius: 12px;
   color: #fff;
-  font-size: 1rem;
+  font-size: .9rem;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all .2s;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,135,90,.3);
 }
-.slai-send:hover { transform: scale(1.1); }
+.ab-send:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(0,135,90,.4);
+}
 
-/* Typing indicator */
-.slai-typing {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.slai-typing-dots {
+/* ── Powered by footer ── */
+.ab-footer {
+  padding: 7px 14px 9px;
   background: #fff;
-  border: 1.5px solid #e4eaf2;
-  border-radius: 4px 16px 16px 16px;
-  padding: 10px 14px;
+  border-top: 1px solid #f0f4f8;
   display: flex;
-  gap: 4px;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
 }
-.slai-dot {
-  width: 6px; height: 6px;
-  background: #94a3b8;
+.ab-footer-txt {
+  font-size: .6rem;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.ab-footer-brand {
+  font-size: .6rem;
+  color: #00875a;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* ── Welcome card (first message) ── */
+.ab-welcome-card {
+  background: linear-gradient(135deg, #f0fdf7, #e6faf1);
+  border: 1px solid #bbf0d7;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 4px;
+}
+.ab-welcome-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #0b3d2e;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.ab-welcome-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ab-welcome-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .76rem;
+  color: #1a4d35;
+  font-weight: 500;
+}
+.ab-welcome-dot {
+  width: 5px; height: 5px;
+  background: #00875a;
   border-radius: 50%;
-  animation: slaiDot 1.2s ease infinite;
+  flex-shrink: 0;
 }
-.slai-dot:nth-child(2) { animation-delay: .2s; }
-.slai-dot:nth-child(3) { animation-delay: .4s; }
-@keyframes slaiDot {
-  0%, 80%, 100% { transform: scale(.7); opacity: .5; }
-  40% { transform: scale(1); opacity: 1; }
+
+/* ── Loan type option cards ── */
+.ab-loan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 6px;
+}
+.ab-loan-card {
+  background: #fff;
+  border: 1.5px solid #e2eaf3;
+  border-radius: 12px;
+  padding: 11px 12px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.ab-loan-card:hover, .ab-loan-card:active {
+  border-color: #00875a;
+  background: linear-gradient(135deg, #f0fdf7, #e6faf1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,135,90,.15);
+}
+.ab-loan-icon { font-size: 1.2rem; line-height: 1; }
+.ab-loan-name {
+  font-size: .76rem;
+  font-weight: 700;
+  color: #1a2942;
+  line-height: 1.2;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.ab-loan-rate {
+  font-size: .65rem;
+  color: #00875a;
+  font-weight: 600;
+}
+
+/* ── Result card ── */
+.ab-result-card {
+  background: linear-gradient(135deg, #0b3d2e, #00875a);
+  border-radius: 14px;
+  padding: 16px;
+  color: #fff;
+  animation: abMsgSlide .35s ease;
+}
+.ab-result-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  opacity: .85;
+  margin-bottom: 3px;
+}
+.ab-result-amount {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.ab-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.ab-result-item {
+  background: rgba(255,255,255,.12);
+  border-radius: 9px;
+  padding: 9px 11px;
+}
+.ab-result-item-label {
+  font-size: .6rem;
+  opacity: .75;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 2px;
+}
+.ab-result-item-val {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
 }
 
 </style>
@@ -3124,10 +3454,10 @@ footer {
         <div class="ccard-val">8815076434</div>
         <div class="ccard-act">Chat Now →</div>
       </a>
-      <a href="/cdn-cgi/l/email-protection#cbbfa3aea7a4aaa5ada4b9aeb8bf8baca6aaa2a7e5a8a4a6" class="ccard rv d3">
+      <a href="mailto:theloanforest@gmail.com" class="ccard rv d3">
         <div class="ccard-ring" style="background:#ede9fe">✉️</div>
         <div class="ccard-lbl">Email</div>
-        <div class="ccard-val" style="font-size:.82rem"><span class="__cf_email__" data-cfemail="62160a070e0d030c040d1007111622050f030b0e4c010d0f">[email&#160;protected]</span></div>
+        <div class="ccard-val" style="font-size:.82rem">theloanforest@gmail.com</div>
         <div class="ccard-act">Write to Us →</div>
       </a>
       <div class="ccard rv d4">
@@ -3179,7 +3509,7 @@ footer {
         <div class="fb-contact">
           <div class="fbc"><span class="fc-ico">📞</span><a href="tel:7000530993">7000530993</a></div>
           <div class="fbc"><span class="fc-ico">💬</span><a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank">WhatsApp: 8815076434</a></div>
-          <div class="fbc"><span class="fc-ico">✉️</span><a href="/cdn-cgi/l/email-protection#88fce0ede4e7e9e6eee7faedfbfcc8efe5e9e1e4a6ebe7e5"><span class="__cf_email__" data-cfemail="1c68747970737d727a736e796f685c7b717d7570327f7371">[email&#160;protected]</span></a></div>
+          <div class="fbc"><span class="fc-ico">✉️</span><a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></div>
           <div class="fbc"><span class="fc-ico">📍</span><span>Gwalior, Madhya Pradesh, India</span></div>
         </div>
         <div class="f-certs" style="margin-top:18px">
@@ -3210,7 +3540,7 @@ footer {
           <a href="#" class="fs-btn">f</a>
           <a href="#" class="fs-btn">📸</a>
           <a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank" class="fs-btn">💬</a>
-          <a href="/cdn-cgi/l/email-protection#f2869a979e9d939c949d80978186b2959f939b9edc919d9f" class="fs-btn">✉</a>
+          <a href="mailto:theloanforest@gmail.com" class="fs-btn">✉</a>
         </div>
       </div>
       <div class="f-col f-newsletter">
@@ -3239,64 +3569,97 @@ footer {
 
 
 
+<!-- Scroll to top -->
+<button id="scrollTop"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  style="position:fixed;bottom:90px;right:90px;width:40px;height:40px;
+         border-radius:10px;background:#fff;border:1.5px solid #c9d6e8;
+         display:flex;align-items:center;justify-content:center;
+         font-size:.9rem;color:#4a6785;cursor:pointer;
+         box-shadow:0 2px 8px rgba(11,23,38,.08);
+         opacity:0;pointer-events:none;
+         transition:all .28s ease;z-index:8499"
+  aria-label="Back to top">&#8593;</button>
+
 <!-- ================================================
-     SMART LOAN AI CHATBOT
-     Floating bottom-right, step-based conversation
+     ARTH — PREMIUM LOAN ADVISOR CHATBOT
+     by The Loan Forest
 ================================================ -->
 
-<!-- Floating trigger button -->
-
-<!-- Scroll to top button -->
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
-  title="Back to top"
-  style="position:fixed;bottom:86px;right:84px;width:40px;height:40px;border-radius:50%;
-         background:#fff;border:1.5px solid #c9d6e8;display:flex;align-items:center;
-         justify-content:center;font-size:.95rem;color:#4a6785;cursor:pointer;
-         box-shadow:0 4px 16px rgba(11,23,38,.08);opacity:0;pointer-events:none;
-         transition:all .28s ease;z-index:8499">↑</button>
-
-<button id="slaiBtn" onclick="slaiToggle()" aria-label="Open Smart Loan AI Chatbot">
-  <span class="slai-btn-icon">🤖</span>
-  <span class="slai-notif">1</span>
+<!-- Launcher button -->
+<button id="arthBtn" onclick="arthToggle()" aria-label="Open Arth — Your Smart Loan Guide">
+  <span class="ab-pulse"></span>
+  <span class="ab-pulse"></span>
+  <span class="ab-notif" id="arthNotif">1</span>
+  <span class="ab-rupee">&#8377;</span>
+  <span class="ab-close-x">&#10005;</span>
+  <span class="ab-label">Arth</span>
 </button>
 
 <!-- Chat window -->
-<div id="slaiBox" role="dialog" aria-label="Smart Loan AI Chatbot">
+<div id="arthBox" role="dialog" aria-modal="true" aria-label="Arth Loan Advisor">
 
   <!-- Header -->
-  <div class="slai-head">
-    <div class="slai-head-left">
-      <div class="slai-avatar">🤖</div>
-      <div>
-        <div class="slai-head-name">Smart Loan AI</div>
-        <div class="slai-head-sub">Your Personal AI Loan Advisor</div>
-        <div class="slai-online">
-          <span class="slai-online-dot"></span>
-          Compare. Choose. Save Money.
+  <div class="ab-head">
+    <div class="ab-head-top">
+      <div class="ab-head-left">
+        <div class="ab-logo-wrap">
+          <span class="ab-logo-symbol">&#8377;</span>
+        </div>
+        <div class="ab-name-block">
+          <div class="ab-name">Arth</div>
+          <div class="ab-tagline">Your Smart Loan Guide</div>
+          <div class="ab-status">
+            <span class="ab-status-dot"></span>
+            <span class="ab-status-txt">Online &middot; Typically replies instantly</span>
+          </div>
         </div>
       </div>
+      <button class="ab-head-close" onclick="arthToggle()" aria-label="Close">&#10005;</button>
     </div>
-    <button class="slai-close" onclick="slaiToggle()" aria-label="Close">✕</button>
+    <div class="ab-progress-bar" id="arthProgressBar" style="display:none">
+      <div class="ab-progress-label">
+        <span id="arthProgressLabel">Getting Started</span>
+        <span id="arthProgressPct">0%</span>
+      </div>
+      <div class="ab-progress-track">
+        <div class="ab-progress-fill" id="arthProgressFill"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Messages -->
-  <div class="slai-msgs" id="slaiMsgs"></div>
+  <div class="ab-msgs" id="arthMsgs"></div>
 
-  <!-- Quick-reply chips -->
-  <div class="slai-chips" id="slaiChips"></div>
+  <!-- Chips -->
+  <div class="ab-chips" id="arthChips"></div>
 
-  <!-- Text input -->
-  <div class="slai-input-row">
+  <!-- Input -->
+  <div class="ab-input-row">
     <input
       type="text"
-      class="slai-input"
-      id="slaiInput"
-      placeholder="Type your message..."
-      onkeydown="if(event.key==='Enter') slaiSendText()"
+      class="ab-input"
+      id="arthInput"
+      placeholder="Type a message..."
+      onkeydown="if(event.key==='Enter')arthSendText()"
       autocomplete="off"
+      maxlength="200"
     />
-    <button class="slai-send" onclick="slaiSendText()" aria-label="Send">➤</button>
+    <button class="ab-send" onclick="arthSendText()" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
   </div>
+
+  <!-- Footer -->
+  <div class="ab-footer">
+    <span class="ab-footer-txt">Powered by</span>
+    <span class="ab-footer-brand">The Loan Forest</span>
+    <span class="ab-footer-txt">&middot; 150+ Banks</span>
+  </div>
+
 </div>
 
 
@@ -3476,7 +3839,9 @@ footer {
 </style>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script>
+
 
 /* ==================================================
    CORE UTILITIES
@@ -4272,225 +4637,403 @@ function drawEmiDonut(P, I) {
 /* Init on page load */
 calcEMI();
 
+/* ================================================================
+   ARTH CHATBOT
+================================================================ */
+/* ================================================================
+   ARTH — PREMIUM LOAN ADVISOR CHATBOT
+   The Loan Forest | Step-based | Lead capture | localStorage
+================================================================ */
+(function () {
+  'use strict';
 
-
-
-
-/* ==================================================
-   SMART LOAN AI CHATBOT — Step-based conversation
-   Lead data stored in localStorage + console logged
-================================================== */
-(function() {
+  /* ── Config ── */
+  var WA_NUM = '918815076434';
+  var STEPS  = 6;
 
   /* ── State ── */
-  var slaiOpen  = false;
-  var slaiStep  = 0;
-  var slaiLead  = { loanType:'', name:'', phone:'', occupation:'', income:'', loanAmount:'' };
-  var slaiTypingTimer = null;
+  var isOpen = false;
+  var step   = 0;
+  var lead   = {};
+  var typing = null;
 
-  /* ── Toggle open/close ── */
-  window.slaiToggle = function() {
-    slaiOpen = !slaiOpen;
-    var box = document.getElementById('slaiBox');
-    var btn = document.getElementById('slaiBtn');
-    box.classList.toggle('open', slaiOpen);
-    btn.classList.toggle('open', slaiOpen);
-    if (slaiOpen && slaiStep === 0) {
-      slaiStep = 1;
-      setTimeout(function() { slaiGreet(); }, 400);
+  /* ── DOM refs (lazy) ── */
+  function el(id) { return document.getElementById(id); }
+
+  /* ── Toggle ── */
+  window.arthToggle = function () {
+    isOpen = !isOpen;
+    var btn = el('arthBtn');
+    var box = el('arthBox');
+    if (!btn || !box) return;
+    if (isOpen) {
+      box.classList.add('ab-visible');
+      btn.classList.add('ab-open');
+      var notif = el('arthNotif');
+      if (notif) notif.style.display = 'none';
+      if (step === 0) { step = 1; setTimeout(start, 350); }
+      setTimeout(function () {
+        var msgs = el('arthMsgs');
+        if (msgs) msgs.scrollTop = msgs.scrollHeight;
+      }, 400);
+    } else {
+      box.classList.remove('ab-visible');
+      btn.classList.remove('ab-open');
     }
   };
 
-  /* ── Send text from input ── */
-  window.slaiSendText = function() {
-    var inp = document.getElementById('slaiInput');
-    var text = (inp.value || '').trim();
-    if (!text) return;
-    inp.value = '';
-    slaiHandleInput(text);
-  };
+  /* ── Update progress bar ── */
+  function setProgress(current) {
+    var bar   = el('arthProgressBar');
+    var fill  = el('arthProgressFill');
+    var label = el('arthProgressLabel');
+    var pct   = el('arthProgressPct');
+    if (!bar) return;
+    var labels = ['Loan Type', 'Your Name', 'Mobile', 'Occupation', 'Income', 'Loan Amount', 'Done'];
+    if (current <= 1) {
+      bar.style.display = 'none';
+      return;
+    }
+    bar.style.display = 'block';
+    var p = Math.round(((current - 1) / STEPS) * 100);
+    if (fill)  fill.style.width  = p + '%';
+    if (label) label.textContent = 'Step ' + (current - 1) + ' of ' + STEPS + ': ' + (labels[current - 2] || '');
+    if (pct)   pct.textContent   = p + '%';
+  }
 
-  /* ── Chip click ── */
-  window.slaiChipClick = function(val) {
-    document.getElementById('slaiChips').innerHTML = '';
-    slaiHandleInput(val);
-  };
+  /* ── Bot message ── */
+  function botMsg(html, delay, skipTyping) {
+    delay = delay || 700;
+    var msgs = el('arthMsgs');
+    if (!msgs) return Promise.resolve();
 
-  /* ── Add bot message (with typing delay) ── */
-  function slaiBot(text, delay) {
-    delay = delay || 600;
-    var msgs = document.getElementById('slaiMsgs');
-    var chips = document.getElementById('slaiChips');
+    if (!skipTyping) {
+      var typEl       = document.createElement('div');
+      typEl.className = 'ab-typing-row';
+      typEl.id        = 'arthTyping';
+      typEl.innerHTML =
+        '<div class="ab-bot-icon">&#8377;</div>' +
+        '<div class="ab-typing-bubble">' +
+        '<div class="ab-dot"></div><div class="ab-dot"></div><div class="ab-dot"></div>' +
+        '</div>';
+      msgs.appendChild(typEl);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
 
-    /* Show typing */
-    var typEl = document.createElement('div');
-    typEl.className = 'slai-typing';
-    typEl.id = 'slaiTyping';
-    typEl.innerHTML = '<div class="slai-msg-bot-icon">🤖</div><div class="slai-typing-dots"><div class="slai-dot"></div><div class="slai-dot"></div><div class="slai-dot"></div></div>';
-    msgs.appendChild(typEl);
-    msgs.scrollTop = msgs.scrollHeight;
-
-    return new Promise(function(resolve) {
-      setTimeout(function() {
-        var t = document.getElementById('slaiTyping');
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        var t = el('arthTyping');
         if (t) t.remove();
-
-        var now = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
-        var el = document.createElement('div');
-        el.className = 'slai-msg-bot';
-        el.innerHTML = '<div class="slai-msg-bot-icon">🤖</div>'
-          + '<div><div class="slai-bubble-bot">' + text + '</div>'
-          + '<div class="slai-time">' + now + '</div></div>';
-        msgs.appendChild(el);
+        var now    = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+        var row    = document.createElement('div');
+        row.className = 'ab-bot-row';
+        row.innerHTML =
+          '<div class="ab-bot-icon">&#8377;</div>' +
+          '<div>' +
+          '<div class="ab-bot-bubble">' + html + '</div>' +
+          '<div class="ab-ts">' + now + '</div>' +
+          '</div>';
+        msgs.appendChild(row);
         msgs.scrollTop = msgs.scrollHeight;
         resolve();
       }, delay);
     });
   }
 
-  /* ── Add user message ── */
-  function slaiUser(text) {
-    var msgs = document.getElementById('slaiMsgs');
-    var now  = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
-    var el   = document.createElement('div');
-    el.className = 'slai-msg-user';
-    el.innerHTML = '<div><div class="slai-bubble-user">' + text + '</div>'
-      + '<div class="slai-time" style="text-align:right">' + now + '</div></div>';
-    msgs.appendChild(el);
+  /* ── User message ── */
+  function userMsg(text) {
+    var msgs = el('arthMsgs');
+    if (!msgs) return;
+    var now  = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    var row  = document.createElement('div');
+    row.className = 'ab-user-row';
+    row.innerHTML =
+      '<div>' +
+      '<div class="ab-user-bubble">' + escHtml(text) + '</div>' +
+      '<div class="ab-ts right">' + now + '</div>' +
+      '</div>';
+    msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
-  /* ── Set chips ── */
-  function slaiSetChips(options) {
-    var chips = document.getElementById('slaiChips');
-    chips.innerHTML = options.map(function(o) {
-      return '<button class="slai-chip" onclick="slaiChipClick(\'' + o.replace(/'/g, "\\'") + '\')">' + o + '</button>';
+  /* ── Chips ── */
+  function setChips(opts) {
+    var c = el('arthChips');
+    if (!c) return;
+    c.innerHTML = opts.map(function (o) {
+      return '<button class="ab-chip" onclick="arthChip(\'' +
+        o.replace(/'/g, "\\'").replace(/"/g, '&quot;') +
+        '\')">' + escHtml(o) + '</button>';
     }).join('');
   }
+  function clearChips() {
+    var c = el('arthChips');
+    if (c) c.innerHTML = '';
+  }
+  window.arthChip = function (val) { clearChips(); handleInput(val); };
+  window.arthSendText = function () {
+    var inp = el('arthInput');
+    if (!inp) return;
+    var v = (inp.value || '').trim();
+    if (!v) return;
+    inp.value = '';
+    handleInput(v);
+  };
 
-  /* ── Greet (Step 1: Ask loan type) ── */
-  function slaiGreet() {
-    slaiBot('👋 Hello! I am <strong>Smart Loan AI</strong> — your personal AI loan advisor.<br/>I can help you find the <strong>best loan offers from 150+ banks</strong> in minutes.', 700).then(function() {
-      return slaiBot('Let me start by asking — <strong>what type of loan do you need?</strong>', 800);
-    }).then(function() {
-      slaiStep = 1;
-      slaiSetChips(['Personal Loan', 'Home Loan', 'Business Loan', 'Car Loan', 'Loan Against Property']);
+  /* ── Escape HTML ── */
+  function escHtml(t) {
+    return String(t)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  /* ── Format INR ── */
+  function fmtINR(n) {
+    if (n >= 10000000) return '&#8377;' + (n / 10000000).toFixed(1) + ' Cr';
+    if (n >= 100000)   return '&#8377;' + (n / 100000).toFixed(1)   + ' L';
+    return '&#8377;' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  /* ── STEP 1: Welcome ── */
+  function start() {
+    setProgress(1);
+
+    /* Welcome card as first bot message */
+    var welcomeHTML =
+      '<div class="ab-welcome-card">' +
+        '<div class="ab-welcome-title">Namaste! I am <strong>Arth</strong> &#8377;</div>' +
+        '<div class="ab-welcome-list">' +
+          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Compare 150+ Banks &amp; NBFCs</div>' +
+          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Get Best Rate Offers — FREE</div>' +
+          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>No Credit Score Impact</div>' +
+          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Expert Callback in 30 Min</div>' +
+        '</div>' +
+      '</div>';
+
+    botMsg(welcomeHTML, 600, false).then(function () {
+      return botMsg('To get started, please select the <strong>type of loan</strong> you need:', 800);
+    }).then(function () {
+      /* Loan type grid cards */
+      var msgs = el('arthMsgs');
+      if (!msgs) return;
+      var grid = document.createElement('div');
+      grid.className = 'ab-bot-row';
+      grid.innerHTML =
+        '<div class="ab-bot-icon">&#8377;</div>' +
+        '<div style="max-width:100%;flex:1">' +
+        '<div class="ab-loan-grid">' +
+          loanCard('&#128179;', 'Personal Loan',  'From 10.50%') +
+          loanCard('&#127968;', 'Home Loan',       'From 8.40%')  +
+          loanCard('&#127981;', 'Business Loan',   'From 12.00%') +
+          loanCard('&#128663;', 'Car Loan',         'From 8.75%')  +
+          loanCard('&#127963;', 'Loan Against\nProperty', 'From 9.25%') +
+          loanCard('&#127970;', 'MSME Loan',       'Govt. Scheme') +
+        '</div></div>';
+      msgs.appendChild(grid);
+      msgs.scrollTop = msgs.scrollHeight;
     });
   }
 
-  /* ── Handle user input based on step ── */
-  function slaiHandleInput(val) {
-    slaiUser(val);
+  function loanCard(icon, name, rate) {
+    var safe = name.replace(/'/g, "\\'").replace(/\n/g, ' ');
+    return '<div class="ab-loan-card" onclick="arthChip(\'' + safe + '\')">' +
+      '<span class="ab-loan-icon">' + icon + '</span>' +
+      '<span class="ab-loan-name">' + name.replace('\n', '<br>') + '</span>' +
+      '<span class="ab-loan-rate">' + rate + ' p.a.</span>' +
+      '</div>';
+  }
+
+  /* ── Handle input by step ── */
+  function handleInput(val) {
+    userMsg(val);
     clearChips();
 
-    if (slaiStep === 1) {
-      slaiLead.loanType = val;
-      slaiStep = 2;
-      slaiBot('Great choice! A <strong>' + val + '</strong> — we have amazing offers for that. 💰', 600).then(function() {
-        return slaiBot('May I know your <strong>full name</strong>?', 700);
+    if (step === 1) {
+      /* Step 1: Loan type selected */
+      lead.loanType = val;
+      step = 2;
+      setProgress(2);
+      botMsg('Great choice! <strong>' + escHtml(val) + '</strong> — we have excellent offers from top lenders. &#128176;', 600).then(function () {
+        return botMsg('Could you please share your <strong>full name</strong>?', 700);
       });
 
-    } else if (slaiStep === 2) {
-      if (val.length < 2) { slaiBot('Please enter a valid name.', 400); return; }
-      slaiLead.name = val;
-      slaiStep = 3;
-      slaiBot('Nice to meet you, <strong>' + val + '</strong>! 😊', 500).then(function() {
-        return slaiBot('What is your <strong>mobile number</strong>? (10 digits)', 700);
+    } else if (step === 2) {
+      /* Step 2: Name */
+      if (!val || val.trim().length < 2) {
+        botMsg('Please enter your full name (at least 2 characters).', 400);
+        return;
+      }
+      lead.name = val.trim();
+      step = 3;
+      setProgress(3);
+      botMsg('Thank you, <strong>' + escHtml(lead.name) + '</strong>! &#128578;', 500).then(function () {
+        return botMsg('Please enter your <strong>10-digit mobile number</strong> for our advisor to contact you:', 700);
       });
 
-    } else if (slaiStep === 3) {
-      var phone = val.replace(/\D/g, '');
-      if (phone.length !== 10) { slaiBot('⚠️ Please enter a valid 10-digit mobile number.', 400); return; }
-      slaiLead.phone = phone;
-      slaiStep = 4;
-      slaiBot('Got it! Your number is saved securely. 🔒', 500).then(function() {
-        return slaiBot('What is your <strong>occupation</strong>?', 700);
-      }).then(function() {
-        slaiSetChips(['Salaried', 'Self Employed', 'Business Owner']);
+    } else if (step === 3) {
+      /* Step 3: Phone */
+      var ph = val.replace(/\D/g, '');
+      if (ph.length !== 10) {
+        botMsg('&#9888;&#65039; Please enter a valid 10-digit mobile number.', 400);
+        return;
+      }
+      lead.phone = ph;
+      step = 4;
+      setProgress(4);
+      botMsg('Noted. Your number is securely saved. &#128274;', 500).then(function () {
+        return botMsg('What is your <strong>employment / occupation type?</strong>', 700);
+      }).then(function () {
+        setChips(['Salaried — Private', 'Salaried — Govt.', 'Self-Employed', 'Business Owner', 'Farmer', 'Pensioner']);
       });
 
-    } else if (slaiStep === 4) {
-      slaiLead.occupation = val;
-      slaiStep = 5;
-      slaiBot('Perfect! <strong>' + val + '</strong> profile noted. ✅', 500).then(function() {
-        return slaiBot('What is your approximate <strong>monthly income</strong>?', 700);
-      }).then(function() {
-        slaiSetChips(['Below ₹15,000', '₹15K – ₹30K', '₹30K – ₹60K', '₹60K – ₹1L', 'Above ₹1L']);
+    } else if (step === 4) {
+      /* Step 4: Occupation */
+      lead.occupation = val;
+      step = 5;
+      setProgress(5);
+      botMsg('Got it. <strong>' + escHtml(val) + '</strong> profile noted. &#10003;', 500).then(function () {
+        return botMsg('What is your approximate <strong>monthly income?</strong>', 700);
+      }).then(function () {
+        setChips(['Below &#8377;15,000', '&#8377;15,000 &#8211; &#8377;30,000', '&#8377;30,000 &#8211; &#8377;60,000', '&#8377;60,000 &#8211; &#8377;1,00,000', 'Above &#8377;1,00,000']);
       });
 
-    } else if (slaiStep === 5) {
-      slaiLead.income = val;
-      slaiStep = 6;
-      slaiBot('Excellent! That helps us find the right lenders for you.', 500).then(function() {
-        return slaiBot('How much <strong>loan amount</strong> do you need?', 700);
-      }).then(function() {
-        slaiSetChips(['₹50K – ₹2L', '₹2L – ₹5L', '₹5L – ₹15L', '₹15L – ₹50L', 'Above ₹50L']);
+    } else if (step === 5) {
+      /* Step 5: Income */
+      lead.income = val;
+      step = 6;
+      setProgress(6);
+      botMsg('Perfect. &#128200; That helps us match the right lenders for you.', 500).then(function () {
+        return botMsg('Finally, what is your <strong>required loan amount?</strong>', 700);
+      }).then(function () {
+        setChips(['Up to &#8377;2 Lakh', '&#8377;2L &#8211; &#8377;5L', '&#8377;5L &#8211; &#8377;15L', '&#8377;15L &#8211; &#8377;50L', 'Above &#8377;50L']);
       });
 
-    } else if (slaiStep === 6) {
-      slaiLead.loanAmount = val;
-      slaiStep = 7;
-      slaiSaveLead();
-      slaiBot('🔍 We are comparing <strong>150+ banks and NBFCs</strong> for you...', 700).then(function() {
-        return slaiBot('Please wait while our AI finds the <strong>best matching offers</strong> for your profile.', 1000);
-      }).then(function() {
-        return slaiBot('✅ <strong>Analysis complete!</strong><br/>Based on your profile, we found <strong>great loan options</strong> with interest rates starting from as low as <strong>8.4% p.a.</strong> 🎉', 1200);
-      }).then(function() {
-        slaiStep = 8;
-        return slaiBot('Choose how you would like to receive your <strong>personalised loan offers</strong>:', 700);
-      }).then(function() {
-        slaiShowCTA();
+    } else if (step === 6) {
+      /* Step 6: Loan amount */
+      lead.loanAmount = val;
+      step = 7;
+      setProgress(7);
+      saveLead();
+
+      /* Searching animation */
+      botMsg('&#128269; Analysing your profile across <strong>150+ banks &amp; NBFCs</strong>...', 700).then(function () {
+        return botMsg('Matching lenders, comparing rates, calculating eligibility...', 1200);
+      }).then(function () {
+        /* Result card */
+        var msgs = el('arthMsgs');
+        if (!msgs) return Promise.resolve();
+
+        var rateMap = {
+          'Personal Loan':     'From 10.50% p.a.',
+          'Home Loan':          'From 8.40% p.a.',
+          'Business Loan':      'From 12.00% p.a.',
+          'Car Loan':           'From 8.75% p.a.',
+          'Loan Against\nProperty': 'From 9.25% p.a.',
+          'Loan Against Property':  'From 9.25% p.a.',
+          'MSME Loan':          'Govt. Schemes Available'
+        };
+        var lenderMap = {
+          'Personal Loan': '38',  'Home Loan': '47',
+          'Business Loan': '32',  'Car Loan':  '29',
+          'Loan Against Property': '24', 'MSME Loan': '18'
+        };
+        var rate    = rateMap[lead.loanType]    || 'From 10.50% p.a.';
+        var lenders = lenderMap[lead.loanType]  || '35';
+
+        var el2  = document.createElement('div');
+        el2.className = 'ab-bot-row';
+        el2.style.animation = 'abMsgSlide .35s ease';
+        el2.innerHTML =
+          '<div class="ab-bot-icon">&#8377;</div>' +
+          '<div style="flex:1;max-width:82%">' +
+          '<div class="ab-result-card">' +
+          '<div class="ab-result-title">&#10003; Analysis Complete</div>' +
+          '<div class="ab-result-amount">Great Offers Found!</div>' +
+          '<div class="ab-result-grid">' +
+            '<div class="ab-result-item"><div class="ab-result-item-label">Best Rate</div><div class="ab-result-item-val">' + rate + '</div></div>' +
+            '<div class="ab-result-item"><div class="ab-result-item-label">Matched Lenders</div><div class="ab-result-item-val">' + lenders + '+ Banks</div></div>' +
+            '<div class="ab-result-item"><div class="ab-result-item-label">Loan Type</div><div class="ab-result-item-val">' + escHtml(lead.loanType) + '</div></div>' +
+            '<div class="ab-result-item"><div class="ab-result-item-label">Advisory</div><div class="ab-result-item-val">100% FREE</div></div>' +
+          '</div>' +
+          '</div>' +
+          '<div class="ab-ts">Just now</div>' +
+          '</div>';
+        msgs.appendChild(el2);
+        msgs.scrollTop = msgs.scrollHeight;
+        return Promise.resolve();
+      }).then(function () {
+        return botMsg('How would you like to receive your <strong>personalised loan offers?</strong>', 900);
+      }).then(function () {
+        /* CTA chips */
+        var c = el('arthChips');
+        if (!c) return;
+        c.innerHTML =
+          '<button class="ab-chip" style="background:linear-gradient(135deg,#128c7e,#25d366);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 3px 10px rgba(37,211,102,.3)" onclick="arthChip(\'WhatsApp Offers\')">&#128172; Get Offers on WhatsApp</button>' +
+          '<button class="ab-chip" style="background:linear-gradient(135deg,#0052cc,#003eb5);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 3px 10px rgba(0,82,204,.3)" onclick="arthChip(\'Request Callback\')">&#128222; Request Expert Callback</button>';
       });
 
-    } else if (slaiStep === 8) {
-      if (val.includes('WhatsApp')) {
-        window.open('https://wa.me/918815076434?text=' + encodeURIComponent('Hi! I used Smart Loan AI. Name: ' + slaiLead.name + ', Loan: ' + slaiLead.loanType + ', Amount: ' + slaiLead.loanAmount + ', Income: ' + slaiLead.income), '_blank');
-        slaiBot('Opening WhatsApp... Our advisor will send your personalised offers shortly! 💬', 500);
-      } else if (val.includes('Call')) {
-        slaiBot('✅ Callback requested! Our loan advisor will call you on <strong>' + slaiLead.phone + '</strong> within 30 minutes. 📞', 500).then(function() {
-          return slaiBot('Thank you for using <strong>Smart Loan AI</strong>! Have a great day! 🌟', 800);
+    } else if (step === 7) {
+      /* Step 7: CTA response */
+      if (val.indexOf('WhatsApp') !== -1) {
+        var waMsg = 'Namaste! I used Arth on The Loan Forest website.%0A%0AName: ' +
+          encodeURIComponent(lead.name) +
+          '%0ALoan Type: ' + encodeURIComponent(lead.loanType) +
+          '%0AAmount: ' + encodeURIComponent(lead.loanAmount) +
+          '%0AIncome: ' + encodeURIComponent(lead.income) +
+          '%0A%0APlease share the best loan offers!';
+        window.open('https://wa.me/' + WA_NUM + '?text=' + waMsg, '_blank');
+        botMsg('Opening WhatsApp... &#128172;<br/>Our advisor will send your personalised offers shortly. Thank you, <strong>' + escHtml(lead.name) + '</strong>! &#127881;', 500);
+      } else if (val.indexOf('Callback') !== -1 || val.indexOf('Call') !== -1) {
+        botMsg('&#10003; Callback scheduled!<br/>Our loan expert will call <strong>' + lead.phone + '</strong> within <strong>30 minutes</strong>. &#128222;', 600).then(function () {
+          return botMsg('Thank you for choosing <strong>The Loan Forest</strong>! We look forward to helping you. &#127775;', 900);
         });
       } else {
-        slaiBot('Got it! Our team will reach out to you shortly. 😊', 500);
+        botMsg('Understood! Our team will reach out to you very soon. &#128578;', 500);
       }
     }
   }
 
-  /* ── Show final CTA buttons ── */
-  function slaiShowCTA() {
-    var chips = document.getElementById('slaiChips');
-    chips.innerHTML = '<button class="slai-chip" style="background:linear-gradient(135deg,#25d366,#1da851);color:#fff;border-color:#25d366" onclick="slaiChipClick(\'Get Best Offers on WhatsApp\')">💬 Get Offers on WhatsApp</button>'
-      + '<button class="slai-chip" style="background:linear-gradient(135deg,#0052cc,#003eb5);color:#fff;border-color:#0052cc" onclick="slaiChipClick(\'Request Call Back\')">📞 Request Call Back</button>';
-  }
-
-  function clearChips() {
-    document.getElementById('slaiChips').innerHTML = '';
-  }
-
-  /* ── Save lead to localStorage + console ── */
-  function slaiSaveLead() {
+  /* ── Save lead ── */
+  function saveLead() {
     try {
-      slaiLead.source    = 'Smart Loan AI Chatbot';
-      slaiLead.id        = 'SLAI-' + Date.now();
-      slaiLead.date      = new Date().toLocaleDateString('en-IN');
-      slaiLead.time      = new Date().toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
-      slaiLead.status    = 'New';
+      lead.source  = 'Arth Chatbot';
+      lead.id      = 'ARTH-' + Date.now();
+      lead.date    = new Date().toLocaleDateString('en-IN');
+      lead.time    = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+      lead.status  = 'New';
 
-      /* Log to console */
-      console.log('%c Smart Loan AI — New Lead ', 'background:#00875a;color:#fff;font-weight:bold;padding:2px 8px;border-radius:4px;');
-      console.table(slaiLead);
+      console.log('%c Arth — New Lead Captured ', 'background:#0b3d2e;color:#6ee7b7;font-weight:bold;padding:3px 10px;border-radius:4px;');
+      console.table({
+        Name: lead.name, Phone: lead.phone,
+        LoanType: lead.loanType, Amount: lead.loanAmount,
+        Income: lead.income, Occupation: lead.occupation
+      });
 
-      /* Save to localStorage with main leads */
+      /* Main leads pool (Admin Panel) */
       var leads = JSON.parse(localStorage.getItem('tlf_leads') || '[]');
       leads.unshift({
-        name:     slaiLead.name,
-        phone:    slaiLead.phone,
-        loanType: slaiLead.loanType,
-        amount:   slaiLead.loanAmount,
-        employ:   slaiLead.occupation,
-        income:   slaiLead.income,
-        source:   slaiLead.source,
-        id:       slaiLead.id,
-        date:     slaiLead.date,
-        time:     slaiLead.time,
-   
+        name: lead.name, phone: lead.phone,
+        loanType: lead.loanType, amount: lead.loanAmount,
+        employ: lead.occupation, income: lead.income,
+        source: lead.source, id: lead.id,
+        date: lead.date, time: lead.time, status: 'New'
+      });
+      localStorage.setItem('tlf_leads', JSON.stringify(leads));
+
+      /* Arth-specific pool */
+      var al = JSON.parse(localStorage.getItem('arth_leads') || '[]');
+      al.unshift(lead);
+      localStorage.setItem('arth_leads', JSON.stringify(al));
+
+    } catch (e) {
+      console.warn('Lead save error:', e);
+    }
+  }
+
+})(); /* ── End Arth Chatbot ── */
+
+</script>
+</body>
+</html>
