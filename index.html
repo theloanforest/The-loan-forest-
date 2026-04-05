@@ -1786,624 +1786,478 @@ footer {
 
 
 /* ================================================================
-   ARTH — PREMIUM FINANCE CHATBOT
-   Inspired by top-tier fintech: Bajaj Finserv, HDFC, PolicyBazaar
-   Design language: Clean white + deep navy + emerald green
-   Refined, institutional, trust-building
+   TISHA CHATBOT — Premium Finance UI
+   The Loan Forest | Dark Forest Green + Clean White
 ================================================================ */
 
-/* ── Floating launcher button ── */
-#arthBtn {
+/* ── Popup notification ── */
+#tishaPopup {
   position: fixed;
-  bottom: 90px;
+  bottom: 168px;
+  right: 22px;
+  z-index: 9600;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e2eaf3;
+  border-left: 3px solid #00875a;
+  border-radius: 12px;
+  padding: 11px 14px 11px 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.13);
+  max-width: 240px;
+  animation: tcPopIn .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes tcPopIn {
+  from { opacity:0; transform:translateY(12px) scale(.94); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+.tp-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a5c3a, #00875a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; font-weight: 900; color: #fff;
+  font-family: 'Clash Display', sans-serif;
+  flex-shrink: 0;
+  letter-spacing: -.02em;
+}
+.tp-text { flex: 1; min-width: 0; }
+.tp-name {
+  font-size: .72rem; font-weight: 700;
+  color: #0b1726; margin-bottom: 2px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.tp-msg {
+  font-size: .68rem; color: #4a6785;
+  line-height: 1.4;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.tp-close {
+  background: none; border: none; color: #94a3b8;
+  font-size: .85rem; cursor: pointer; padding: 2px;
+  flex-shrink: 0; line-height: 1;
+}
+.tp-close:hover { color: #1a2942; }
+@media (max-width: 440px) {
+  #tishaPopup { right: 10px; max-width: calc(100vw - 100px); }
+}
+
+/* ── Launcher button ── */
+#tishaBtn {
+  position: fixed;
+  bottom: 92px;
   right: 22px;
   z-index: 9500;
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  background: linear-gradient(145deg, #0b3d2e, #00875a);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  box-shadow:
-    0 4px 6px rgba(0,0,0,.12),
-    0 12px 28px rgba(0,135,90,.35),
-    inset 0 1px 0 rgba(255,255,255,.12);
-  transition: all .25s cubic-bezier(.4,0,.2,1);
-  outline: none;
+  width: 58px; height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(150deg, #1a5c3a 0%, #00875a 100%);
+  border: none; cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.14), 0 8px 24px rgba(0,135,90,.38),
+              inset 0 1px 0 rgba(255,255,255,.1);
+  transition: all .22s ease;
+  outline: none; overflow: visible;
 }
-#arthBtn:hover {
+#tishaBtn:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 6px 10px rgba(0,0,0,.15),
-    0 18px 36px rgba(0,135,90,.45),
-    inset 0 1px 0 rgba(255,255,255,.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,.16), 0 14px 32px rgba(0,135,90,.48);
 }
-#arthBtn.ab-open {
-  background: linear-gradient(145deg, #1a2942, #0d2137);
-  border-radius: 16px;
-  box-shadow:
-    0 4px 12px rgba(0,0,0,.2),
-    0 12px 28px rgba(11,23,38,.3);
+#tishaBtn.tb-open {
+  background: linear-gradient(150deg, #162d42, #0d2137);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2), 0 8px 20px rgba(11,23,38,.28);
 }
 
-/* Rupee icon inside button */
-.ab-rupee {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #fff;
-  font-family: 'Clash Display', sans-serif;
-  line-height: 1;
-  letter-spacing: -.02em;
-  animation: abRupeeFloat 3s ease-in-out infinite;
-}
-@keyframes abRupeeFloat {
-  0%,100% { transform: translateY(0) scale(1);   opacity: 1;    }
-  35%      { transform: translateY(-3px) scale(1.08); opacity: 1; }
-  65%      { transform: translateY(-1px) scale(1.04); opacity: .95; }
-}
-#arthBtn.ab-open .ab-rupee { animation: none; }
-.ab-close-x {
-  display: none;
-  font-size: 1.1rem;
-  color: rgba(255,255,255,.8);
-  font-weight: 300;
-}
-#arthBtn.ab-open .ab-rupee  { display: none; }
-#arthBtn.ab-open .ab-close-x{ display: flex; }
-
-/* Label under button */
-.ab-label {
-  font-size: .52rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.75);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  line-height: 1;
-}
-#arthBtn.ab-open .ab-label { color: rgba(255,255,255,.5); }
-
-/* Pulse ring */
-.ab-pulse {
+/* Pulse rings */
+.tb-ring {
   position: absolute;
   width: 100%; height: 100%;
-  border-radius: 16px;
-  border: 2px solid rgba(0,179,126,.5);
-  animation: abPulseRing 2.4s ease-out infinite;
+  border-radius: 14px;
+  border: 2px solid rgba(0,179,126,.45);
+  animation: tbRing 2.6s ease-out infinite;
   pointer-events: none;
 }
-.ab-pulse:nth-child(2) { animation-delay: 1.2s; }
-@keyframes abPulseRing {
-  0%   { transform: scale(1);   opacity: .7; }
-  100% { transform: scale(1.55); opacity: 0;  }
+.tb-ring:nth-child(2) { animation-delay: 1.3s; }
+@keyframes tbRing {
+  0%   { transform: scale(1);    opacity: .7; }
+  100% { transform: scale(1.6);  opacity: 0;  }
 }
-#arthBtn.ab-open .ab-pulse { display: none; }
+#tishaBtn.tb-open .tb-ring { display: none; }
 
-/* Notification dot */
-.ab-notif {
-  position: absolute;
-  top: -5px; right: -5px;
-  width: 18px; height: 18px;
-  background: #e53935;
-  border: 2.5px solid #fff;
+/* Badge */
+.tb-badge {
+  position: absolute; top: -6px; right: -6px;
+  width: 20px; height: 20px;
+  background: #e53935; border: 2.5px solid #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: .58rem; font-weight: 800; color: #fff;
+  font-size: .6rem; font-weight: 800; color: #fff;
   box-shadow: 0 2px 6px rgba(229,57,53,.4);
-  animation: abNotifPop .6s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation: tbBadgePop .5s cubic-bezier(.34,1.56,.64,1);
 }
-@keyframes abNotifPop {
-  0%   { transform: scale(0); }
-  100% { transform: scale(1); }
+@keyframes tbBadgePop { from{transform:scale(0)} to{transform:scale(1)} }
+
+/* Tisha icon area */
+.tb-icon-wrap {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 2px;
+}
+.tb-avatar-mini {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 1.5px solid rgba(255,255,255,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; font-weight: 900; color: #fff;
+  font-family: 'Clash Display', sans-serif;
+  animation: tbFloat 3s ease-in-out infinite;
+  letter-spacing: -.02em;
+  overflow: hidden;
+}
+.tb-avatar-mini img {
+  width: 100%; height: 100%;
+  object-fit: cover; border-radius: 50%;
+}
+@keyframes tbFloat {
+  0%,100% { transform: translateY(0);    }
+  45%      { transform: translateY(-3px); }
+}
+#tishaBtn.tb-open .tb-avatar-mini { animation: none; }
+
+.tb-label {
+  font-size: .5rem; font-weight: 700;
+  color: rgba(255,255,255,.78);
+  letter-spacing: .07em; text-transform: uppercase; line-height: 1;
+}
+#tishaBtn.tb-open .tb-label { display: none; }
+.tb-close-x {
+  display: none; font-size: 1rem;
+  color: rgba(255,255,255,.75);
+}
+#tishaBtn.tb-open .tb-close-x { display: block; }
+#tishaBtn.tb-open .tb-icon-wrap { display: none; }
+
+@media (max-width: 440px) {
+  #tishaBtn { right: 14px; bottom: 86px; }
 }
 
 /* ── Chat window ── */
-#arthBox {
+#tishaBox {
   position: fixed;
-  bottom: 162px;
-  right: 22px;
+  bottom: 164px; right: 22px;
   z-index: 9400;
-  width: 380px;
-  height: 580px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,.06),
-    0 8px 16px rgba(0,0,0,.08),
-    0 24px 48px rgba(0,0,0,.12),
-    0 48px 80px rgba(0,0,0,.08);
-  display: flex;
-  flex-direction: column;
+  width: 375px; height: 570px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.06),
+              0 4px 12px rgba(0,0,0,.08),
+              0 20px 40px rgba(0,0,0,.12),
+              0 40px 70px rgba(0,0,0,.07);
+  display: flex; flex-direction: column;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(16px) scale(.97);
-  pointer-events: none;
-  transition: opacity .28s ease, transform .28s cubic-bezier(.34,1.2,.64,1);
+  opacity: 0; pointer-events: none;
+  transform: translateY(14px) scale(.97);
+  transition: opacity .26s ease, transform .26s cubic-bezier(.34,1.2,.64,1);
   transform-origin: bottom right;
 }
-#arthBox.ab-visible {
-  opacity: 1;
+#tishaBox.tisha-open {
+  opacity: 1; pointer-events: all;
   transform: translateY(0) scale(1);
-  pointer-events: all;
 }
 @media (max-width: 440px) {
-  #arthBox {
-    width: calc(100vw - 16px);
-    right: 8px;
-    bottom: 160px;
-    height: calc(100dvh - 180px);
+  #tishaBox {
+    width: calc(100vw - 14px);
+    right: 7px; bottom: 158px;
+    height: calc(100dvh - 175px);
     max-height: 560px;
-    border-radius: 18px;
+    border-radius: 16px;
   }
-  #arthBtn { right: 14px; bottom: 86px; }
 }
 
 /* ── Header ── */
-.ab-head {
-  background: linear-gradient(135deg, #0b3d2e 0%, #00875a 60%, #00a36c 100%);
-  padding: 16px 18px 14px;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
+.tc-head {
+  background: linear-gradient(135deg, #1a5c3a 0%, #00875a 55%, #00a36c 100%);
+  padding: 14px 16px 12px;
+  flex-shrink: 0; position: relative; overflow: hidden;
 }
-.ab-head::before {
-  content: '';
-  position: absolute;
-  top: -30px; right: -20px;
-  width: 120px; height: 120px;
-  background: rgba(255,255,255,.05);
-  border-radius: 50%;
+.tc-head::before {
+  content: ''; position: absolute;
+  top: -25px; right: -15px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,.06); border-radius: 50%;
 }
-.ab-head::after {
-  content: '';
-  position: absolute;
-  bottom: -20px; left: 20px;
-  width: 80px; height: 80px;
-  background: rgba(255,255,255,.04);
-  border-radius: 50%;
-}
-.ab-head-top {
-  display: flex;
-  align-items: center;
+.tc-head-row {
+  display: flex; align-items: center;
   justify-content: space-between;
   position: relative; z-index: 1;
 }
-.ab-head-left { display: flex; align-items: center; gap: 12px; }
-.ab-logo-wrap {
-  width: 44px; height: 44px;
-  background: rgba(255,255,255,.15);
-  border: 1.5px solid rgba(255,255,255,.2);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  backdrop-filter: blur(8px);
-}
-.ab-logo-symbol {
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: #fff;
-  font-family: 'Clash Display', sans-serif;
-  line-height: 1;
-}
-.ab-name-block { display: flex; flex-direction: column; gap: 1px; }
-.ab-name {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -.01em;
-  line-height: 1.2;
-}
-.ab-tagline {
-  font-size: .67rem;
-  color: rgba(255,255,255,.75);
-  font-weight: 500;
-  letter-spacing: .01em;
-}
-.ab-status {
-  display: flex; align-items: center; gap: 5px;
-  margin-top: 3px;
-}
-.ab-status-dot {
-  width: 6px; height: 6px;
-  background: #6ee7b7;
+.tc-head-left { display: flex; align-items: center; gap: 11px; }
+.tc-head-avatar {
+  width: 42px; height: 42px;
   border-radius: 50%;
-  animation: abStatusBlink 1.8s ease infinite;
+  background: rgba(255,255,255,.2);
+  border: 2px solid rgba(255,255,255,.3);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex-shrink: 0;
+  font-size: 1rem; font-weight: 900; color: #fff;
+  font-family: 'Clash Display', sans-serif;
 }
-@keyframes abStatusBlink {
-  0%,100% { opacity: 1;   transform: scale(1);    }
-  50%      { opacity: .4;  transform: scale(.85);  }
+.tc-head-avatar img {
+  width: 100%; height: 100%; object-fit: cover;
 }
-.ab-status-txt {
-  font-size: .62rem;
-  color: rgba(255,255,255,.7);
+.tc-head-info { display: flex; flex-direction: column; gap: 1px; }
+.tc-head-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1rem; font-weight: 700; color: #fff;
+  letter-spacing: -.01em; line-height: 1.2;
+}
+.tc-head-tagline {
+  font-size: .65rem; color: rgba(255,255,255,.78);
   font-weight: 500;
 }
-.ab-head-close {
+.tc-head-status {
+  display: flex; align-items: center; gap: 5px;
+  margin-top: 2px;
+}
+.tc-status-dot {
+  width: 6px; height: 6px;
+  background: #86efac; border-radius: 50%;
+  animation: tcPulse 1.8s ease infinite;
+}
+@keyframes tcPulse { 0%,100%{opacity:1}50%{opacity:.3} }
+.tc-status-txt { font-size: .61rem; color: rgba(255,255,255,.68); }
+.tc-head-close {
   background: rgba(0,0,0,.15);
   border: 1px solid rgba(255,255,255,.15);
   color: rgba(255,255,255,.8);
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  font-size: .85rem;
-  cursor: pointer;
+  width: 28px; height: 28px; border-radius: 8px;
+  font-size: .8rem; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: all .2s;
-  position: relative; z-index: 1;
-  flex-shrink: 0;
+  transition: all .2s; position: relative; z-index: 1;
 }
-.ab-head-close:hover {
-  background: rgba(0,0,0,.28);
-  color: #fff;
-  border-color: rgba(255,255,255,.3);
-}
+.tc-head-close:hover { background: rgba(0,0,0,.28); color: #fff; }
 
-/* Step progress bar */
-.ab-progress-bar {
-  margin-top: 12px;
+/* Progress bar */
+#tishaProgBar {
+  margin-top: 10px; display: none;
   position: relative; z-index: 1;
 }
-.ab-progress-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: .6rem;
-  color: rgba(255,255,255,.6);
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+.tc-prog-label {
+  display: flex; justify-content: space-between;
+  font-size: .58rem; color: rgba(255,255,255,.6);
+  font-weight: 600; margin-bottom: 4px;
+  letter-spacing: .03em;
 }
-.ab-progress-track {
-  height: 3px;
-  background: rgba(255,255,255,.2);
-  border-radius: 2px;
-  overflow: hidden;
+.tc-prog-track {
+  height: 3px; background: rgba(255,255,255,.2);
+  border-radius: 2px; overflow: hidden;
 }
-.ab-progress-fill {
-  height: 100%;
-  background: rgba(255,255,255,.9);
-  border-radius: 2px;
-  transition: width .5s cubic-bezier(.4,0,.2,1);
-  width: 0%;
+#tishaProgFill {
+  height: 100%; background: rgba(255,255,255,.88);
+  border-radius: 2px; width: 0%;
+  transition: width .5s ease;
 }
 
-/* ── Messages area ── */
-.ab-msgs {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 14px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: #f8fafb;
+/* ── Messages ── */
+.tc-msgs {
+  flex: 1; overflow-y: auto;
+  padding: 14px 12px 6px;
+  display: flex; flex-direction: column; gap: 10px;
+  background: #f5f8f6;
   scroll-behavior: smooth;
 }
-.ab-msgs::-webkit-scrollbar { width: 3px; }
-.ab-msgs::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+.tc-msgs::-webkit-scrollbar { width: 3px; }
+.tc-msgs::-webkit-scrollbar-thumb { background: #c8d8cc; border-radius: 3px; }
+
+/* Fade-in animation */
+.tc-fade { animation: tcFadeUp .28s ease; }
+@keyframes tcFadeUp {
+  from { opacity:0; transform:translateY(8px); }
+  to   { opacity:1; transform:translateY(0);   }
 }
 
-/* Bot message */
-.ab-bot-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  animation: abMsgSlide .28s ease;
-}
-@keyframes abMsgSlide {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-.ab-bot-icon {
+/* Bot row */
+.tc-bot-row { display: flex; align-items: flex-start; gap: 8px; }
+.tc-bot-icon {
   width: 30px; height: 30px;
-  background: linear-gradient(135deg, #0b3d2e, #00875a);
-  border-radius: 9px;
+  border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+  background: linear-gradient(135deg,#1a5c3a,#00875a);
+  border: 2px solid rgba(255,255,255,.6);
+  box-shadow: 0 2px 6px rgba(0,135,90,.2);
+  overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  font-size: .85rem;
-  font-weight: 900;
-  color: #fff;
-  flex-shrink: 0;
-  margin-top: 1px;
+  font-size: .72rem; font-weight: 900; color: #fff;
   font-family: 'Clash Display', sans-serif;
-  letter-spacing: -.02em;
-  box-shadow: 0 2px 8px rgba(0,135,90,.25);
 }
-.ab-bot-bubble {
+.tc-bot-icon img { width:100%;height:100%;object-fit:cover; }
+.tc-bubble-bot {
   background: #fff;
-  border: 1px solid #e8eef4;
+  border: 1px solid #dde8e2;
   border-radius: 3px 14px 14px 14px;
-  padding: 11px 14px;
-  font-size: .84rem;
-  color: #1a2942;
-  line-height: 1.6;
+  padding: 10px 13px;
+  font-size: .83rem; color: #1a2942; line-height: 1.6;
   max-width: 82%;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* User message */
-.ab-user-row {
-  display: flex;
-  justify-content: flex-end;
-  animation: abMsgSlide .28s ease;
-}
-.ab-user-bubble {
-  background: linear-gradient(135deg, #0b3d2e, #00875a);
-  color: #fff;
-  border-radius: 14px 3px 14px 14px;
-  padding: 11px 14px;
-  font-size: .84rem;
-  line-height: 1.6;
-  max-width: 82%;
-  box-shadow: 0 2px 10px rgba(0,135,90,.28);
+/* User row */
+.tc-user-row { display: flex; justify-content: flex-end; }
+.tc-bubble-user {
+  background: linear-gradient(135deg, #1a5c3a, #00875a);
+  color: #fff; border-radius: 14px 3px 14px 14px;
+  padding: 10px 13px; font-size: .83rem; line-height: 1.6;
+  max-width: 82%; box-shadow: 0 2px 8px rgba(0,135,90,.25);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Message timestamp */
-.ab-ts {
-  font-size: .58rem;
-  color: #94a3b8;
-  margin-top: 4px;
-  padding: 0 2px;
-}
-.ab-ts.right { text-align: right; }
+/* Timestamp */
+.tc-ts { font-size: .57rem; color: #94a3b8; margin-top: 3px; padding: 0 2px; }
 
-/* ── Typing indicator ── */
-.ab-typing-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  animation: abMsgSlide .2s ease;
-}
-.ab-typing-bubble {
-  background: #fff;
-  border: 1px solid #e8eef4;
+/* Typing */
+.tc-typing { display: flex; align-items: flex-start; gap: 8px; }
+.tc-typing-bubble {
+  background: #fff; border: 1px solid #dde8e2;
   border-radius: 3px 14px 14px 14px;
-  padding: 12px 16px;
-  display: flex; gap: 4px; align-items: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  padding: 12px 15px; display: flex; gap: 4px; align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
 }
-.ab-dot {
-  width: 7px; height: 7px;
-  background: #94a3b8;
-  border-radius: 50%;
-  animation: abDotWave 1.3s ease infinite;
+.tc-dot {
+  width: 7px; height: 7px; background: #94a3b8; border-radius: 50%;
+  animation: tcDot 1.3s ease infinite;
 }
-.ab-dot:nth-child(2) { animation-delay: .18s; }
-.ab-dot:nth-child(3) { animation-delay: .36s; }
-@keyframes abDotWave {
-  0%,60%,100% { transform: translateY(0);   opacity: .4; }
-  30%          { transform: translateY(-5px); opacity: 1;  }
+.tc-dot:nth-child(2) { animation-delay: .18s; }
+.tc-dot:nth-child(3) { animation-delay: .36s; }
+@keyframes tcDot {
+  0%,60%,100% { transform:translateY(0); opacity:.35; }
+  30%          { transform:translateY(-5px); opacity:1; }
 }
 
-/* ── Quick reply chips ── */
-.ab-chips {
-  padding: 6px 14px 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  background: #f8fafb;
-  border-top: 1px solid #eef2f7;
+/* Welcome card */
+.tc-welcome {
+  background: linear-gradient(135deg, #edfaf3, #d4f5e5);
+  border: 1px solid #a3e6c0; border-radius: 12px; padding: 13px 14px;
 }
-.ab-chip {
-  background: #fff;
-  border: 1.5px solid #d1e8df;
-  color: #0b6646;
-  padding: 7px 13px;
-  border-radius: 20px;
-  font-size: .78rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .18s ease;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  line-height: 1;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+.tc-w-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: .9rem; font-weight: 700; color: #0d3d25; margin-bottom: 5px;
 }
-.ab-chip:hover, .ab-chip:active {
-  background: linear-gradient(135deg, #0b3d2e, #00875a);
-  color: #fff;
-  border-color: transparent;
+.tc-w-sub { font-size: .72rem; color: #1a5c3a; margin-bottom: 8px; }
+.tc-w-list { display: flex; flex-direction: column; gap: 4px; }
+.tc-w-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .75rem; color: #1a4d35; font-weight: 500;
+}
+.tc-w-dot {
+  width: 5px; height: 5px; background: #00875a;
+  border-radius: 50%; flex-shrink: 0;
+}
+
+/* Loan grid */
+.tc-loan-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 4px;
+}
+.tc-loan-card {
+  background: #fff; border: 1.5px solid #dde8e2; border-radius: 11px;
+  padding: 10px 11px; cursor: pointer; transition: all .18s;
+  display: flex; flex-direction: column; gap: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.tc-loan-card:hover, .tc-loan-card:active {
+  border-color: #00875a;
+  background: linear-gradient(135deg, #edfaf3, #d4f5e5);
   transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(0,135,90,.3);
+  box-shadow: 0 3px 10px rgba(0,135,90,.15);
+}
+.tc-loan-icon { font-size: 1.1rem; }
+.tc-loan-name { font-size: .73rem; font-weight: 700; color: #1a2942; line-height: 1.25; }
+.tc-loan-rate { font-size: .62rem; color: #00875a; font-weight: 600; }
+
+/* Result card */
+.tc-result-card {
+  background: linear-gradient(135deg, #1a5c3a, #00875a);
+  border-radius: 13px; padding: 14px 15px; color: #fff;
+}
+.tc-result-badge {
+  font-size: .68rem; font-weight: 700; opacity: .8;
+  text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px;
+}
+.tc-result-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem; font-weight: 700; margin-bottom: 10px;
+}
+.tc-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.tc-result-item {
+  background: rgba(255,255,255,.14); border-radius: 8px; padding: 8px 10px;
+}
+.tc-ri-lbl { font-size: .58rem; opacity: .72; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.tc-ri-val { font-family: 'Clash Display', sans-serif; font-size: .88rem; font-weight: 700; }
+
+/* ── Chips ── */
+.tc-chips-wrap {
+  padding: 5px 12px 8px; display: flex; flex-wrap: wrap; gap: 6px;
+  background: #f5f8f6; border-top: 1px solid #e8eeeb;
+}
+.tc-chip {
+  background: #fff; border: 1.5px solid #c4ddd0;
+  color: #0d5c38; padding: 7px 13px; border-radius: 20px;
+  font-size: .77rem; font-weight: 600; cursor: pointer;
+  transition: all .17s; font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1; box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.tc-chip:hover, .tc-chip:active {
+  background: linear-gradient(135deg, #1a5c3a, #00875a);
+  color: #fff; border-color: transparent;
+  transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,135,90,.3);
+}
+.tc-chip-wa {
+  background: linear-gradient(135deg, #128c7e, #25d366) !important;
+  color: #fff !important; border-color: transparent !important;
+  box-shadow: 0 2px 8px rgba(37,211,102,.3) !important;
+}
+.tc-chip-call {
+  background: linear-gradient(135deg, #0052cc, #003eb5) !important;
+  color: #fff !important; border-color: transparent !important;
+  box-shadow: 0 2px 8px rgba(0,82,204,.3) !important;
 }
 
 /* ── Input row ── */
-.ab-input-row {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 10px 14px 12px;
-  background: #fff;
-  border-top: 1px solid #eef2f7;
+.tc-input-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 12px 11px;
+  background: #fff; border-top: 1px solid #e8eeeb; flex-shrink: 0;
+}
+.tc-input {
+  flex: 1; padding: 9px 13px;
+  border: 1.5px solid #d4e4da; border-radius: 12px;
+  font-size: .83rem; font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none; background: #f5f8f6; color: #1a2942;
+  transition: all .2s; min-width: 0;
+}
+.tc-input::placeholder { color: #94a3b8; }
+.tc-input:focus { border-color: #00875a; background: #fff; box-shadow: 0 0 0 3px rgba(0,135,90,.09); }
+.tc-send {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, #1a5c3a, #00875a);
+  border: none; border-radius: 11px; color: #fff;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all .2s; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,135,90,.28);
+}
+.tc-send:hover { transform: scale(1.06); box-shadow: 0 4px 12px rgba(0,135,90,.4); }
+.tc-send svg { width:15px; height:15px; }
+
+/* ── Footer ── */
+.tc-footer {
+  padding: 6px 14px 8px; background: #fff;
+  border-top: 1px solid #f0f5f2;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
   flex-shrink: 0;
 }
-.ab-input {
-  flex: 1;
-  padding: 10px 14px;
-  border: 1.5px solid #e2eaf3;
-  border-radius: 12px;
-  font-size: .84rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
-  background: #f8fafb;
-  color: #1a2942;
-  min-width: 0;
-}
-.ab-input::placeholder { color: #94a3b8; }
-.ab-input:focus {
-  border-color: #00875a;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(0,135,90,.1);
-}
-.ab-send {
-  width: 40px; height: 40px;
-  background: linear-gradient(135deg, #0b3d2e, #00875a);
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-size: .9rem;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all .2s;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,135,90,.3);
-}
-.ab-send:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 14px rgba(0,135,90,.4);
-}
-
-/* ── Powered by footer ── */
-.ab-footer {
-  padding: 7px 14px 9px;
-  background: #fff;
-  border-top: 1px solid #f0f4f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  flex-shrink: 0;
-}
-.ab-footer-txt {
-  font-size: .6rem;
-  color: #94a3b8;
-  font-weight: 500;
-  letter-spacing: .02em;
-}
-.ab-footer-brand {
-  font-size: .6rem;
-  color: #00875a;
-  font-weight: 700;
-  letter-spacing: .01em;
-}
-
-/* ── Welcome card (first message) ── */
-.ab-welcome-card {
-  background: linear-gradient(135deg, #f0fdf7, #e6faf1);
-  border: 1px solid #bbf0d7;
-  border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 4px;
-}
-.ab-welcome-title {
-  font-family: 'Clash Display', sans-serif;
-  font-size: .9rem;
-  font-weight: 700;
-  color: #0b3d2e;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-.ab-welcome-list {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.ab-welcome-item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: .76rem;
-  color: #1a4d35;
-  font-weight: 500;
-}
-.ab-welcome-dot {
-  width: 5px; height: 5px;
-  background: #00875a;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ── Loan type option cards ── */
-.ab-loan-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-  margin-top: 6px;
-}
-.ab-loan-card {
-  background: #fff;
-  border: 1.5px solid #e2eaf3;
-  border-radius: 12px;
-  padding: 11px 12px;
-  cursor: pointer;
-  transition: all .2s;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
-}
-.ab-loan-card:hover, .ab-loan-card:active {
-  border-color: #00875a;
-  background: linear-gradient(135deg, #f0fdf7, #e6faf1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,135,90,.15);
-}
-.ab-loan-icon { font-size: 1.2rem; line-height: 1; }
-.ab-loan-name {
-  font-size: .76rem;
-  font-weight: 700;
-  color: #1a2942;
-  line-height: 1.2;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.ab-loan-rate {
-  font-size: .65rem;
-  color: #00875a;
-  font-weight: 600;
-}
-
-/* ── Result card ── */
-.ab-result-card {
-  background: linear-gradient(135deg, #0b3d2e, #00875a);
-  border-radius: 14px;
-  padding: 16px;
-  color: #fff;
-  animation: abMsgSlide .35s ease;
-}
-.ab-result-title {
-  font-family: 'Clash Display', sans-serif;
-  font-size: .85rem;
-  font-weight: 700;
-  opacity: .85;
-  margin-bottom: 3px;
-}
-.ab-result-amount {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 10px;
-}
-.ab-result-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.ab-result-item {
-  background: rgba(255,255,255,.12);
-  border-radius: 9px;
-  padding: 9px 11px;
-}
-.ab-result-item-label {
-  font-size: .6rem;
-  opacity: .75;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  margin-bottom: 2px;
-}
-.ab-result-item-val {
-  font-family: 'Clash Display', sans-serif;
-  font-size: .92rem;
-  font-weight: 700;
-}
+.tc-footer-txt { font-size: .58rem; color: #94a3b8; }
+.tc-footer-brand { font-size: .58rem; color: #00875a; font-weight: 700; }
 
 </style>
 </head>
@@ -3569,84 +3423,82 @@ footer {
 
 
 
-<!-- Scroll to top -->
-<button id="scrollTop"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})"
-  style="position:fixed;bottom:90px;right:90px;width:40px;height:40px;
-         border-radius:10px;background:#fff;border:1.5px solid #c9d6e8;
-         display:flex;align-items:center;justify-content:center;
-         font-size:.9rem;color:#4a6785;cursor:pointer;
-         box-shadow:0 2px 8px rgba(11,23,38,.08);
-         opacity:0;pointer-events:none;
-         transition:all .28s ease;z-index:8499"
-  aria-label="Back to top">&#8593;</button>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:92px;right:88px;width:38px;height:38px;border-radius:10px;background:#fff;border:1.5px solid #c9d6e8;display:flex;align-items:center;justify-content:center;font-size:.88rem;color:#4a6785;cursor:pointer;box-shadow:0 2px 8px rgba(11,23,38,.08);opacity:0;pointer-events:none;transition:all .28s ease;z-index:8499" aria-label="Back to top">&#8593;</button>
 
 <!-- ================================================
-     ARTH — PREMIUM LOAN ADVISOR CHATBOT
-     by The Loan Forest
+     TISHA POPUP — Small notification bubble
 ================================================ -->
+<div id="tishaPopup">
+  <div class="tp-avatar">T</div>
+  <div class="tp-text">
+    <div class="tp-name">Tisha &bull; Loan Expert</div>
+    <div class="tp-msg">Hi! Main Tisha hun &#128522; Loan ki zaroorat hai? Abhi baat karte hain!</div>
+  </div>
+  <button class="tp-close" onclick="closePopup()">&#10005;</button>
+</div>
 
-<!-- Launcher button -->
-<button id="arthBtn" onclick="arthToggle()" aria-label="Open Arth — Your Smart Loan Guide">
-  <span class="ab-pulse"></span>
-  <span class="ab-pulse"></span>
-  <span class="ab-notif" id="arthNotif">1</span>
-  <span class="ab-rupee">&#8377;</span>
-  <span class="ab-close-x">&#10005;</span>
-  <span class="ab-label">Arth</span>
+<!-- ================================================
+     TISHA LAUNCHER BUTTON
+================================================ -->
+<button id="tishaBtn" onclick="tishaToggle()" aria-label="Chat with Tisha — Your Loan Expert">
+  <span class="tb-ring"></span>
+  <span class="tb-ring"></span>
+  <span class="tb-badge" id="tishaBadge">1</span>
+  <div class="tb-icon-wrap">
+    <div class="tb-avatar-mini">T</div>
+    <span class="tb-label">Tisha</span>
+  </div>
+  <span class="tb-close-x">&#10005;</span>
 </button>
 
-<!-- Chat window -->
-<div id="arthBox" role="dialog" aria-modal="true" aria-label="Arth Loan Advisor">
+<!-- ================================================
+     TISHA CHAT WINDOW
+================================================ -->
+<div id="tishaBox" role="dialog" aria-label="Tisha — Your Loan Expert">
 
   <!-- Header -->
-  <div class="ab-head">
-    <div class="ab-head-top">
-      <div class="ab-head-left">
-        <div class="ab-logo-wrap">
-          <span class="ab-logo-symbol">&#8377;</span>
-        </div>
-        <div class="ab-name-block">
-          <div class="ab-name">Arth</div>
-          <div class="ab-tagline">Your Smart Loan Guide</div>
-          <div class="ab-status">
-            <span class="ab-status-dot"></span>
-            <span class="ab-status-txt">Online &middot; Typically replies instantly</span>
+  <div class="tc-head">
+    <div class="tc-head-row">
+      <div class="tc-head-left">
+        <div class="tc-head-avatar">T</div>
+        <div class="tc-head-info">
+          <div class="tc-head-name">Tisha</div>
+          <div class="tc-head-tagline">Aapki Loan Expert &bull; The Loan Forest</div>
+          <div class="tc-head-status">
+            <span class="tc-status-dot"></span>
+            <span class="tc-status-txt">Online &bull; Replies instantly</span>
           </div>
         </div>
       </div>
-      <button class="ab-head-close" onclick="arthToggle()" aria-label="Close">&#10005;</button>
+      <button class="tc-head-close" onclick="tishaToggle()">&#10005;</button>
     </div>
-    <div class="ab-progress-bar" id="arthProgressBar" style="display:none">
-      <div class="ab-progress-label">
-        <span id="arthProgressLabel">Getting Started</span>
-        <span id="arthProgressPct">0%</span>
+    <div id="tishaProgBar">
+      <div class="tc-prog-label">
+        <span id="tishaProgLabel">Getting Started</span>
+        <span id="tishaProgPct"></span>
       </div>
-      <div class="ab-progress-track">
-        <div class="ab-progress-fill" id="arthProgressFill"></div>
+      <div class="tc-prog-track">
+        <div id="tishaProgFill"></div>
       </div>
     </div>
   </div>
 
   <!-- Messages -->
-  <div class="ab-msgs" id="arthMsgs"></div>
+  <div class="tc-msgs" id="tishaMsgs"></div>
 
   <!-- Chips -->
-  <div class="ab-chips" id="arthChips"></div>
+  <div class="tc-chips-wrap" id="tishaChips"></div>
 
   <!-- Input -->
-  <div class="ab-input-row">
+  <div class="tc-input-row">
     <input
-      type="text"
-      class="ab-input"
-      id="arthInput"
+      type="text" class="tc-input" id="tishaInput"
       placeholder="Type a message..."
-      onkeydown="if(event.key==='Enter')arthSendText()"
-      autocomplete="off"
-      maxlength="200"
+      onkeydown="if(event.key==='Enter')tishaSend()"
+      autocomplete="off" maxlength="200"
     />
-    <button class="ab-send" onclick="arthSendText()" aria-label="Send">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <button class="tc-send" onclick="tishaSend()" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"></line>
         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
       </svg>
@@ -3654,10 +3506,10 @@ footer {
   </div>
 
   <!-- Footer -->
-  <div class="ab-footer">
-    <span class="ab-footer-txt">Powered by</span>
-    <span class="ab-footer-brand">The Loan Forest</span>
-    <span class="ab-footer-txt">&middot; 150+ Banks</span>
+  <div class="tc-footer">
+    <span class="tc-footer-txt">Powered by</span>
+    <span class="tc-footer-brand">The Loan Forest</span>
+    <span class="tc-footer-txt">&bull; FinLeaf &bull; 150+ Banks</span>
   </div>
 
 </div>
@@ -3837,8 +3689,6 @@ footer {
 .as-num{font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:#0052cc;display:block;line-height:1}
 .as-lbl{font-size:.75rem;color:#4a6785;margin-top:4px}
 </style>
-
-
 
 <script>
 
@@ -4637,402 +4487,543 @@ function drawEmiDonut(P, I) {
 /* Init on page load */
 calcEMI();
 
+/* TISHA SYSTEM */
 /* ================================================================
-   ARTH CHATBOT
-================================================================ */
-/* ================================================================
-   ARTH — PREMIUM LOAN ADVISOR CHATBOT
-   The Loan Forest | Step-based | Lead capture | localStorage
+   TISHA — AI LOAN ADVISOR | The Loan Forest
+   FinLeaf Branding | Telegram Lead Capture
+   Hindi + English | Natural Conversation
 ================================================================ */
 (function () {
   'use strict';
 
   /* ── Config ── */
-  var WA_NUM = '918815076434';
-  var STEPS  = 6;
+  var TG_TOKEN   = '8383741419:AAF_DJ1XZSv5pKHVlz0GvKJez4adwB2iNvg';
+  var TG_CHAT_ID = '661641978';
+  var WA_NUM     = '918815076434';
 
   /* ── State ── */
-  var isOpen = false;
-  var step   = 0;
-  var lead   = {};
-  var typing = null;
+  var isOpen   = false;
+  var lang     = null;   /* 'hi' or 'en' */
+  var step     = 0;
+  var popupShown = false;
+  var lead     = {};
 
-  /* ── DOM refs (lazy) ── */
+  /* ── Helpers ── */
   function el(id) { return document.getElementById(id); }
+  function esc(t) {
+    return String(t||'')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function ts() {
+    return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  }
 
-  /* ── Toggle ── */
-  window.arthToggle = function () {
+  /* ── Toggle chatbot ── */
+  window.tishaToggle = function() {
     isOpen = !isOpen;
-    var btn = el('arthBtn');
-    var box = el('arthBox');
-    if (!btn || !box) return;
-    if (isOpen) {
-      box.classList.add('ab-visible');
-      btn.classList.add('ab-open');
-      var notif = el('arthNotif');
-      if (notif) notif.style.display = 'none';
-      if (step === 0) { step = 1; setTimeout(start, 350); }
-      setTimeout(function () {
-        var msgs = el('arthMsgs');
-        if (msgs) msgs.scrollTop = msgs.scrollHeight;
-      }, 400);
+    var box = el('tishaBox');
+    var btn = el('tishaBtn');
+    var pop = el('tishaPopup');
+    if(!box||!btn) return;
+    if(isOpen) {
+      box.classList.add('tisha-open');
+      btn.classList.add('tb-open');
+      if(pop) pop.style.display='none';
+      var nb=btn.querySelector('.tb-badge');
+      if(nb) nb.style.display='none';
+      if(step===0){step=1;setTimeout(showLangPicker,350);}
     } else {
-      box.classList.remove('ab-visible');
-      btn.classList.remove('ab-open');
+      box.classList.remove('tisha-open');
+      btn.classList.remove('tb-open');
     }
   };
 
-  /* ── Update progress bar ── */
-  function setProgress(current) {
-    var bar   = el('arthProgressBar');
-    var fill  = el('arthProgressFill');
-    var label = el('arthProgressLabel');
-    var pct   = el('arthProgressPct');
-    if (!bar) return;
-    var labels = ['Loan Type', 'Your Name', 'Mobile', 'Occupation', 'Income', 'Loan Amount', 'Done'];
-    if (current <= 1) {
-      bar.style.display = 'none';
-      return;
+  /* ── Popup auto-show after 5s ── */
+  setTimeout(function(){
+    if(!isOpen && !popupShown){
+      var pop=el('tishaPopup');
+      if(pop){pop.style.display='flex';popupShown=true;}
     }
-    bar.style.display = 'block';
-    var p = Math.round(((current - 1) / STEPS) * 100);
-    if (fill)  fill.style.width  = p + '%';
-    if (label) label.textContent = 'Step ' + (current - 1) + ' of ' + STEPS + ': ' + (labels[current - 2] || '');
-    if (pct)   pct.textContent   = p + '%';
+  },5000);
+  window.closePopup=function(){
+    var pop=el('tishaPopup');
+    if(pop) pop.style.display='none';
+  };
+  window.openTishaFromPopup=function(){
+    var pop=el('tishaPopup');
+    if(pop) pop.style.display='none';
+    if(!isOpen) tishaToggle();
+  };
+
+  /* ── Language picker ── */
+  function showLangPicker(){
+    botMsg(
+      '<div style="margin-bottom:8px;font-weight:600">Please choose your language / Apni bhasha chunein:</div>',
+      400, true
+    ).then(function(){
+      setChips([
+        {label:'&#127470;&#127475; Hindi', val:'hi'},
+        {label:'&#127468;&#127463; English', val:'en'}
+      ]);
+    });
+  }
+
+  /* ── Start conversation ── */
+  function startConv(){
+    if(lang==='hi'){
+      var card=
+        '<div class="tc-welcome">'+
+          '<div class="tc-w-title">Namaste! Main <strong>Tisha</strong> hun &#128522;</div>'+
+          '<div class="tc-w-sub">The Loan Forest se &mdash; Aapki Apni Loan Expert</div>'+
+          '<div class="tc-w-list">'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>150+ banks se compare karein</div>'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>Bilkul free &mdash; koi charge nahi</div>'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>Credit score pe koi asar nahi</div>'+
+          '</div>'+
+        '</div>';
+      botMsg(card,600,false).then(function(){
+        return botMsg('Batao, kaunsa loan lena hai aapko?',800);
+      }).then(showLoanGrid);
+    } else {
+      var card2=
+        '<div class="tc-welcome">'+
+          '<div class="tc-w-title">Hello! I&rsquo;m <strong>Tisha</strong> &#128522;</div>'+
+          '<div class="tc-w-sub">Your Personal Loan Expert &mdash; The Loan Forest</div>'+
+          '<div class="tc-w-list">'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>Compare 150+ Banks &amp; NBFCs</div>'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>100% Free Advisory</div>'+
+            '<div class="tc-w-item"><span class="tc-w-dot"></span>No Credit Score Impact</div>'+
+          '</div>'+
+        '</div>';
+      botMsg(card2,600,false).then(function(){
+        return botMsg('What kind of loan are you looking for?',800);
+      }).then(showLoanGrid);
+    }
+    setProgress(1);
+  }
+
+  function showLoanGrid(){
+    var msgs=el('tishaMsgs');
+    if(!msgs) return;
+    var loans_hi=[
+      {icon:'&#128179;',name:'Personal Loan',rate:'10.50%'},
+      {icon:'&#127968;',name:'Home Loan',rate:'8.40%'},
+      {icon:'&#127981;',name:'Business Loan',rate:'12.00%'},
+      {icon:'&#128663;',name:'Car Loan',rate:'8.75%'},
+      {icon:'&#127963;',name:'Loan Against Property',rate:'9.25%'},
+      {icon:'&#127970;',name:'MSME Loan',rate:'Govt. Scheme'}
+    ];
+    var row=document.createElement('div');
+    row.className='tc-bot-row tc-fade';
+    row.innerHTML=
+      '<div class="tc-bot-icon"></div>'+
+      '<div style="flex:1;min-width:0">'+
+        '<div class="tc-loan-grid">'+
+        loans_hi.map(function(l){
+          return '<div class="tc-loan-card" onclick="tishaChip(\''+esc(l.name)+'\')">'+
+            '<span class="tc-loan-icon">'+l.icon+'</span>'+
+            '<span class="tc-loan-name">'+esc(l.name)+'</span>'+
+            '<span class="tc-loan-rate">From '+l.rate+'</span>'+
+          '</div>';
+        }).join('')+
+        '</div>'+
+      '</div>';
+    msgs.appendChild(row);
+    msgs.scrollTop=msgs.scrollHeight;
   }
 
   /* ── Bot message ── */
-  function botMsg(html, delay, skipTyping) {
-    delay = delay || 700;
-    var msgs = el('arthMsgs');
-    if (!msgs) return Promise.resolve();
-
-    if (!skipTyping) {
-      var typEl       = document.createElement('div');
-      typEl.className = 'ab-typing-row';
-      typEl.id        = 'arthTyping';
-      typEl.innerHTML =
-        '<div class="ab-bot-icon">&#8377;</div>' +
-        '<div class="ab-typing-bubble">' +
-        '<div class="ab-dot"></div><div class="ab-dot"></div><div class="ab-dot"></div>' +
+  function botMsg(html, delay, skipTyping){
+    delay=delay||700;
+    var msgs=el('tishaMsgs');
+    if(!msgs) return Promise.resolve();
+    if(!skipTyping){
+      var t=document.createElement('div');
+      t.className='tc-typing'; t.id='tisha_typing';
+      t.innerHTML='<div class="tc-bot-icon"></div>'+
+        '<div class="tc-typing-bubble">'+
+          '<span class="tc-dot"></span>'+
+          '<span class="tc-dot"></span>'+
+          '<span class="tc-dot"></span>'+
         '</div>';
-      msgs.appendChild(typEl);
-      msgs.scrollTop = msgs.scrollHeight;
+      msgs.appendChild(t);
+      msgs.scrollTop=msgs.scrollHeight;
     }
-
-    return new Promise(function (resolve) {
-      setTimeout(function () {
-        var t = el('arthTyping');
-        if (t) t.remove();
-        var now    = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-        var row    = document.createElement('div');
-        row.className = 'ab-bot-row';
-        row.innerHTML =
-          '<div class="ab-bot-icon">&#8377;</div>' +
-          '<div>' +
-          '<div class="ab-bot-bubble">' + html + '</div>' +
-          '<div class="ab-ts">' + now + '</div>' +
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var old=el('tisha_typing');
+        if(old) old.remove();
+        var row=document.createElement('div');
+        row.className='tc-bot-row tc-fade';
+        row.innerHTML=
+          '<div class="tc-bot-icon"></div>'+
+          '<div>'+
+            '<div class="tc-bubble-bot">'+html+'</div>'+
+            '<div class="tc-ts">'+ts()+'</div>'+
           '</div>';
         msgs.appendChild(row);
-        msgs.scrollTop = msgs.scrollHeight;
+        msgs.scrollTop=msgs.scrollHeight;
         resolve();
-      }, delay);
+      },delay);
     });
   }
 
   /* ── User message ── */
-  function userMsg(text) {
-    var msgs = el('arthMsgs');
-    if (!msgs) return;
-    var now  = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-    var row  = document.createElement('div');
-    row.className = 'ab-user-row';
-    row.innerHTML =
-      '<div>' +
-      '<div class="ab-user-bubble">' + escHtml(text) + '</div>' +
-      '<div class="ab-ts right">' + now + '</div>' +
+  function userMsg(text){
+    var msgs=el('tishaMsgs');
+    if(!msgs) return;
+    var row=document.createElement('div');
+    row.className='tc-user-row tc-fade';
+    row.innerHTML=
+      '<div>'+
+        '<div class="tc-bubble-user">'+esc(text)+'</div>'+
+        '<div class="tc-ts" style="text-align:right">'+ts()+'</div>'+
       '</div>';
     msgs.appendChild(row);
-    msgs.scrollTop = msgs.scrollHeight;
+    msgs.scrollTop=msgs.scrollHeight;
   }
 
   /* ── Chips ── */
-  function setChips(opts) {
-    var c = el('arthChips');
-    if (!c) return;
-    c.innerHTML = opts.map(function (o) {
-      return '<button class="ab-chip" onclick="arthChip(\'' +
-        o.replace(/'/g, "\\'").replace(/"/g, '&quot;') +
-        '\')">' + escHtml(o) + '</button>';
+  function setChips(opts){
+    var c=el('tishaChips');
+    if(!c) return;
+    c.innerHTML=opts.map(function(o){
+      var v=typeof o==='string'?o:o.val;
+      var l=typeof o==='string'?esc(o):o.label;
+      return '<button class="tc-chip" onclick="tishaChip(\''+v.replace(/'/g,"\\'")+'\')">'
+        +l+'</button>';
     }).join('');
   }
-  function clearChips() {
-    var c = el('arthChips');
-    if (c) c.innerHTML = '';
+  function clearChips(){
+    var c=el('tishaChips'); if(c) c.innerHTML='';
   }
-  window.arthChip = function (val) { clearChips(); handleInput(val); };
-  window.arthSendText = function () {
-    var inp = el('arthInput');
-    if (!inp) return;
-    var v = (inp.value || '').trim();
-    if (!v) return;
-    inp.value = '';
+
+  window.tishaChip=function(val){ clearChips(); handleInput(val); };
+  window.tishaSend=function(){
+    var inp=el('tishaInput');
+    if(!inp) return;
+    var v=(inp.value||'').trim();
+    if(!v) return;
+    inp.value='';
     handleInput(v);
   };
 
-  /* ── Escape HTML ── */
-  function escHtml(t) {
-    return String(t)
-      .replace(/&/g,'&amp;')
-      .replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;');
+  /* ── Progress bar ── */
+  function setProgress(s){
+    var fill=el('tishaProgFill');
+    var lbl=el('tishaProgLabel');
+    var bar=el('tishaProgBar');
+    if(!bar) return;
+    if(s<=1){bar.style.display='none';return;}
+    bar.style.display='block';
+    var steps_hi=['Loan ka type','Aapka naam','Mobile number','Job/Business','Income','Loan amount'];
+    var steps_en=['Loan Type','Your Name','Mobile','Occupation','Income','Loan Amount'];
+    var arr=lang==='hi'?steps_hi:steps_en;
+    var pct=Math.round(((s-1)/6)*100);
+    if(fill) fill.style.width=pct+'%';
+    if(lbl)  lbl.textContent=(lang==='hi'?'Step ':'Step ')+(s-1)+'/6: '+(arr[s-2]||'');
   }
 
-  /* ── Format INR ── */
-  function fmtINR(n) {
-    if (n >= 10000000) return '&#8377;' + (n / 10000000).toFixed(1) + ' Cr';
-    if (n >= 100000)   return '&#8377;' + (n / 100000).toFixed(1)   + ' L';
-    return '&#8377;' + Math.round(n).toLocaleString('en-IN');
-  }
+  /* ── Hindi text helpers ── */
+  var T={
+    ask_name:      {hi:'Theek hai! Aapka poora naam kya hai?', en:'Great! What is your full name?'},
+    ask_phone:     {hi:'Aur aapka mobile number batao (10 digits):', en:'Please share your 10-digit mobile number:'},
+    ask_occ:       {hi:'Aap kya karte hain?', en:'What is your occupation?'},
+    occ_opts_hi:   ['Naukri (Private)', 'Naukri (Govt.)', 'Khud ka kaam', 'Business Owner', 'Kisan', 'Retired'],
+    occ_opts_en:   ['Salaried — Private', 'Salaried — Govt.', 'Self-Employed', 'Business Owner', 'Farmer', 'Pensioner'],
+    ask_income:    {hi:'Mahine mein kitna kamate hain aap?', en:'What is your approximate monthly income?'},
+    income_hi:     ['Rs.15,000 se kam', 'Rs.15,000 - 30,000', 'Rs.30,000 - 60,000', 'Rs.60,000 - 1 Lakh', '1 Lakh se zyada'],
+    income_en:     ['Below Rs.15,000', 'Rs.15K - 30K', 'Rs.30K - 60K', 'Rs.60K - 1L', 'Above Rs.1L'],
+    ask_amount:    {hi:'Kitne ka loan chahiye?', en:'What loan amount do you need?'},
+    amount_opts:   ['Up to Rs.2 Lakh', 'Rs.2L - 5L', 'Rs.5L - 15L', 'Rs.15L - 50L', 'Above Rs.50L'],
+    searching:     {hi:'Shukriya! Ab main 150+ banks mein aapke liye dhundh rahi hun...', en:'Thank you! Searching across 150+ banks for you...'},
+    wait:          {hi:'Thoda wait karo, best offers nikal rahi hun!', en:'Finding the best offers for your profile...'},
+    found:         {hi:'Mil gaya! Aapke liye bahut achhe offers hain!', en:'Analysis complete! Great offers found for you!'},
+    how_get:       {hi:'Offers kaise lena chahoge?', en:'How would you like to receive your loan offers?'},
+    invalid_name:  {hi:'Naam sahi se batao please.', en:'Please enter a valid name.'},
+    invalid_phone: {hi:'10 digit wala number batao.', en:'Please enter a valid 10-digit number.'},
+    wa_confirm:    {hi:'WhatsApp khul raha hai... Hum jaldi best offers bhejenge!', en:'Opening WhatsApp... We will send your best offers shortly!'},
+    cb_confirm:    {hi:'Done! Hamare expert 30 minute mein call karenge aapko.', en:'Callback scheduled! Our expert will call you within 30 minutes.'},
+    thanks:        {hi:'Shukriya The Loan Forest choose karne ke liye! Aapka loan jaldi approve hoga.', en:'Thank you for choosing The Loan Forest! Best of luck!'}
+  };
 
-  /* ── STEP 1: Welcome ── */
-  function start() {
-    setProgress(1);
+  function txt(key){ return T[key]?T[key][lang]||T[key]['en']:''; }
 
-    /* Welcome card as first bot message */
-    var welcomeHTML =
-      '<div class="ab-welcome-card">' +
-        '<div class="ab-welcome-title">Namaste! I am <strong>Arth</strong> &#8377;</div>' +
-        '<div class="ab-welcome-list">' +
-          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Compare 150+ Banks &amp; NBFCs</div>' +
-          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Get Best Rate Offers — FREE</div>' +
-          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>No Credit Score Impact</div>' +
-          '<div class="ab-welcome-item"><span class="ab-welcome-dot"></span>Expert Callback in 30 Min</div>' +
-        '</div>' +
-      '</div>';
+  /* ── Main input handler ── */
+  function handleInput(val){
+    /* Language selection */
+    if(step===1 && (val==='hi'||val==='en')){
+      lang=val;
+      userMsg(val==='hi'?'Hindi':'English');
+      step=2;
+      setTimeout(startConv,200);
+      return;
+    }
 
-    botMsg(welcomeHTML, 600, false).then(function () {
-      return botMsg('To get started, please select the <strong>type of loan</strong> you need:', 800);
-    }).then(function () {
-      /* Loan type grid cards */
-      var msgs = el('arthMsgs');
-      if (!msgs) return;
-      var grid = document.createElement('div');
-      grid.className = 'ab-bot-row';
-      grid.innerHTML =
-        '<div class="ab-bot-icon">&#8377;</div>' +
-        '<div style="max-width:100%;flex:1">' +
-        '<div class="ab-loan-grid">' +
-          loanCard('&#128179;', 'Personal Loan',  'From 10.50%') +
-          loanCard('&#127968;', 'Home Loan',       'From 8.40%')  +
-          loanCard('&#127981;', 'Business Loan',   'From 12.00%') +
-          loanCard('&#128663;', 'Car Loan',         'From 8.75%')  +
-          loanCard('&#127963;', 'Loan Against\nProperty', 'From 9.25%') +
-          loanCard('&#127970;', 'MSME Loan',       'Govt. Scheme') +
-        '</div></div>';
-      msgs.appendChild(grid);
-      msgs.scrollTop = msgs.scrollHeight;
-    });
-  }
-
-  function loanCard(icon, name, rate) {
-    var safe = name.replace(/'/g, "\\'").replace(/\n/g, ' ');
-    return '<div class="ab-loan-card" onclick="arthChip(\'' + safe + '\')">' +
-      '<span class="ab-loan-icon">' + icon + '</span>' +
-      '<span class="ab-loan-name">' + name.replace('\n', '<br>') + '</span>' +
-      '<span class="ab-loan-rate">' + rate + ' p.a.</span>' +
-      '</div>';
-  }
-
-  /* ── Handle input by step ── */
-  function handleInput(val) {
     userMsg(val);
     clearChips();
 
-    if (step === 1) {
-      /* Step 1: Loan type selected */
-      lead.loanType = val;
-      step = 2;
-      setProgress(2);
-      botMsg('Great choice! <strong>' + escHtml(val) + '</strong> — we have excellent offers from top lenders. &#128176;', 600).then(function () {
-        return botMsg('Could you please share your <strong>full name</strong>?', 700);
-      });
-
-    } else if (step === 2) {
-      /* Step 2: Name */
-      if (!val || val.trim().length < 2) {
-        botMsg('Please enter your full name (at least 2 characters).', 400);
-        return;
-      }
-      lead.name = val.trim();
-      step = 3;
+    /* Step 2: Loan type */
+    if(step===2){
+      lead.loanType=val;
+      step=3;
       setProgress(3);
-      botMsg('Thank you, <strong>' + escHtml(lead.name) + '</strong>! &#128578;', 500).then(function () {
-        return botMsg('Please enter your <strong>10-digit mobile number</strong> for our advisor to contact you:', 700);
-      });
+      botMsg(lang==='hi'
+        ?'Achha! <strong>'+esc(val)+'</strong> ke liye hamare paas bahut achhe offers hain.'
+        :'Great! We have excellent offers for <strong>'+esc(val)+'</strong>.',
+        600
+      ).then(function(){ return botMsg(txt('ask_name'),700); });
 
-    } else if (step === 3) {
-      /* Step 3: Phone */
-      var ph = val.replace(/\D/g, '');
-      if (ph.length !== 10) {
-        botMsg('&#9888;&#65039; Please enter a valid 10-digit mobile number.', 400);
-        return;
-      }
-      lead.phone = ph;
-      step = 4;
+    /* Step 3: Name */
+    } else if(step===3){
+      if(!val||val.trim().length<2){ botMsg(txt('invalid_name'),400); return; }
+      lead.name=val.trim();
+      step=4;
       setProgress(4);
-      botMsg('Noted. Your number is securely saved. &#128274;', 500).then(function () {
-        return botMsg('What is your <strong>employment / occupation type?</strong>', 700);
-      }).then(function () {
-        setChips(['Salaried — Private', 'Salaried — Govt.', 'Self-Employed', 'Business Owner', 'Farmer', 'Pensioner']);
-      });
+      botMsg(lang==='hi'
+        ?'Nice to meet you <strong>'+esc(lead.name)+'</strong>! &#128578;'
+        :'Nice to meet you, <strong>'+esc(lead.name)+'</strong>! &#128578;',
+        500
+      ).then(function(){ return botMsg(txt('ask_phone'),700); });
 
-    } else if (step === 4) {
-      /* Step 4: Occupation */
-      lead.occupation = val;
-      step = 5;
+    /* Step 4: Phone */
+    } else if(step===4){
+      var ph=val.replace(/\D/g,'');
+      if(ph.length!==10){ botMsg(txt('invalid_phone'),400); return; }
+      lead.phone=ph;
+      step=5;
       setProgress(5);
-      botMsg('Got it. <strong>' + escHtml(val) + '</strong> profile noted. &#10003;', 500).then(function () {
-        return botMsg('What is your approximate <strong>monthly income?</strong>', 700);
-      }).then(function () {
-        setChips(['Below &#8377;15,000', '&#8377;15,000 &#8211; &#8377;30,000', '&#8377;30,000 &#8211; &#8377;60,000', '&#8377;60,000 &#8211; &#8377;1,00,000', 'Above &#8377;1,00,000']);
-      });
+      botMsg(lang==='hi'
+        ?'Number save ho gaya. &#128274;'
+        :'Number saved securely. &#128274;',
+        500
+      ).then(function(){ return botMsg(txt('ask_occ'),700); })
+       .then(function(){ setChips(lang==='hi'?T.occ_opts_hi:T.occ_opts_en); });
 
-    } else if (step === 5) {
-      /* Step 5: Income */
-      lead.income = val;
-      step = 6;
+    /* Step 5: Occupation */
+    } else if(step===5){
+      lead.occupation=val;
+      step=6;
       setProgress(6);
-      botMsg('Perfect. &#128200; That helps us match the right lenders for you.', 500).then(function () {
-        return botMsg('Finally, what is your <strong>required loan amount?</strong>', 700);
-      }).then(function () {
-        setChips(['Up to &#8377;2 Lakh', '&#8377;2L &#8211; &#8377;5L', '&#8377;5L &#8211; &#8377;15L', '&#8377;15L &#8211; &#8377;50L', 'Above &#8377;50L']);
-      });
+      botMsg(lang==='hi'
+        ?'Theek hai, <strong>'+esc(val)+'</strong> note kar liya.'
+        :'Got it, noted as <strong>'+esc(val)+'</strong>.',
+        500
+      ).then(function(){ return botMsg(txt('ask_income'),700); })
+       .then(function(){ setChips(lang==='hi'?T.income_hi:T.income_en); });
 
-    } else if (step === 6) {
-      /* Step 6: Loan amount */
-      lead.loanAmount = val;
-      step = 7;
+    /* Step 6: Income */
+    } else if(step===6){
+      lead.income=val;
+      step=7;
       setProgress(7);
+      botMsg(lang==='hi'
+        ?'Perfect! &#128200; Yeh income se hum best banks match kar sakte hain.'
+        :'Perfect! &#128200; This helps us match the best lenders.',
+        500
+      ).then(function(){ return botMsg(txt('ask_amount'),700); })
+       .then(function(){ setChips(T.amount_opts); });
+
+    /* Step 7: Loan amount */
+    } else if(step===7){
+      lead.loanAmount=val;
+      step=8;
       saveLead();
-
-      /* Searching animation */
-      botMsg('&#128269; Analysing your profile across <strong>150+ banks &amp; NBFCs</strong>...', 700).then(function () {
-        return botMsg('Matching lenders, comparing rates, calculating eligibility...', 1200);
-      }).then(function () {
-        /* Result card */
-        var msgs = el('arthMsgs');
-        if (!msgs) return Promise.resolve();
-
-        var rateMap = {
-          'Personal Loan':     'From 10.50% p.a.',
-          'Home Loan':          'From 8.40% p.a.',
-          'Business Loan':      'From 12.00% p.a.',
-          'Car Loan':           'From 8.75% p.a.',
-          'Loan Against\nProperty': 'From 9.25% p.a.',
-          'Loan Against Property':  'From 9.25% p.a.',
-          'MSME Loan':          'Govt. Schemes Available'
-        };
-        var lenderMap = {
-          'Personal Loan': '38',  'Home Loan': '47',
-          'Business Loan': '32',  'Car Loan':  '29',
-          'Loan Against Property': '24', 'MSME Loan': '18'
-        };
-        var rate    = rateMap[lead.loanType]    || 'From 10.50% p.a.';
-        var lenders = lenderMap[lead.loanType]  || '35';
-
-        var el2  = document.createElement('div');
-        el2.className = 'ab-bot-row';
-        el2.style.animation = 'abMsgSlide .35s ease';
-        el2.innerHTML =
-          '<div class="ab-bot-icon">&#8377;</div>' +
-          '<div style="flex:1;max-width:82%">' +
-          '<div class="ab-result-card">' +
-          '<div class="ab-result-title">&#10003; Analysis Complete</div>' +
-          '<div class="ab-result-amount">Great Offers Found!</div>' +
-          '<div class="ab-result-grid">' +
-            '<div class="ab-result-item"><div class="ab-result-item-label">Best Rate</div><div class="ab-result-item-val">' + rate + '</div></div>' +
-            '<div class="ab-result-item"><div class="ab-result-item-label">Matched Lenders</div><div class="ab-result-item-val">' + lenders + '+ Banks</div></div>' +
-            '<div class="ab-result-item"><div class="ab-result-item-label">Loan Type</div><div class="ab-result-item-val">' + escHtml(lead.loanType) + '</div></div>' +
-            '<div class="ab-result-item"><div class="ab-result-item-label">Advisory</div><div class="ab-result-item-val">100% FREE</div></div>' +
-          '</div>' +
-          '</div>' +
-          '<div class="ab-ts">Just now</div>' +
-          '</div>';
-        msgs.appendChild(el2);
-        msgs.scrollTop = msgs.scrollHeight;
-        return Promise.resolve();
-      }).then(function () {
-        return botMsg('How would you like to receive your <strong>personalised loan offers?</strong>', 900);
-      }).then(function () {
-        /* CTA chips */
-        var c = el('arthChips');
-        if (!c) return;
-        c.innerHTML =
-          '<button class="ab-chip" style="background:linear-gradient(135deg,#128c7e,#25d366);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 3px 10px rgba(37,211,102,.3)" onclick="arthChip(\'WhatsApp Offers\')">&#128172; Get Offers on WhatsApp</button>' +
-          '<button class="ab-chip" style="background:linear-gradient(135deg,#0052cc,#003eb5);color:#fff;border-color:transparent;font-weight:700;box-shadow:0 3px 10px rgba(0,82,204,.3)" onclick="arthChip(\'Request Callback\')">&#128222; Request Expert Callback</button>';
-      });
-
-    } else if (step === 7) {
-      /* Step 7: CTA response */
-      if (val.indexOf('WhatsApp') !== -1) {
-        var waMsg = 'Namaste! I used Arth on The Loan Forest website.%0A%0AName: ' +
-          encodeURIComponent(lead.name) +
-          '%0ALoan Type: ' + encodeURIComponent(lead.loanType) +
-          '%0AAmount: ' + encodeURIComponent(lead.loanAmount) +
-          '%0AIncome: ' + encodeURIComponent(lead.income) +
-          '%0A%0APlease share the best loan offers!';
-        window.open('https://wa.me/' + WA_NUM + '?text=' + waMsg, '_blank');
-        botMsg('Opening WhatsApp... &#128172;<br/>Our advisor will send your personalised offers shortly. Thank you, <strong>' + escHtml(lead.name) + '</strong>! &#127881;', 500);
-      } else if (val.indexOf('Callback') !== -1 || val.indexOf('Call') !== -1) {
-        botMsg('&#10003; Callback scheduled!<br/>Our loan expert will call <strong>' + lead.phone + '</strong> within <strong>30 minutes</strong>. &#128222;', 600).then(function () {
-          return botMsg('Thank you for choosing <strong>The Loan Forest</strong>! We look forward to helping you. &#127775;', 900);
+      botMsg(txt('searching'),700)
+        .then(function(){ return botMsg(txt('wait'),1200); })
+        .then(function(){
+          /* Result card */
+          var msgs=el('tishaMsgs');
+          if(!msgs) return;
+          var rateMap={'Personal Loan':'10.50%','Home Loan':'8.40%','Business Loan':'12.00%','Car Loan':'8.75%','Loan Against Property':'9.25%','MSME Loan':'Govt. Rates'};
+          var lenderMap={'Personal Loan':'42','Home Loan':'51','Business Loan':'36','Car Loan':'28','Loan Against Property':'24','MSME Loan':'15'};
+          var rate=rateMap[lead.loanType]||'10.50%';
+          var lenders=lenderMap[lead.loanType]||'38';
+          var row=document.createElement('div');
+          row.className='tc-bot-row tc-fade';
+          row.innerHTML=
+            '<div class="tc-bot-icon"></div>'+
+            '<div style="flex:1;min-width:0">'+
+              '<div class="tc-result-card">'+
+                '<div class="tc-result-badge">&#10003; '+(lang==='hi'?'Mil gaya!':'Analysis Complete')+'</div>'+
+                '<div class="tc-result-title">'+(lang==='hi'?'Aapke liye best offers:':'Best Offers Found!')+'</div>'+
+                '<div class="tc-result-grid">'+
+                  '<div class="tc-result-item"><div class="tc-ri-lbl">'+(lang==='hi'?'Sabse Kam Rate':'Best Rate')+'</div><div class="tc-ri-val">From '+rate+' p.a.</div></div>'+
+                  '<div class="tc-result-item"><div class="tc-ri-lbl">'+(lang==='hi'?'Banks Match Hue':'Matched Banks')+'</div><div class="tc-ri-val">'+lenders+'+ Lenders</div></div>'+
+                  '<div class="tc-result-item"><div class="tc-ri-lbl">'+(lang==='hi'?'Advisory':'Advisory')+'</div><div class="tc-ri-val">100% Free</div></div>'+
+                  '<div class="tc-result-item"><div class="tc-ri-lbl">'+(lang==='hi'?'Callback':'Callback')+'</div><div class="tc-ri-val">30 Min</div></div>'+
+                '</div>'+
+              '</div>'+
+            '</div>';
+          msgs.appendChild(row);
+          msgs.scrollTop=msgs.scrollHeight;
+          return Promise.resolve();
+        }).then(function(){
+          return botMsg(txt('how_get'),900);
+        }).then(function(){
+          var c=el('tishaChips');
+          if(!c) return;
+          c.innerHTML=
+            '<button class="tc-chip tc-chip-wa" onclick="tishaChip(\'whatsapp\')">&#128172; '+(lang==='hi'?'WhatsApp par offers lo':'Get Offers on WhatsApp')+'</button>'+
+            '<button class="tc-chip tc-chip-call" onclick="tishaChip(\'callback\')">&#128222; '+(lang==='hi'?'Call back chahiye':'Request Expert Callback')+'</button>';
         });
-      } else {
-        botMsg('Understood! Our team will reach out to you very soon. &#128578;', 500);
+
+    /* Step 8: Final CTA */
+    } else if(step===8){
+      if(val==='whatsapp'){
+        var msg='Namaste The Loan Forest!%0A%0AMain Tisha chatbot se aaya hun.%0ANaam: '+encodeURIComponent(lead.name)+'%0ALoan: '+encodeURIComponent(lead.loanType)+'%0AAmount: '+encodeURIComponent(lead.loanAmount)+'%0AIncome: '+encodeURIComponent(lead.income)+'%0A%0APlease best offers bhejein!';
+        window.open('https://wa.me/'+WA_NUM+'?text='+msg,'_blank');
+        botMsg(txt('wa_confirm'),500);
+      } else if(val==='callback'){
+        botMsg(txt('cb_confirm'),600).then(function(){
+          return botMsg(txt('thanks'),900);
+        });
       }
     }
+  }
+
+  /* ── Telegram notification ── */
+  function sendTelegram(lead){
+    var icon={
+      'Personal Loan':'&#128179;','Home Loan':'&#127968;',
+      'Business Loan':'&#127981;','Car Loan':'&#128663;',
+      'Loan Against Property':'&#127963;','MSME Loan':'&#127970;'
+    };
+    var msg=
+      '&#128994; <b>NEW LEAD — The Loan Forest</b>\n'+
+      '&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;\n'+
+      (icon[lead.loanType]||'&#128176;')+' <b>Loan:</b> '+(lead.loanType||'-')+'\n'+
+      '&#128100; <b>Name:</b> '+(lead.name||'-')+'\n'+
+      '&#128222; <b>Phone:</b> '+(lead.phone||'-')+'\n'+
+      '&#128200; <b>Income:</b> '+(lead.income||'-')+'\n'+
+      '&#128083; <b>Amount:</b> '+(lead.loanAmount||'-')+'\n'+
+      '&#128188; <b>Job:</b> '+(lead.occupation||'-')+'\n'+
+      '&#128205; <b>City:</b> '+(lead.city||'-')+'\n'+
+      '&#128230; <b>Source:</b> '+(lead.source||'-')+'\n'+
+      '&#128336; <b>Time:</b> '+new Date().toLocaleString('en-IN')+'\n'+
+      '&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;&#9135;\n'+
+      '&#9889; <b>Quick Reply:</b>\n'+
+      'wa.me/91'+(lead.phone||'');
+
+    fetch('https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        chat_id:TG_CHAT_ID,
+        text:msg,
+        parse_mode:'HTML'
+      })
+    }).catch(function(e){ console.warn('TG send error:',e); });
   }
 
   /* ── Save lead ── */
-  function saveLead() {
-    try {
-      lead.source  = 'Arth Chatbot';
-      lead.id      = 'ARTH-' + Date.now();
-      lead.date    = new Date().toLocaleDateString('en-IN');
-      lead.time    = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-      lead.status  = 'New';
+  function saveLead(){
+    try{
+      lead.source = lead.source || 'Tisha Chatbot';
+      lead.id     = 'TLF-'+Date.now();
+      lead.date   = new Date().toLocaleDateString('en-IN');
+      lead.time   = new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+      lead.status = 'New';
 
-      console.log('%c Arth — New Lead Captured ', 'background:#0b3d2e;color:#6ee7b7;font-weight:bold;padding:3px 10px;border-radius:4px;');
-      console.table({
-        Name: lead.name, Phone: lead.phone,
-        LoanType: lead.loanType, Amount: lead.loanAmount,
-        Income: lead.income, Occupation: lead.occupation
-      });
+      console.log('%c Tisha — New Lead ','background:#1a5c3a;color:#86efac;font-weight:bold;padding:3px 10px;border-radius:4px;');
+      console.table({Name:lead.name,Phone:lead.phone,Loan:lead.loanType,Amount:lead.loanAmount,Income:lead.income});
 
-      /* Main leads pool (Admin Panel) */
-      var leads = JSON.parse(localStorage.getItem('tlf_leads') || '[]');
+      /* Main leads pool */
+      var leads=JSON.parse(localStorage.getItem('tlf_leads')||'[]');
       leads.unshift({
-        name: lead.name, phone: lead.phone,
-        loanType: lead.loanType, amount: lead.loanAmount,
-        employ: lead.occupation, income: lead.income,
-        source: lead.source, id: lead.id,
-        date: lead.date, time: lead.time, status: 'New'
+        name:lead.name, phone:lead.phone,
+        loanType:lead.loanType, amount:lead.loanAmount,
+        employ:lead.occupation, income:lead.income,
+        city:lead.city||'', source:lead.source,
+        id:lead.id, date:lead.date, time:lead.time, status:'New'
       });
-      localStorage.setItem('tlf_leads', JSON.stringify(leads));
+      localStorage.setItem('tlf_leads',JSON.stringify(leads));
 
-      /* Arth-specific pool */
-      var al = JSON.parse(localStorage.getItem('arth_leads') || '[]');
-      al.unshift(lead);
-      localStorage.setItem('arth_leads', JSON.stringify(al));
+      /* Tisha leads */
+      var tl=JSON.parse(localStorage.getItem('tisha_leads')||'[]');
+      tl.unshift(lead);
+      localStorage.setItem('tisha_leads',JSON.stringify(tl));
 
-    } catch (e) {
-      console.warn('Lead save error:', e);
-    }
+      /* Telegram */
+      sendTelegram(lead);
+
+    }catch(e){ console.warn('Lead save error:',e); }
   }
 
-})(); /* ── End Arth Chatbot ── */
+  /* ── Hook all website forms → Telegram ── */
+  /* Multi-step apply form */
+  var _origMsSubmit=window.msSubmit;
+  window.msSubmit=function(){
+    try{
+      var d={
+        name:(el('msName')||{}).value||'',
+        phone:(el('msPhone')||{}).value||'',
+        email:(el('msEmail')||{}).value||'',
+        city:(el('msCity')||{}).value||'',
+        loanType:typeof ms!=='undefined'?ms.loanType:'',
+        amount:typeof ms!=='undefined'?ms.amount:0,
+        employ:typeof ms!=='undefined'?ms.employ:'',
+        income:(el('msIncome')||{}).value||'',
+        score:typeof ms!=='undefined'?ms.score:'',
+        source:'Apply Form',
+        id:'TLF-'+Date.now(),
+        date:new Date().toLocaleDateString('en-IN'),
+        time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),
+        status:'New'
+      };
+      var leads=JSON.parse(localStorage.getItem('tlf_leads')||'[]');
+      leads.unshift(d); localStorage.setItem('tlf_leads',JSON.stringify(leads));
+      sendTelegram(d);
+    }catch(e){}
+    if(typeof _origMsSubmit==='function') _origMsSubmit();
+    else{
+      var ref='TLF-2025-'+Math.floor(1000+Math.random()*9000);
+      var refEl=el('mssRef'); if(refEl) refEl.textContent=ref;
+      document.querySelectorAll('.ms-panel').forEach(function(p){p.classList.remove('act');});
+      var p6=el('msp6'); if(p6) p6.classList.add('act');
+      var sn=el('msStepNum'); if(sn) sn.textContent='';
+      var snm=el('msStepName'); if(snm) snm.textContent='Application Submitted!';
+      var pf=el('msProgFill'); if(pf) pf.style.width='100%';
+      var ap=el('apply'); if(ap) ap.scrollIntoView({behavior:'smooth'});
+    }
+  };
+
+  /* Exit popup form */
+  window.submitExit=function(){
+    var name=(el('exName')||{}).value||'';
+    var phone=((el('exPhone')||{}).value||'').replace(/\D/g,'');
+    if(!name||phone.length!==10){
+      alert(lang==='hi'?'Naam aur 10 digit number dalo.':'Please enter name and valid 10-digit number.');
+      return;
+    }
+    var d={
+      name:name, phone:phone,
+      loanType:(el('exType')||{}).value||'',
+      source:'Exit Popup',
+      id:'TLF-'+Date.now(),
+      date:new Date().toLocaleDateString('en-IN'),
+      time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),
+      status:'New'
+    };
+    var leads=JSON.parse(localStorage.getItem('tlf_leads')||'[]');
+    leads.unshift(d); localStorage.setItem('tlf_leads',JSON.stringify(leads));
+    sendTelegram(d);
+    var succ=el('exitSuccess');
+    if(succ) succ.style.display='block';
+    setTimeout(function(){var ov=el('exitOverlay');if(ov)ov.classList.remove('show');},3000);
+  };
+
+  /* Keyboard: Ctrl+Shift+A → Admin */
+  document.addEventListener('keydown',function(e){
+    if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();if(typeof openAdmin==='function')openAdmin();}
+  });
+
+  /* Admin modal close */
+  var ov=el('admModalOverlay');
+  if(ov) ov.addEventListener('click',function(e){if(e.target===this&&typeof admCloseModal==='function')admCloseModal();});
+
+})(); /* End Tisha System */
 
 </script>
 </body>
