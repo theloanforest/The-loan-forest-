@@ -1871,18 +1871,15 @@ footer {
   width: 64px; height: 64px; border-radius: 50%;
   overflow: hidden; border: 3px solid #00875a;
   box-shadow: 0 4px 16px rgba(0,135,90,.5);
-  animation: tbSpin 4s linear infinite paused;
   position: relative; z-index: 1;
+  animation: none;
 }
 #tishaBtn:not(.tb-open) .tb-img-wrap {
-  animation: tbSpin 4s linear infinite;
+  animation: tbPulse 2.2s ease-in-out infinite;
 }
-@keyframes tbSpin {
-  0%   { transform: rotateY(0deg); }
-  45%  { transform: rotateY(0deg); }
-  50%  { transform: rotateY(180deg); }
-  95%  { transform: rotateY(180deg); }
-  100% { transform: rotateY(360deg); }
+@keyframes tbPulse {
+  0%,100% { box-shadow: 0 4px 16px rgba(0,135,90,.5), 0 0 0 0 rgba(0,135,90,.4); }
+  50%      { box-shadow: 0 4px 24px rgba(0,135,90,.7), 0 0 0 10px rgba(0,135,90,.0); }
 }
 .tb-img-wrap img { width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
 .tb-img-back {
@@ -1940,11 +1937,7 @@ footer {
   top:-20px; right:-10px; width:90px; height:90px;
   background:rgba(255,255,255,.06); border-radius:50%;
 }
-/* Tisha photo strip at top of header */
-.tc-head-photo {
-  display:block; width:100%; height:180px;
-  object-fit:cover; object-position:center top;
-}
+
 .tc-head-info {
   padding:10px 14px 12px;
   position:relative; z-index:1;
@@ -3181,10 +3174,10 @@ footer {
         <div class="ccard-val">8815076434</div>
         <div class="ccard-act">Chat Now →</div>
       </a>
-      <a href="mailto:theloanforest@gmail.com" class="ccard rv d3">
+      <a href="/cdn-cgi/l/email-protection#ccb8a4a9a0a3ada2aaa3bea9bfb88caba1ada5a0e2afa3a1" class="ccard rv d3">
         <div class="ccard-ring" style="background:#ede9fe">✉️</div>
         <div class="ccard-lbl">Email</div>
-        <div class="ccard-val" style="font-size:.82rem">theloanforest@gmail.com</div>
+        <div class="ccard-val" style="font-size:.82rem"><span class="__cf_email__" data-cfemail="7a0e121f16151b141c15081f090e3a1d171b131654191517">[email&#160;protected]</span></div>
         <div class="ccard-act">Write to Us →</div>
       </a>
       <div class="ccard rv d4">
@@ -3236,7 +3229,7 @@ footer {
         <div class="fb-contact">
           <div class="fbc"><span class="fc-ico">📞</span><a href="tel:7000530993">7000530993</a></div>
           <div class="fbc"><span class="fc-ico">💬</span><a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank">WhatsApp: 8815076434</a></div>
-          <div class="fbc"><span class="fc-ico">✉️</span><a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></div>
+          <div class="fbc"><span class="fc-ico">✉️</span><a href="/cdn-cgi/l/email-protection#8cf8e4e9e0e3ede2eae3fee9fff8ccebe1ede5e0a2efe3e1"><span class="__cf_email__" data-cfemail="f6829e939a999798909984938582b6919b979f9ad895999b">[email&#160;protected]</span></a></div>
           <div class="fbc"><span class="fc-ico">📍</span><span>Gwalior, Madhya Pradesh, India</span></div>
         </div>
         <div class="f-certs" style="margin-top:18px">
@@ -3267,7 +3260,7 @@ footer {
           <a href="#" class="fs-btn">f</a>
           <a href="#" class="fs-btn">📸</a>
           <a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank" class="fs-btn">💬</a>
-          <a href="mailto:theloanforest@gmail.com" class="fs-btn">✉</a>
+          <a href="/cdn-cgi/l/email-protection#c7b3afa2aba8a6a9a1a8b5a2b4b387a0aaa6aeabe9a4a8aa" class="fs-btn">✉</a>
         </div>
       </div>
       <div class="f-col f-newsletter">
@@ -3334,8 +3327,6 @@ footer {
 
   <!-- Header with Tisha full photo -->
   <div class="tc-head">
-    <img src="1000240268.png" alt="Tisha" class="tc-head-photo"
-      onerror="this.style.display='none'">
     <div class="tc-head-info">
       <div class="tc-head-left">
         <div class="tc-head-avatar">
@@ -4802,7 +4793,7 @@ calcEMI();
   document.addEventListener('keydown',function(e){
     if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();if(typeof openAdmin==='function')openAdmin();}
   });
-  var admOv=el('admModalOverlay');
+  var admOv=document.getElementById('admModalOverlay');
   if(admOv) admOv.addEventListener('click',function(e){if(e.target===this&&typeof admCloseModal==='function')admCloseModal();});
 
 })(); /* End Tisha */
