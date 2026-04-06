@@ -2259,6 +2259,82 @@ footer {
 .tc-footer-txt { font-size: .58rem; color: #94a3b8; }
 .tc-footer-brand { font-size: .58rem; color: #00875a; font-weight: 700; }
 
+
+/* ============================================================
+   NAVBAR LOGO — Professional fintech style
+============================================================ */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.nl-img-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #071525, #0d2137);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  border: 1.5px solid rgba(255,255,255,.06);
+}
+.nl-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 4px;
+  display: block;
+}
+.nl-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.nl-name {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nl-tag {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: .6rem;
+  color: var(--blue);
+  letter-spacing: .02em;
+  opacity: .85;
+  white-space: nowrap;
+}
+@media (max-width: 400px) {
+  .nl-img-wrap { width: 36px; height: 36px; border-radius: 9px; }
+  .nl-name { font-size: .88rem; }
+  .nl-tag  { font-size: .55rem; }
+}
+/* Remove old conflicting logo styles */
+.nav-logo-img, .logo-sq, .logo-words,
+.nav-logo-img, .tlf-site-logo { display: none !important; }
+
+
+/* Tisha photo in message icons */
+.tc-bot-icon {
+  background-image: url('1000240268.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
 </style>
 </head>
 <body>
@@ -2307,22 +2383,20 @@ footer {
 <nav id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="The Loan Forest — Home">
-        <!-- PNG logo — GitHub path must match your repo structure -->
-        <img
-          src="1000188930.png"
-          alt="The Loan Forest logo"
-          class="nav-logo-img"
-          loading="eager"
-          fetchpriority="high"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-        />
-        <!-- Fallback icon if image fails to load -->
-        <div style="display:none;width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#071525,#1e3a5f);align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">🌿</div>
-        <!-- Brand name + tagline -->
-        <div class="nav-logo-text">
-          <span class="nav-logo-name">The Loan Forest</span>
-          <span class="nav-logo-tagline">Your Reliable Loan Partner</span>
+      <a href="#" class="nav-logo" aria-label="The Loan Forest">
+        <div class="nl-img-wrap">
+          <img
+            src="1000188930.png"
+            alt="The Loan Forest"
+            class="nl-img"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="nl-text">
+          <span class="nl-name">The Loan Forest</span>
+          <span class="nl-tag">Your Reliable Loan Partner</span>
         </div>
       </a>
       <nav class="nav-links">
@@ -3308,10 +3382,10 @@ footer {
         <div class="ccard-val">8815076434</div>
         <div class="ccard-act">Chat Now →</div>
       </a>
-      <a href="mailto:theloanforest@gmail.com" class="ccard rv d3">
+      <a href="/cdn-cgi/l/email-protection#36425e535a59575850594453454276515b575f5a1855595b" class="ccard rv d3">
         <div class="ccard-ring" style="background:#ede9fe">✉️</div>
         <div class="ccard-lbl">Email</div>
-        <div class="ccard-val" style="font-size:.82rem">theloanforest@gmail.com</div>
+        <div class="ccard-val" style="font-size:.82rem"><span class="__cf_email__" data-cfemail="f18599949d9e909f979e83948285b1969c90989ddf929e9c">[email&#160;protected]</span></div>
         <div class="ccard-act">Write to Us →</div>
       </a>
       <div class="ccard rv d4">
@@ -3363,7 +3437,7 @@ footer {
         <div class="fb-contact">
           <div class="fbc"><span class="fc-ico">📞</span><a href="tel:7000530993">7000530993</a></div>
           <div class="fbc"><span class="fc-ico">💬</span><a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank">WhatsApp: 8815076434</a></div>
-          <div class="fbc"><span class="fc-ico">✉️</span><a href="mailto:theloanforest@gmail.com">theloanforest@gmail.com</a></div>
+          <div class="fbc"><span class="fc-ico">✉️</span><a href="/cdn-cgi/l/email-protection#f3879b969f9c929d959c81968087b3949e929a9fdd909c9e"><span class="__cf_email__" data-cfemail="45312d20292a242b232a37203631052228242c296b262a28">[email&#160;protected]</span></a></div>
           <div class="fbc"><span class="fc-ico">📍</span><span>Gwalior, Madhya Pradesh, India</span></div>
         </div>
         <div class="f-certs" style="margin-top:18px">
@@ -3394,7 +3468,7 @@ footer {
           <a href="#" class="fs-btn">f</a>
           <a href="#" class="fs-btn">📸</a>
           <a href="https://wa.me/918815076434?text=Hi%20The%20Loan%20Forest!%20%F0%9F%8C%BF%0A%0AMujhe%20loan%20ke%20baare%20mein%20jankari%20chahiye.%0A%0AKripya%20mujhe%20best%20offers%20ke%20baare%20mein%20batayein.%20%F0%9F%99%8F" target="_blank" class="fs-btn">💬</a>
-          <a href="mailto:theloanforest@gmail.com" class="fs-btn">✉</a>
+          <a href="/cdn-cgi/l/email-protection#43372b262f2c222d252c3126303703242e222a2f6d202c2e" class="fs-btn">✉</a>
         </div>
       </div>
       <div class="f-col f-newsletter">
@@ -3429,7 +3503,7 @@ footer {
      TISHA POPUP — Small notification bubble
 ================================================ -->
 <div id="tishaPopup">
-  <div class="tp-avatar">T</div>
+  <div class="tp-avatar" style="padding:0;overflow:hidden"><img src="1000240268.png" alt="Tisha" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentNode.textContent='T'"></div>
   <div class="tp-text">
     <div class="tp-name">Tisha &bull; Loan Expert</div>
     <div class="tp-msg">Hi! Main Tisha hun &#128522; Loan ki zaroorat hai? Abhi baat karte hain!</div>
@@ -3445,7 +3519,7 @@ footer {
   <span class="tb-ring"></span>
   <span class="tb-badge" id="tishaBadge">1</span>
   <div class="tb-icon-wrap">
-    <div class="tb-avatar-mini">T</div>
+    <div class="tb-avatar-mini"><img src="1000240268.png" alt="Tisha" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none'"></div>
     <span class="tb-label">Tisha</span>
   </div>
   <span class="tb-close-x">&#10005;</span>
@@ -3460,7 +3534,7 @@ footer {
   <div class="tc-head">
     <div class="tc-head-row">
       <div class="tc-head-left">
-        <div class="tc-head-avatar">T</div>
+        <div class="tc-head-avatar"><img src="1000240268.png" alt="Tisha" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentNode.textContent='T'"></div>
         <div class="tc-head-info">
           <div class="tc-head-name">Tisha</div>
           <div class="tc-head-tagline">Aapki Loan Expert &bull; The Loan Forest</div>
@@ -3691,7 +3765,102 @@ footer {
 </style>
 
 <script>
+/* ==================================================
+   EMAIL NEWSLETTER SUBSCRIBE (footer)
+================================================== */
+function fNlSub() {
+  var emailEl = document.getElementById('fNlEmail');
+  var okEl    = document.getElementById('fNlOk');
+  if (!emailEl) return;
+  var email = emailEl.value.trim();
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+    emailEl.style.borderColor = '#e53935';
+    setTimeout(function(){ emailEl.style.borderColor = ''; }, 2000);
+    return;
+  }
+  /* Save locally */
+  try {
+    var subs = JSON.parse(localStorage.getItem('tlf_subscribers') || '[]');
+    subs.push({ email: email, date: new Date().toLocaleDateString('en-IN') });
+    localStorage.setItem('tlf_subscribers', JSON.stringify(subs));
+  } catch(e) {}
+  /* Telegram notification */
+  if (typeof sendTishaNotification === 'function') {
+    sendTishaNotification('📧 NEW SUBSCRIBER\nEmail: ' + email);
+  } else {
+    fetch('https://api.telegram.org/bot8383741419:AAF_DJ1XZSv5pKHVlz0GvKJez4adwB2iNvg/sendMessage', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        chat_id: '661641978',
+        text: '📧 New Rate Alert Subscriber\nEmail: ' + email,
+        parse_mode: 'HTML'
+      })
+    }).catch(function(){});
+  }
+  emailEl.value = '';
+  if (okEl) { okEl.style.display = 'block'; }
+}
 
+/* ==================================================
+   CONTACT FORM EMAIL — mailto fallback + Telegram
+================================================== */
+function submitContactForm() {
+  var name  = (document.getElementById('cfName')  || {}).value || '';
+  var email = (document.getElementById('cfEmail') || {}).value || '';
+  var phone = (document.getElementById('cfPhone') || {}).value || '';
+  var msg   = (document.getElementById('cfMsg')   || {}).value || '';
+  var ltype = (document.getElementById('cfLoan')  || {}).value || '';
+
+  if (!name.trim() || !phone.trim()) {
+    toast('Please enter your name and phone number.', '⚠️');
+    return;
+  }
+  /* Telegram */
+  fetch('https://api.telegram.org/bot8383741419:AAF_DJ1XZSv5pKHVlz0GvKJez4adwB2iNvg/sendMessage', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      chat_id: '661641978',
+      text: '📬 Contact Form Enquiry\n' +
+            '👤 Name: ' + name + '\n' +
+            '📞 Phone: ' + phone + '\n' +
+            '✉️ Email: ' + email + '\n' +
+            '🏦 Loan: ' + ltype + '\n' +
+            '💬 Message: ' + msg,
+      parse_mode: 'HTML'
+    })
+  }).catch(function(){});
+
+  /* Save lead */
+  try {
+    var leads = JSON.parse(localStorage.getItem('tlf_leads') || '[]');
+    leads.unshift({
+      name: name, phone: phone, email: email,
+      loanType: ltype, source: 'Contact Form',
+      id: 'TLF-' + Date.now(),
+      date: new Date().toLocaleDateString('en-IN'),
+      time: new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),
+      status: 'New'
+    });
+    localStorage.setItem('tlf_leads', JSON.stringify(leads));
+  } catch(e) {}
+
+  toast('Message sent! We will contact you shortly.', '✅');
+  /* Clear fields */
+  ['cfName','cfEmail','cfPhone','cfMsg'].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.value = '';
+  });
+}
+
+/* Helper to send Telegram from fNlSub */
+function sendTishaNotification(msg) {
+  fetch('https://api.telegram.org/bot8383741419:AAF_DJ1XZSv5pKHVlz0GvKJez4adwB2iNvg/sendMessage', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ chat_id: '661641978', text: msg })
+  }).catch(function(){});
+}
 
 /* ==================================================
    CORE UTILITIES
@@ -5014,17 +5183,9 @@ calcEMI();
     setTimeout(function(){var ov=el('exitOverlay');if(ov)ov.classList.remove('show');},3000);
   };
 
-  /* Keyboard: Ctrl+Shift+A → Admin */
-  document.addEventListener('keydown',function(e){
-    if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();if(typeof openAdmin==='function')openAdmin();}
-  });
-
-  /* Admin modal close */
-  var ov=el('admModalOverlay');
-  if(ov) ov.addEventListener('click',function(e){if(e.target===this&&typeof admCloseModal==='function')admCloseModal();});
+  /*
 
 })(); /* End Tisha System */
-
 </script>
 </body>
 </html>
